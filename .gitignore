@@ -1,0 +1,10 @@
+plugged
+*.log
+.zcomp*
+*.gpg
+ssl
+*-git
+*bak
+*.git
+novnc
+id_rsa*
