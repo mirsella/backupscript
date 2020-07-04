@@ -1,4 +1,20 @@
-set pastesetag'
+source /home/mirsella/.config/vim/autoload/plug.vim
+call plug#begin('/home/mirsella/.config/vim/plugged')
+Plug 'easymotion/vim-easymotion'
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'morhetz/gruvbox'
+Plug 'markonm/traces.vim'
+Plug 'preservim/nerdcommenter'
+Plug 'itchyny/lightline.vim'
+Plug 'luochen1990/rainbow'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'decayofmind/vim-lightline-functions'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'metakirby5/codi.vim'
+Plug 'alvan/vim-closetag'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'chr4/nginx.vim'
@@ -90,7 +106,7 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 filetype plugin on
 filetype indent on
-set paste " prevent auto commenting on new line
+set paste
 set linebreak
 set ignorecase
 set noerrorbells
@@ -188,5 +204,12 @@ let g:yoinkSavePersistently=1
 let g:yoinkIncludeDeleteOperations=1
 
 " firenvim
+let g:firenvim_config = { 
+      \ 'globalSettings': {
+      \  },
+      \ 'localSettings': {
+      \ },
+      \ }
 let fc = g:firenvim_config['localSettings']
-let fc['https?://[^/]+\.co\.uk/'] = { 'takeover': 'never', 'priority': 1 }
+let fc['https?://discord\.com'] = { 'takeover': 'never', 'priority': 1 }
+let fc['.*'] = { 'takeover': 'once' }
