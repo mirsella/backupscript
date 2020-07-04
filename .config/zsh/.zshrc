@@ -32,7 +32,7 @@ function gitclearcommit() {
   branch=$(git branch | grep '\*' | sed 's/\* //')
   echo "WARNING !! THIS BRANCH WILL BE GONE FOREVER !!
   branch to clear : $branch"
-  sleep 10
+  sleep 5
   cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
   git checkout --orphan ${branch}cleared
   git add -A
@@ -71,6 +71,7 @@ alias rg='rg --no-ignore --hidden -i '
 alias rge='rg --no-ignore --hidden -e '
 alias tree='tree -Ca '
 alias gb='git branch'
+alias gch='git checkout'
 alias ga='git add -A'
 alias gc='git commit -m "gc $(date)"'
 alias gcp='git commit -m "gcp $(date)"; git push '
