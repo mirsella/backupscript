@@ -1,0 +1,29 @@
+[Animation]
+Frames=0
+UseWMAssist=false
+
+[Appearance]
+Skin=onepixeltitle
+SkinInstalledWithKns=true
+
+[Behavior]
+FocusFollowsMouse=true
+RememberFullscreen=true
+
+[Desktop Entry]
+DefaultProfile=konsole.profile
+
+[DownloadDialog Settings]
+Height 900=499
+Width 1600=700
+
+[Favorite Profiles]
+Favorites=
+
+[Shortcuts]
+options_configure=Ctrl+Shift+M
+
+[Window]
+Height=40
+KeepOpen=true
+Width=100

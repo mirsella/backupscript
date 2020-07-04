@@ -1,0 +1,76 @@
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAC4AAADDfwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAmAAADDQAAAFoBAAADAAAAAQAAAAAAAAAA/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAAAD/////AAAACgEAAAMAAAADAAAHgAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawEAAAAAAAAHgAAAAJEBAAADAAAGxwAAAw0AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+Window-Maximized 1080x1920=true
+
+[CompactMode]
+FontWeight=50
+
+[Desktop Entry]
+DefaultProfile=dolphin.profile
+
+[DetailsMode]
+FontWeight=50
+PreviewSize=32
+
+[Favorite Profiles]
+Favorites=
+
+[General]
+BrowseThroughArchives=true
+OpenExternallyCalledFolderInNewTab=false
+ShowFullPathInTitlebar=true
+ShowToolTips=true
+UseTabForSwitchingSplitView=true
+Version=200
+ViewPropsTimestamp=2019,12,30,21,16,27
+
+[IconsMode]
+FontWeight=50
+PreviewSize=22
+
+[InformationPanel]
+dateFormat=ShortFormat
+
+[KPropertiesDialog]
+Height 1080=622
+Height 900=459
+Width 1600=678
+Width 1920=598
+
+[MainWindow]
+Height 1080=1008
+Height 750=720
+Height 853=823
+Height 900=550
+State=AAAA/wAAAAD9AAAAAwAAAAAAAADAAAABbvwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAIA////+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAABIAAABbgAAAEwA////AAAAAQAAAKwAAAFu/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAQAAAEgAAAFuAAABCwD///8AAAADAAAEKwAAAGn8AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawEAAAAAAAAEKwAAAJUA////AAACsQAAAW4AAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+Width 1067=1600
+Width 1333=667
+Width 1600=1067
+Width 1920=1920
+Window-Maximized 1080x1920=true
+Window-Maximized 750x1333=true
+
+[Notification Messages]
+ConfirmDelete=true
+ConfirmEmptyTrash=true
+
+[Open-with settings]
+CompletionMode=1
+History=vscodi,kate,vs,vl
+
+[PreviewSettings]
+Plugins=appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs
+
+[SettingsDialog]
+Height 1080=618
+Height 900=625
+Width 1600=709
+Width 1920=709
+Window-Maximized 900x1600=true
+
+[kuick-copy]
+Paths[$e]=$HOME/Downloads/
+
+[kuick-move]
+Paths[$e]=$HOME/Downloads/

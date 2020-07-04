@@ -1,0 +1,4 @@
+UUID=FE54-F417	/boot/efi	vfat	umask=0077	0	2	
+UUID=56577f02-5016-4c54-965a-ddecc253af91	/	ext4	rw,defaults,noatime	0	1	
+UUID=54E2B6D3E2B6B896	/run/media/mirsella/ssd	ntfs-3g	rw,defaults,noatime	0	0	
+UUID=74684CC7684C89B6	/run/media/mirsella/windows	ntfs-3g	rw,defaults,noatime	0	0	

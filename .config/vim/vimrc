@@ -1,0 +1,203 @@
+source /home/mirsella/.config/vim/autoload/plug.vim
+call plug#begin('/home/mirsella/.config/vim/plugged')
+Plug 'easymotion/vim-easymotion'
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'morhetz/gruvbox'
+Plug 'markonm/traces.vim'
+Plug 'preservim/nerdcommenter'
+Plug 'itchyny/lightline.vim'
+Plug 'luochen1990/rainbow'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'decayofmind/vim-lightline-functions'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'metakirby5/codi.vim'
+Plug 'alvan/vim-closetag'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mattn/emmet-vim'
+Plug 'chr4/nginx.vim'
+Plug 'svermeulen/vim-yoink'
+Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-subversive'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
+Plug 'marlonfan/coc-phpls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+call plug#end()
+
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command CC :CocCommand
+map <Space> <Leader>
+map Y y$
+nnoremap ' `
+nnoremap <leader>O :Files<Space>
+nnoremap <leader>o :Files ~/<CR>
+
+map <Space><Space> <Plug>(easymotion-prefix)
+map <Leader>f <Plug>(easymotion-bd-f)
+nmap <leader>s <Plug>(easymotion-overwin-f2)
+map <Leader>l <Plug>(easymotion-bd-jk)
+map <Leader>w <Plug>(easymotion-bd-w)
+
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+nnoremap <C-j> 5jzz
+nnoremap <C-k> 5kzz
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-h> :bprev<CR>
+nnoremap <C-Right> :bnext<CR>
+nnoremap <C-Left> :bprev<CR>
+nmap <Leader>& <Plug>lightline#bufferline#go(1)
+nmap <Leader>é <Plug>lightline#bufferline#go(2)
+nmap <Leader>" <Plug>lightline#bufferline#go(3)
+nmap <Leader>' <Plug>lightline#bufferline#go(4)
+nmap <Leader>( <Plug>lightline#bufferline#go(5)
+nmap <Leader>- <Plug>lightline#bufferline#go(6)
+nmap <Leader>è <Plug>lightline#bufferline#go(7)
+nmap <Leader>_ <Plug>lightline#bufferline#go(8)
+nmap <Leader>ç <Plug>lightline#bufferline#go(9)
+nmap <Leader>à <Plug>lightline#bufferline#go(10)
+
+" yoink, cutlass & subversive
+nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+nmap [y <plug>(YoinkRotateBack)
+nmap ]y <plug>(YoinkRotateForward)
+nnoremap x d
+xnoremap x d
+nnoremap xx dd
+nnoremap X D
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+
+" completion menu tweak
+inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+filetype plugin on
+filetype indent on
+set linebreak
+set ignorecase
+set noerrorbells
+set hidden
+set expandtab
+set tabstop=2 softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
+set noswapfile
+set wildignorecase
+set scrolloff=3
+set history=1000
+set mouse=a
+set clipboard=unnamedplus
+set lazyredraw
+set splitbelow splitright
+set incsearch
+set encoding=UTF-8
+set termguicolors
+set updatetime=300
+set shortmess+=c
+set completeopt=longest,menuone
+au BufEnter * set noro
+set isfname+={,}
+
+" themes
+colorscheme gruvbox
+set background=dark
+highlight Normal guibg=NONE
+highlight LineNr guifg=#f796ef guibg=NONE
+highlight CursorLineNr guifg=#f796ef guibg=NONE
+
+" less mess
+set runtimepath+=/home/mirsella/.config/vim
+set undofile undodir=/home/mirsella/.cache/vim/undo
+set viminfo+=n/home/mirsella/.cache/vim/viminfo
+let g:netrw_dirhistmax = 0
+
+" hybrid relative number
+set number relativenumber
+set nu rnu
+
+" remove esc time
+set timeoutlen=1000 ttimeoutlen=0
+
+" lightline
+source /home/mirsella/.config/vim/lightlinerc.vim
+set laststatus=2
+set noshowmode
+function! LineCurrentOnTotal()
+  return line('.').'/'.line('$')
+endfunction
+function! ColCurrentOnTotal()
+  return col('.').'/'.col('$')
+endfunction
+
+" lightline-bufferline
+set showtabline=2
+let g:lightline#bufferline#filename_modifier = ':t'
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#clickable = 1
+let g:lightline.component_raw = {'buffers': 1}
+let g:lightline#bufferline#unnamed = '[No Name]'
+
+" nerdcommender
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+" raimbow parentheses
+let g:rainbow_active = 1
+
+" Hexokinase
+let g:Hexokinase_highlighters = ['foregroundfull']
+
+" codi
+let g:codi#autoclose = 1
+
+" emmet
+let g:user_emmet_mode='n'    "only enable normal mode functions.
+let g:user_emmet_leader_key=','
+
+" yoink
+let g:yoinkIncludeDeleteOperations=1
+let g:yoinkSavePersistently=1
+let g:yoinkAutoFormatPaste=1
+let g:yoinkSwapClampAtEnds=1
+let g:yoinkIncludeNamedRegisters=1
+let g:yoinkSyncSystemClipboardOnFocus=1
+let g:yoinkSavePersistently=1
+let g:yoinkIncludeDeleteOperations=1

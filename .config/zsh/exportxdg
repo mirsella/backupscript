@@ -1,0 +1,33 @@
+#!/usr/bin/sh
+export GTK_USE_PORTAL=1
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export gnome_user_dir="$XDG_CONFIG_HOME"/gnome/apps
+export GOPATH="$XDG_DATA_HOME"/go
+export KDEHOME="$XDG_CONFIG_HOME"/kde
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+unset GTK2_RC_FILES; export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
+export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
+export LESSHISTFILE=-
+export INPUTRC="$XDG_CONFIG_HOME"/inputrc
+export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME"/alsa/asoundrc
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/.wine64
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
+export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
+export PYTHONSTARTUP=~/.config/python/pythonrc.py
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority # This line will break some DMs.
+export VIMINIT=":source /home/mirsella/.config/vim/vimrc"
+export VIMDOTDIR=/home/mirsella/.config/vim
+export ZDOTDIR=/home/mirsella/.config/zsh
+export CUDA_PATH=/opt/cuda
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem

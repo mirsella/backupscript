@@ -1,0 +1,10 @@
+[Unit]
+Description=undervolt
+
+[Service]
+Type=exec
+OnBootSec=1min
+ExecStart=/usr/bin/undervolt --core -100 --cache -100 --gpu -40 --uncore -60 --analogio -60
+
+[Install]
+WantedBy=multi-user.target
