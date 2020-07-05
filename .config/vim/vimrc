@@ -212,4 +212,5 @@ let g:firenvim_config = {
       \ }
 let fc = g:firenvim_config['localSettings']
 let fc['https?://discord\.com'] = { 'takeover': 'never', 'priority': 1 }
+let fc['https?://reddit\.com'] = { 'takeover': 'never', 'priority': 1 }
 let fc['.*'] = { 'takeover': 'once' }
