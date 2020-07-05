@@ -35,7 +35,7 @@ function gitF() {
       *) break;;
     esac
   done
-  return ${errorcode##* }
+  return "${errorcode##* }"
 }
 
 while true; do # take care of options
@@ -58,7 +58,7 @@ while true; do # take care of options
       shift
       case $1 in
         # -[a-zA-Z]|--[a-zA-Z]*|"")
-        -*|--*|"") 
+        -*|"") 
           echo 'error -m : no valid argument given. need commit message in parentheses.'
           exit
           ;;
@@ -71,7 +71,7 @@ while true; do # take care of options
     -b) # change gitF branch
       shift
       case $1 in
-        -*|--*|"") 
+        -*|"") 
           echo 'error -b : no valid argument given.'
           ;;
         *)
@@ -84,7 +84,7 @@ while true; do # take care of options
     -r) # change gitF remote
       shift
       case $1 in
-        -*|--*|"") 
+        -*|"") 
           echo 'error -o : no valid argument given'
           ;;
         *)
@@ -98,7 +98,7 @@ while true; do # take care of options
       shift
       cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
       case $1 in
-        -*|--*|"") 
+        -*|"") 
           REMOTE_URL=https://raw.githubusercontent.com/mirsella/backupscript/master/config.json # hardcoded default
           ;;
         *)
@@ -110,7 +110,7 @@ while true; do # take care of options
     -l)
       shift
       case $1 in
-        -*|--*|"") 
+        -*|"") 
           echo 'error -l : no valid argument given'
           ;;
         *)
@@ -121,7 +121,7 @@ while true; do # take care of options
       ;;
     *-h*)
       shift
-      echo -e 'help -h :
+      echo 'help -h :
       for more precise help go to github.com/mirsella/backupscript
       --curl <url> : curl config.json from a URL
       -l path/to/file.json : use a specific local config file
