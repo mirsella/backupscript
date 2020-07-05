@@ -159,10 +159,10 @@ source /home/mirsella/.config/vim/lightlinerc.vim
 set laststatus=2
 set noshowmode
 function! LineCurrentOnTotal()
-  return line('.').'/'.line('$')
+  " return line('.').'/'.line('$')
 endfunction
 function! ColCurrentOnTotal()
-  return col('.').'/'.col('$')
+  " return col('.').'/'.col('$')
 endfunction
 
 " lightline-bufferline
@@ -204,7 +204,7 @@ let g:yoinkSavePersistently=1
 let g:yoinkIncludeDeleteOperations=1
 
 " firenvim
-let g:firenvim_config = { 
+let g:firenvim_config = {
       \ 'globalSettings': {
       \  },
       \ 'localSettings': {
