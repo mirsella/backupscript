@@ -1,7 +1,7 @@
 
 let g:lightline = {
       \   'active': {
-      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
+      \     'left': [['mode'], ['readonly', 'absolutepath', 'modified']],
       \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'fileencoding', 'filetype']]
       \   },
       \   'inactive': {
