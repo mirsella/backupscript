@@ -35,7 +35,7 @@ function gitF() {
       *) break;;
     esac
   done
-  return "${errorcode##* }"
+  return ${errorcode##* }
 }
 
 while true; do # take care of options
