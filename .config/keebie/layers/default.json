@@ -3,7 +3,8 @@
    "KEY_1": "./keebiecloseprocess vlc &",
    "KEY_2": "vlc /run/media/mirsella/ssd/music/fav &",
    "KEY_3": "vlc /run/media/mirsella/ssd/music/msq &",
-   "KEY_4": "streamlink https://www.twitch.tv/chilledcatradio audio_only &",
+   "KEY_4": "vlc /run/media/mirsella/ssd/music/ &",
+   "KEY_5": "streamlink https://www.twitch.tv/chilledcatradio audio_only &",
 
    "KEY_Q": "wmctrl -a discord || discord &",
    "KEY_A": "./keebiecloseprocess discord &",
