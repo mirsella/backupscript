@@ -106,7 +106,7 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 filetype plugin on
 filetype indent on
-set paste
+" set paste
 set linebreak
 set ignorecase
 set noerrorbells

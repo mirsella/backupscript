@@ -2,7 +2,7 @@
 DefaultProfile=konsole.profile
 
 [Favorite Profiles]
-Favorites=Shell.profile,dolphin.profile,konsole.profile
+Favorites=Shell.profile,konsole.profile,dolphin.profile
 
 [KonsoleWindow]
 AllowMenuAccelerators=true
@@ -13,7 +13,7 @@ ShowWindowTitleOnTitleBar=true
 Height 1080=1008
 Height 750=720
 Height 853=823
-Height 900=840
+Height 900=900
 MenuBar=Disabled
 State=AAAA/wAAAAD9AAAAAAAAAyAAAANIAAAABAAAAAQAAAAIAAAACPwAAAAA
 ToolBarsMovable=Disabled
