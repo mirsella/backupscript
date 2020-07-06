@@ -2,7 +2,7 @@
 DefaultProfile=konsole.profile
 
 [Favorite Profiles]
-Favorites=Shell.profile,konsole.profile,dolphin.profile
+Favorites=konsole.profile,dolphin.profile,Shell.profile
 
 [KonsoleWindow]
 AllowMenuAccelerators=true
