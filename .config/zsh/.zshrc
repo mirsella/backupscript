@@ -4,7 +4,7 @@ source ~/.config/zsh/lib/spectrum.zsh
 source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
-source ~/.config/zsh/lib/$(hostname)/$(hostname).zsh
+source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 # for file in /home/mirsella/.config/zsh/lib/*.zsh; do . "$file"; done
 
 

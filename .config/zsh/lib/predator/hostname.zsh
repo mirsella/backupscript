@@ -1,5 +1,12 @@
-([[ -f ~/.gtkrc-2.0 ]] && rm -v ~/.gtkrc-2.0) &!
-export LANGUAGE=en_US.UTF-8
+alias end='sudo pkill -f '
+alias rm='s rmtrash -rf '
+alias rmf='s /bin/rm -rf '
+alias trash-restore='s trash-restore '
+alias trash-empty='s trash-empty '
+alias trash-list='s trash-list '
+alias S='s systemctl '
+alias s='sudo -E'
+alias chownm='s chown -R $USER: '
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
@@ -23,7 +30,6 @@ alias rga='rga --no-ignore --hidden -i '
 
 alias end='sudo pkill -f '
 alias rm='s rmtrash -rf '
-alias rmt='s rmtrash -rf '
 alias rmf='s /bin/rm -rf '
 alias trash-restore='s trash-restore '
 alias trash-empty='s trash-empty '
