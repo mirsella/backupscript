@@ -32,7 +32,7 @@ function gitclearcommit() {
   branch=$(git branch | grep '\*' | sed 's/\* //')
   echo "WARNING !! THIS BRANCH WILL BE GONE FOREVER !!
   branch to clear : $branch"
-  cp -vr ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
+  cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
   sleep 5
   git checkout --orphan ${branch}cleared
   git add -A
@@ -41,12 +41,12 @@ function gitclearcommit() {
   git branch -m ${branch}
 }
 function gitreclonerepo() {
-  cp -vr ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
+  cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
   remote=$(git branch -vv | rg -o '\[.*/' | sed 's/\[//; s/\///')
   remoteurl=$(git config --get remote.$remote.url)
   repofolder=$(basename $(realpath .))
   echo "WARNING !! NON PUSHED CHANGE WILL BE GONE FOREVER !!
-  git clone from remote $remote with url $remoteurl"
+  git clone from remote: $remote with url: $remoteurl"
   sleep 5
   cd ..
   rm -rf $repofolder
