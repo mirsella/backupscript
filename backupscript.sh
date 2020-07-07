@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 CONFIG_FILE=$(dirname "$(realpath "$0")")/config.json
 
 function gitF() {
