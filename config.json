@@ -71,8 +71,8 @@
     ],
     "update": {
       "d": [
-        "git clone https://github.com/mirsella/dotfiles /tmp/dotfiles",
-        "cd /tmp/dotfiles; git checkout ${gitF_branch:-master}; git pull",
+        "git clone https://github.com/mirsella/dotfiles ~/.cache/dotfiles",
+        "cd ~/.cache/dotfiles; git checkout ${gitF_branch:-master}; git pull",
         "cp -r .config/vim/vimrc ~/.config/vim",
         "rsync -a --exclude=$(hostname) .config/zsh ~/.config",
         "cp -r .config/zsh/lib/zprofile.zsh ~/.config/zsh/lib/",
