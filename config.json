@@ -51,7 +51,7 @@
     "gitF A commit push"
   ],
   "t": [
-		"[[ $(hostname) = termux && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+		"[[ -d ~/.termux && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "gitF checkout termux || exit",
     "rm -rf .config etc .ssh",
@@ -61,8 +61,8 @@
     "cp ~/.ssh/config .ssh",
     "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{vim,zsh,wget,python} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
-    "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
-    "cp ~/{.shortcuts,.termux} .",
+    "cp ~/../usr/etc/ssh/{ssh,sshd}_config etc/ssh",
+    "cp -r ~/{.shortcuts,.termux} .",
     "gitF A commit push"
     ],
   "s": [
