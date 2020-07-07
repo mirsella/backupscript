@@ -13,8 +13,8 @@ functions _fzf_compgen_dir() { command fd -t d -HI --color=always -E .cache -E .
 export FZF_DEFAULT_COMMAND='fd -t f -HI --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged'
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}"'
 export VIMV_USE_RMTRASH=1
-export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
-export GIT_AUTHOR_EMAIL=mirsella@protonmail.com
+# export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
+# export GIT_AUTHOR_EMAIL=mirsella@protonmail.com
 
 function clip() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 function clipp() { xclip -out -selection clipboard; }
@@ -29,6 +29,7 @@ function gitclearcommit() {
   branch=$(git branch | grep '\*' | sed 's/\* //')
   echo "WARNING !! THIS BRANCH WILL BE GONE FOREVER !!
   branch to clear : $branch"
+  rm ~/.cache/$(basename $(dirname $(realpath $0)))
   cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
   sleep 5
   git checkout --orphan ${branch}cleared
@@ -38,6 +39,7 @@ function gitclearcommit() {
   git branch -m ${branch}
 }
 function gitreclonerepo() {
+  rm ~/.cache/$(basename $(dirname $(realpath $0)))
   cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
   remote=$(git branch -vv | rg -o '\[.*/' | sed 's/\[//; s/\///')
   remoteurl=$(git config --get remote.$remote.url)

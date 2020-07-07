@@ -67,8 +67,6 @@ nnoremap <C-j> 5jzz
 nnoremap <C-k> 5kzz
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-h> :bprev<CR>
-nnoremap <C-Right> :bnext<CR>
-nnoremap <C-Left> :bprev<CR>
 nmap <Leader>& <Plug>lightline#bufferline#go(1)
 nmap <Leader>é <Plug>lightline#bufferline#go(2)
 nmap <Leader>" <Plug>lightline#bufferline#go(3)
