@@ -21,7 +21,7 @@ Plug 'chr4/nginx.vim'
 Plug 'svermeulen/vim-yoink'
 Plug 'svermeulen/vim-cutlass'
 Plug 'svermeulen/vim-subversive'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
