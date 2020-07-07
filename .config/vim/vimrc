@@ -1,5 +1,5 @@
-source /home/mirsella/.config/vim/autoload/plug.vim
-call plug#begin('/home/mirsella/.config/vim/plugged')
+source ~/.config/vim/autoload/plug.vim
+call plug#begin('~/.config/vim/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'morhetz/gruvbox'
@@ -142,9 +142,9 @@ highlight LineNr guifg=#f796ef guibg=NONE
 highlight CursorLineNr guifg=#f796ef guibg=NONE
 
 " less mess
-set runtimepath+=/home/mirsella/.config/vim
-set undofile undodir=/home/mirsella/.cache/vim/undo
-set viminfo+=n/home/mirsella/.cache/vim/viminfo
+set runtimepath+=~/.config/vim
+set undofile undodir=~/.cache/vim/undo
+set viminfo+=n~/.cache/vim/viminfo
 let g:netrw_dirhistmax = 0
 
 " hybrid relative number
@@ -155,7 +155,7 @@ set nu rnu
 set timeoutlen=1000 ttimeoutlen=0
 
 " lightline
-source /home/mirsella/.config/vim/lightlinerc.vim
+source ~/.config/vim/lightlinerc.vim
 set laststatus=2
 set noshowmode
 function! LineCurrentOnTotal()
