@@ -1,11 +1,10 @@
 plugged
-*.log
+*log
 .zcomp*
-*.gpg
+*gpg
 ssl
-*-git
-*bak
 *.git
+*bak
 novnc
 id_rsa*
 *key
