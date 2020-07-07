@@ -1,1 +1,0 @@
-/home/mirsella/.config/zsh/lib/predator/predator.zsh

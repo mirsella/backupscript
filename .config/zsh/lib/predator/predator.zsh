@@ -1,3 +1,4 @@
+([[ -f ~/.gtkrc-2.0 ]] && rm -v ~/.gtkrc-2.0) &!
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -19,3 +20,14 @@ alias fan='nbfc set -f 1 -a && nbfc set -f 0 -a'
 alias removelock='sudo rm /var/lib/pacman/db.lck'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias rga='rga --no-ignore --hidden -i '
+
+alias end='sudo pkill -f '
+alias rm='s rmtrash -rf '
+alias rmt='s rmtrash -rf '
+alias rmf='s /bin/rm -rf '
+alias trash-restore='s trash-restore '
+alias trash-empty='s trash-empty '
+alias trash-list='s trash-list '
+alias S='s systemctl '
+alias s='sudo -E'
+alias chownm='s chown -R $USER: '
