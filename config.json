@@ -96,7 +96,7 @@
       "dotfiles" : [
         "rm -rf ~/.cache/dotfiles.git",
         "mv ~/.config/backupscript/dotfiles.git ~/.cache/",
-        "git clone git@github.com/mirsella/dotfiles ~/.config/backupscript/dotfiles.git"
+        "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git"
       ]
     }
 }
