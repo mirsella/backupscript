@@ -8,3 +8,5 @@ ssl
 *.git
 novnc
 id_rsa*
+*key
+*pub
