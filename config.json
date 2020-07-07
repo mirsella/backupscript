@@ -51,7 +51,8 @@
     "gitF A commit push"
   ],
   "t": [
-    "echo termux"
+    "echo termux",
+    "echo ~s ~r"
     ],
   "s": [
     "cd ~/.config/backupscript",
