@@ -1,3 +1,4 @@
+([[ -f ~/.gtkrc-2.0 ]] && rm -v ~/.gtkrc-2.0) &!
 export PATH="$PATH:/data/data/com.termux/files/home/.local/share/gem/bin"
 alias end='sudo pkill -f '
 alias rm='s rmtrash -rf '
