@@ -1,6 +1,7 @@
 plugged
 *log
 .zcomp*
+.zcompcache/
 *gpg
 ssl
 *.git
