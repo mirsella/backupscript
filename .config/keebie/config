@@ -1,2 +1,2 @@
-/dev/input/by-path/platform-i8042-serio-0-event-kbd
-default.json
+/dev/input/by-id/usb-Razer_Razer_Naga_Chroma-if02-event-kbd
+usb-Razer_Razer_Naga_Chroma-if02-event-kbd.json
