@@ -10,7 +10,7 @@ source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 
 functions _fzf_compgen_path() { command fd -t f -HI --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
 functions _fzf_compgen_dir() { command fd -t d -HI --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-export FZF_DEFAULT_COMMAND='fd -t f -HI --color=always -E .cache -E .local -E .git -E run -E media -E sys -E coc -E plugged'
+export FZF_DEFAULT_COMMAND='fd -t f -HI --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged'
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}"'
 export VIMV_USE_RMTRASH=1
 # export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
@@ -75,4 +75,4 @@ alias gc='git commit -am "gc $(date)"'
 alias gac='git add -A; git commit -m "gac $(date)"'
 alias gcp='git commit -m "gcp $(date)"; git push '
 alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
-alias fd='fd -HIL -E run -E media -E sys'
+alias fd='fd -HIL -E run -E media -E sys -E proc'
