@@ -1,7 +1,7 @@
 source ~/.config/vim/autoload/plug.vim
 call plug#begin('~/.config/vim/plugged')
 Plug 'easymotion/vim-easymotion'
-Plug 'wgwoods/vim-systemd-syntax'
+Plug 'wgwoods/vim-systemd-syntax' " slow down too much nvim startup
 Plug 'morhetz/gruvbox'
 Plug 'markonm/traces.vim'
 Plug 'preservim/nerdcommenter'
@@ -17,7 +17,6 @@ Plug 'metakirby5/codi.vim'
 Plug 'alvan/vim-closetag'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
-Plug 'chr4/nginx.vim'
 Plug 'svermeulen/vim-yoink'
 Plug 'svermeulen/vim-cutlass'
 Plug 'svermeulen/vim-subversive'
