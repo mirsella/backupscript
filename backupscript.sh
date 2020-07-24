@@ -151,9 +151,9 @@ checkout branch # git checkout branch"
   esac
 done
 
-for argsloop in "$@"; do
-  for cmdloop in $(seq 0 $(($(jq ".${argsloop}[]" "$CONFIG_FILE" | wc -l)-1))); do 
-  cmd=$(jq ".${argsloop}[$cmdloop]" "$CONFIG_FILE" | sed 's/^"//; s/"$//')
+for loop_options in "$@"; do
+  for loop_cmd in $(seq 0 $(($(jq ".${loop_options}[]" "$CONFIG_FILE" | wc -l)-1))); do 
+  cmd=$(jq ".${loop_options}[$loop_cmd]" "$CONFIG_FILE" | sed 's/^"//; s/"$//')
   echo -ne "  $cmd"\\r
   if eval "$cmd"; then
     echo -e "$(tput bold)\e[32mok$(tput sgr0)  $cmd"

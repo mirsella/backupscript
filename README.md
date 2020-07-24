@@ -50,4 +50,3 @@ commit  # git commit -m "backupscript $(date)" # -m not used here if -c or -m
 push  # git push ${gitF_force:-} ${gitF_remote:-} ${gitF_branch:-} 
 checkout branch # git checkout branch
 ```
->>>>>>> 56402a1b36622148b4d3ca0a1b886ec32685bb83
