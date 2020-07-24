@@ -10,11 +10,10 @@ function gitF() {
         ;;
       checkout)
         shift
-        if git branch | grep -qw "$1"; then
-          git checkout "$1"
+        if git checkout "$1" ; then
           shift
         else
-          echo "$1 is not a valid branch"
+          echo "$1 is not a valid branch. exiting"
           exit
         fi
         ;;
@@ -40,10 +39,19 @@ function gitF() {
 
 while true; do # take care of options
   case $1 in
-    -ignorehostname) 
+    -e) 
       shift
-      export ignorehostname=1
-      echo 'ignoring hostname'
+      case $1 in
+        # -[a-zA-Z]|--[a-zA-Z]*|"")
+          -*|"") 
+          echo 'error --value : no valid argument given. need the variable name'
+          exit
+          ;;
+        *)
+          eval export $1 = 1
+          shift
+          ;;
+      esac
       ;;
     -f) # git push -f
       shift
@@ -99,7 +107,7 @@ while true; do # take care of options
       cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
       case $1 in
         -*|"") 
-          REMOTE_URL=https://raw.githubusercontent.com/mirsella/backupscript/master/config.json # hardcoded default
+          REMOTE_URL=https://raw.githubusercontent.com/mirsella/backupscript/master/config.json # default
           ;;
         *)
           REMOTE_URL=$1
@@ -121,15 +129,23 @@ while true; do # take care of options
       ;;
     *-h*)
       shift
-      echo 'help -h :
-      for more precise help go to github.com/mirsella/backupscript
-      --curl <url> : curl config.json from a URL
-      -l path/to/file.json : use a specific local config file
-      -f : use git push -f
-      -c : simply use git commit without the -m "backupscript $(date)". -c will open a $EDITOR window to put a commit message.
-      -m <commit message> : use gitF commit -m "commit message" 
-      -r <remote> : change gitF_remote value
-      -b <branch> : change gitF_branch'
+      echo "help -h :
+--curl <url>  # curl config.json from a URL
+-l path/to/file.json   # use a specific local config file
+-f  # add -f to gitF push
+-c  # don't add -m to gitF commit
+-m "commit message"   # specify git commit message. parentheses are important !
+--export var123test  # export var123test = 1, accessible through config.json's command. be creative
+
+# thoses are used in gitF push or can be acessed in config.json's command.
+-b branch # git push to a specific branch
+-o origin # git push to a specific origin
+
+gitF is function in backupscript.sh. see example in config.json :
+A  # git add -A
+commit  # git commit -m "backupscript $(date)" # -m not used here if -c or -m
+push  # git push ${gitF_force:-} ${gitF_remote:-} ${gitF_branch:-} 
+checkout branch # git checkout branch"
       ;;
     *) break;;
   esac

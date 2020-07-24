@@ -1,4 +1,4 @@
-<h1>A efficient backup is an easy backup</h1>
+<h1>a good backup is an easy backup</h1>
 this one is painfull to setup, but after it's pretty neat.</br>
 backupscript.sh loop through a json file, for the structure see the config.json.</br>
 with my config.json it's setup so i can call it like :</br>
