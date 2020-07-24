@@ -4,7 +4,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'wgwoods/vim-systemd-syntax' " slow down too much nvim startup
 Plug 'morhetz/gruvbox'
 Plug 'markonm/traces.vim'
-Plug 'preservim/nerdcommenter'
+" Plug 'preservim/nerdcommenter'
+Plug 'mirsella/nerdcommenter'
 Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -18,7 +19,7 @@ Plug 'alvan/vim-closetag'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'svermeulen/vim-yoink'
-" Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-cutlass'
 Plug 'svermeulen/vim-subversive'
 " Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'psliwka/vim-smoothie'
@@ -85,27 +86,27 @@ nmap p <plug>(YoinkPaste_p)
 nmap P <plug>(YoinkPaste_P)
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
-nnoremap x d
-xnoremap x d
-nnoremap xx dd
-nnoremap X D
 
-" c
-" c
-" cc
-" C
-" s
-" s
-" S
-" d
-" dd
-" D
-" x
-" X
+nnoremap <leader>c c
+xnoremap <leader>c c
+nnoremap <leader>cc cc
+nnoremap <leader>C C
 
-nmap <leader>s <plug>(SubversiveSubstitute)
-nmap <leader>ss <plug>(SubversiveSubstituteLine)
-nmap <leader>S <plug>(SubversiveSubstituteToEndOfLine)
+nnoremap <leader>s s
+xnoremap <leader>s s
+nnoremap <leader>S S
+
+nnoremap <leader>d d
+xnoremap <leader>d d
+nnoremap <leader>dd dd
+nnoremap <leader>D D
+
+nnoremap <leader>x x
+nnoremap <leader>X X
+
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 " completion menu
 inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
@@ -118,7 +119,9 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 filetype plugin on
 filetype indent on
-set formatoptions -= ro
+" set nocompatible
+" set formatoptions-=ro
+autocmd FileType * set formatoptions-=ro
 set linebreak
 set ignorecase
 set noerrorbells
@@ -143,7 +146,8 @@ set termguicolors
 set updatetime=300
 set shortmess+=c
 set completeopt=longest,menuone
-au BufEnter * set noro
+" au BufEnter * set noro
+set noro
 set isfname+={,}
 
 " themes
@@ -171,10 +175,10 @@ source ~/.config/vim/lightlinerc.vim
 set laststatus=2
 set noshowmode
 function! LineCurrentOnTotal()
-  " return line('.').'/'.line('$')
+  return line('.').'/'.line('$')
 endfunction
 function! ColCurrentOnTotal()
-  " return col('.').'/'.col('$')
+  return col('.').'/'.col('$')
 endfunction
 
 " lightline-bufferline
