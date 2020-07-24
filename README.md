@@ -4,6 +4,7 @@
 this yet another dotfiles manager is special because it use a single config file, in json.
 the script loop into a part of the json, given as a argument to the script.
 i'll try to do a example, open the config.json file to understand better.
+you can change all the command executed, so it can be used for a lot more than dotfiles !
 
 <h3>Example</h3>
 
