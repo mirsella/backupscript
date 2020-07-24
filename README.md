@@ -1,29 +1,52 @@
-<h1>A efficient backup is an easy backup</h1>
-this one is painfull to setup, but after it's pretty neat.</br>
-backupscript.sh loop through a json file, for the structure see the config.json.</br>
-with my config.json it's setup so i can call it like :</br>
-(b is a symlink in /bin/b to ~/.config/backupscript.sh)</br>
-`b d`</br>
-`b s d`</br>
-`b update.s`</br>
-`b t s d update.s update.d install.pkg install.script`</br>
-you can give it multiple action in one line. see the config.json file, see by yourself it's better than a bad explanation.</br>
-thoses arguments given to `backupscript.sh` without a dash `-` are in the config.json, it a "pack" of command.</br>
-</br>
-backupscript.sh itself have some options that have nothing to do with the json config. thoses can be easily tweaked in the script.</br>
-help -h :</br>
-`--curl <url>` : curl config.json from a URL</br>
-`-l path/to/file.json` : use a specific local config file</br>
-`-f` : use git push -f</br>
-`-c` : simply use git commit without the -m "backupscript $(date)". -c will open a $EDITOR window to put a commit message.</br>
-`-m "commit message"` : use git commit -m "commit message". parentheses are important !</br>
-</br>
-gitF is function in backupscript.sh. see example in config.json :</br>
-`A` = git add -A</br>
-`commit` = git commit -m "backupscript $(date)" # -m in not used if backupscript.sh is called with -c</br>
-`push` = git push (-f is backupscript.sh is called with -f) (use gitF_remote if set. can be set with -r) (same but gitF_branch and with -b)</br>
-`checkout <branch>` = git checkout</br>
-</br>
-those var are used in gitF push if set. or you can acess them in the json config.</br>
-`-r <remote>` : change gitF_remote value</br>
-`-b <branch>` : change gitF_branch</br>
+<h2>a good backup have to be easy to use.</h2>
+<h4>this one is easy to use, not to setup...</h4>
+
+this yet another dotfiles manager is special because it use a single config file, in json.
+the script loop into a part of the json, given as a argument to the script.
+i'll try to do a example, open the config.json file to understand better.
+
+<h3>Example</h3>
+
+PS : ```b``` is a symlink to backupscript.sh, because i'm lazy
+
+so with my current config.json file, i can : 
+```shell
+b d   # specific backup config
+b t   # specific backup config
+b r   # specific backup config
+b u   # specific backup config
+b s   # backup this repo
+b update.s  # to sync my dotfiles across multiple devices
+b update.d  # to sync my backupscript config across multiple devices
+b install.script  # clone this repo and dotfiles.git in it
+b install.dotfiles  # reclone dotfiles.git folder
+```
+open config.json to better understand !
+
+so while you're here... check [my dotfiles](github.com/mirsella/dotfiles)
+don't hesitate to ask any question, i'll be happy to hear them <3
+
+<h3>options</h3>
+
+i put this at the end since nobody is gonna use it : 
+the option you can specify backupscript.sh with, those are in the script it self and can be customized/added pretty easily with some shell scripting knownledge.
+```
+--curl <url>  # curl config.json from a URL
+-l path/to/file.json   # use a specific local config file
+-f  # add -f to gitF push
+-c  # don't add -m to gitF commit
+-m "commit message"   # specify git commit message. parentheses are important !
+--export var123test  # export var123test = 1, accessible through config.json's command. be creative
+
+# thoses are used in gitF push or can be acessed in config.json's command.
+-b branch # git push to a specific branch
+-o origin # git push to a specific origin
+```
+
+gitF is function in backupscript.sh. see example in config.json :
+```
+A  # git add -A
+commit  # git commit -m "backupscript $(date)" # -m not used here if -c or -m
+push  # git push ${gitF_force:-} ${gitF_remote:-} ${gitF_branch:-} 
+checkout branch # git checkout branch
+```
