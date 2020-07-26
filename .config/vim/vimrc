@@ -21,7 +21,7 @@ Plug 'mattn/emmet-vim'
 Plug 'svermeulen/vim-yoink'
 Plug 'svermeulen/vim-cutlass'
 Plug 'svermeulen/vim-subversive'
-" Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-fugitive'
 
@@ -222,14 +222,16 @@ let g:yoinkSavePersistently=1
 let g:yoinkIncludeDeleteOperations=1
 
 " firenvim
-let g:firenvim_config = {
-      \ 'globalSettings': {
-      \  },
-      \ 'localSettings': {
-      \ },
-      \ }
-let fc = g:firenvim_config['localSettings']
-let fc['https?://discord\.com'] = { 'takeover': 'never', 'priority': 1 }
-let fc['https?://www.reddit\.com'] = { 'takeover': 'never', 'priority': 1 }
-let fc['https?://www.deepl\.com'] = { 'takeover': 'never', 'priority': 1 }
-let fc['.*'] = { 'takeover': 'once' }
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'neovim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'once',
+        \ },
+    \ }
+\ }
