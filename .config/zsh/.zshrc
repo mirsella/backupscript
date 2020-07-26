@@ -46,7 +46,7 @@ function gitreclonerepo() {
   repofolder=$(basename $(realpath .))
   echo "WARNING !! NON PUSHED CHANGE WILL BE GONE FOREVER !!
   git clone from remote: $remote with url: $remoteurl"
-  sleep 5
+  sleep 10
   cd ..
   rm -rf $repofolder
   git clone $remoteurl
