@@ -8,9 +8,9 @@ source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 # for file in /home/mirsella/.config/zsh/lib/*.zsh; do . "$file"; done
 
 
-functions _fzf_compgen_path() { command fd -t f -HI --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-functions _fzf_compgen_dir() { command fd -t d -HI --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-export FZF_DEFAULT_COMMAND='fd -t f -HI --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged'
+functions _fzf_compgen_path() { command fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
+functions _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
+export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged'
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}"'
 export VIMV_USE_RMTRASH=1
 # export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
