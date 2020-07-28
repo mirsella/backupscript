@@ -46,7 +46,7 @@ call plug#end()
 
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command -nargs=? CC :CocCommand
-command -nargs=? V vert sb
+command -nargs=? V :vert sb
 map <Space> <Leader>
 map Y y$
 nnoremap ' `
@@ -57,6 +57,9 @@ nnoremap <F1> :wa<cr>
 xnoremap <F1> :wa<cr>
 nnoremap <F2> :w<cr>
 xnoremap <F2> :w<cr>
+nnoremap <F3> :wa <bar> :bw<cr>
+xnoremap <F3> :wa <bar> :bw<cr>
+
 nnoremap <F5> :vsplit<cr>
 nnoremap <F5> :vsplit<cr>
 nnoremap <F6> :vert sb 
