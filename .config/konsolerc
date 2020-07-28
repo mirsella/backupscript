@@ -2,7 +2,7 @@
 DefaultProfile=konsole.profile
 
 [Favorite Profiles]
-Favorites=Shell.profile,dolphin.profile,konsole.profile
+Favorites=dolphin.profile,Shell.profile,konsole.profile
 
 [KonsoleWindow]
 AllowMenuAccelerators=true
@@ -10,7 +10,7 @@ ShowMenuBarByDefault=false
 ShowWindowTitleOnTitleBar=true
 
 [MainWindow]
-Height 1080=1008
+Height 1080=1080
 Height 750=720
 Height 853=823
 Height 900=840
@@ -20,7 +20,7 @@ ToolBarsMovable=Disabled
 Width 1067=533
 Width 1333=667
 Width 1600=1600
-Width 1920=960
+Width 1920=1920
 Window-Maximized 1080x1920=true
 Window-Maximized 750x1200=true
 Window-Maximized 750x1333=true
