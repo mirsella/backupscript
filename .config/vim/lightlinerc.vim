@@ -1,11 +1,11 @@
 let g:lightline = {
       \   'active': {
-      \     'left': [['mode'], ['readonly', 'absolutepath', 'modified']],
-      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'filetype']]
+      \     'left': [['mode'], ['readonly', 'absolutepath', 'filetype', 'modified']],
+      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat']]
       \   },
       \   'inactive': {
-      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
-      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'filetype']]
+      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'filetype', 'modified']],
+      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat']]
       \   },
       \   'tabline': {
       \     'left': [['buffers']]

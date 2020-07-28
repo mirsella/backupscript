@@ -59,10 +59,8 @@ nnoremap <F2> :w<cr>
 xnoremap <F2> :w<cr>
 nnoremap <F5> :vsplit<cr>
 nnoremap <F5> :vsplit<cr>
-nnoremap <F6> :vert sb<cr>
-xnoremap <F6> :vert sb<cr>
-nnoremap <F7> :vert sb 
-xnoremap <F7> :vert sb 
+nnoremap <F6> :vert sb 
+xnoremap <F6> :vert sb 
 
 map <Space><Space> <Plug>(easymotion-prefix)
 map <Leader>f <Plug>(easymotion-bd-f)
