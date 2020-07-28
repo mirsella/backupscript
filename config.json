@@ -4,7 +4,7 @@
     "cd ~/.config/backupscript/dotfiles.git",
     "gitF checkout master || exit",
     "rm -rf .config etc boot .ssh",
-    "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
+    "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
     "cp ~/.ssh/config .ssh",
@@ -14,11 +14,12 @@
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/{fstab,pacman.conf} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
+    "cp ~/.config/oni2/{vimrc,configuration.json,keybindings.json} .config/oni2",
     "cp /etc/systemd/system/{undervolt,vnc}.service etc/systemd/system",
     "gitF A commit push"
   ],
   "u": [
-		"[[ $(hostname) = unowhy ]] || { echo wrong hostname; exit; }",
+		"[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "gitF checkout unowhy || exit",
     "rm -rf .config etc boot .ssh",

@@ -45,12 +45,24 @@ Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command CC :CocCommand
+command -nargs=? CC :CocCommand
+command -nargs=? V vert sb
 map <Space> <Leader>
 map Y y$
 nnoremap ' `
 nnoremap <leader>O :Files<Space>
 nnoremap <leader>o :Files ~/<CR>
+
+nnoremap <F1> :wa<cr>
+xnoremap <F1> :wa<cr>
+nnoremap <F2> :w<cr>
+xnoremap <F2> :w<cr>
+nnoremap <F5> :vsplit<cr>
+nnoremap <F5> :vsplit<cr>
+nnoremap <F6> :vert sb<cr>
+xnoremap <F6> :vert sb<cr>
+nnoremap <F7> :vert sb 
+xnoremap <F7> :vert sb 
 
 map <Space><Space> <Plug>(easymotion-prefix)
 map <Leader>f <Plug>(easymotion-bd-f)
@@ -69,6 +81,10 @@ nnoremap <C-j> 5jzz
 nnoremap <C-k> 5kzz
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-h> :bprev<CR>
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 nmap <Leader>& <Plug>lightline#bufferline#go(1)
 nmap <Leader>é <Plug>lightline#bufferline#go(2)
 nmap <Leader>" <Plug>lightline#bufferline#go(3)
@@ -184,12 +200,12 @@ endfunction
 
 " lightline-bufferline
 set showtabline=2
-let g:lightline#bufferline#filename_modifier = ':t'
+" let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline#bufferline#shorten_path = 0
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#clickable = 1
-let g:lightline.component_raw = {'buffers': 1}
 let g:lightline#bufferline#unnamed = '[No Name]'
+let g:lightline#bufferline#show_number = 1
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1

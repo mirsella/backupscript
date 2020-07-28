@@ -10,8 +10,8 @@ source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 
 functions _fzf_compgen_path() { command fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
 functions _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged'
-export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}"'
+export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
+export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
 export VIMV_USE_RMTRASH=1
 # export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
 # export GIT_AUTHOR_EMAIL=mirsella@protonmail.com
@@ -22,30 +22,30 @@ function untill() {
   until eval "$1"; do
     sleep 1
   done
-  eval "$2"
+  eval "$2 "
 }
 
 function gitclearcommit() {
   branch=$(git branch | grep '\*' | sed 's/\* //')
   echo "WARNING !! THIS BRANCH WILL BE GONE FOREVER !!
-  branch to clear : $branch"
+  branch to clear : $branch "
   rm ~/.cache/$(basename $(dirname $(realpath $0)))
-  cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
+  cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0))) "
   sleep 5
   git checkout --orphan ${branch}cleared
   git add -A
-  git commit -m "cleared commit history $(date)"
+  git commit -m "cleared commit history $(date) "
   git branch -D ${branch}
   git branch -m ${branch}
 }
 function gitreclonerepo() {
   rm ~/.cache/$(basename $(dirname $(realpath $0)))
-  cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0)))"
+  cp -r ../$(basename $(dirname $(realpath $0))) ~/.cache/$(basename $(dirname $(realpath $0))) && echo "the repo was backed up in ~/.cache/$(basename $(dirname $(realpath $0))) "
   remote=$(git branch -vv | rg -o '\[.*/' | sed 's/\[//; s/\///')
   remoteurl=$(git config --get remote.$remote.url)
   repofolder=$(basename $(realpath .))
   echo "WARNING !! NON PUSHED CHANGE WILL BE GONE FOREVER !!
-  git clone from remote: $remote with url: $remoteurl"
+  git clone from remote: $remote with url: $remoteurl "
   sleep 10
   cd ..
   rm -rf $repofolder
@@ -61,19 +61,20 @@ alias cp='cp -r '
 alias grep='nocorrect grep --color=auto -Ei '
 alias ls='ls -AhX --group-directories-first --color=auto '
 alias ll='ls -AhXl --group-directories-first --color=auto '
-alias bat='bat -pp --color=always --theme="Monokai Extended Origin"'
+alias bat='bat -pp --color=always --theme="Monokai Extended Origin" '
 alias q='exit '
 alias dut='du -cksh '
 alias rg='rg --no-ignore --hidden -i '
 alias rge='rg --no-ignore --hidden -e '
 alias tree='tree -Ca '
-alias gb='git branch'
-alias gch='git checkout'
-alias gp='git push'
-alias ga='git add -A'
-alias gc='git commit -am "gc $(date)"'
-alias gac='git add -A; git commit -m "gac $(date)"'
+alias gb='git branch '
+alias gch='git checkout '
+alias gp='git push '
+alias ga='git add -A '
+alias gc='git commit '
+alias gcm='git commit -m '
+alias gac='git add -A; git commit -m "gac $(date)" '
 alias gcp='git commit -m "gcp $(date)"; git push '
 alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
-alias fd='fd -HIL -E run -E media -E sys -E proc'
-alias trapp='trap "exit" SIGINT'
+alias fd='fd -HIL -E run -E media -E sys -E proc '
+alias trapp='trap "exit" SIGINT '
