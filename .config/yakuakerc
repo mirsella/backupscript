@@ -11,7 +11,7 @@ FocusFollowsMouse=true
 RememberFullscreen=true
 
 [Desktop Entry]
-DefaultProfile=konsole.profile
+DefaultProfile=
 
 [DownloadDialog Settings]
 Height 900=499
@@ -24,6 +24,6 @@ Favorites=
 options_configure=Ctrl+Shift+M
 
 [Window]
-Height=40
+Height=57
 KeepOpen=true
 Width=100

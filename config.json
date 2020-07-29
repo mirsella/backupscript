@@ -9,8 +9,8 @@
 
     "cp ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{vim,keebie,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
-    "rsync -a --exclude={rpi,termux} ~/.config/zsh .config/",
+    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,keebie,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
+    "# rsync -a --exclude={rpi,termux} ~/.config/zsh .config/",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/{fstab,pacman.conf} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
@@ -28,8 +28,8 @@
 
     "cp ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{vim,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
-    "rsync -a --exclude={rpi,termux,.zcompcache} ~/.config/zsh .config/",
+    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
+    "# rsync -a --exclude={rpi,termux,.zcompcache} ~/.config/zsh .config/",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/{fstab,pacman.conf} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
@@ -48,8 +48,8 @@
     "cp -r /etc/{nginx,fstab} etc",
     "cp -r /hdd/www .",
     "cp /etc/systemd/system/{gitea,requestbin,updatefreedns,wssh,novnc}.service etc/systemd/system",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{vim,wget,python,python} .config",
-    "rsync -a --exclude={predator,unowhy,termux,.zcompcache} ~/.config/zsh .config/",
+    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,wget,python,python} .config",
+    "# rsync -a --exclude={predator,unowhy,termux,.zcompcache} ~/.config/zsh .config/",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "gitF A commit push"
@@ -63,8 +63,8 @@
     "cp ../config.json .",
 
     "cp ~/.ssh/config .ssh",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{vim,wget,python} .config",
-    "rsync -a --exclude={predator,unowhy,rpi,.zcompcache} ~/.config/zsh .config/",
+    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,wget,python} .config",
+    "# rsync -a --exclude={predator,unowhy,rpi,.zcompcache} ~/.config/zsh .config/",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp ~/../usr/etc/ssh/{ssh,sshd}_config etc/ssh",
     "cp -r ~/{.shortcuts,.termux} .",
@@ -80,7 +80,6 @@
         "cd ~/.cache/dotfiles; git checkout ${gitF_branch:-master}; git pull",
         "cp -r .config/vim/vimrc ~/.config/vim",
         "rsync -a .config/zsh ~/.config",
-        "cp -r .config/zsh/lib/zprofile.zsh ~/.config/zsh/lib/",
         "# source ~/.config/zsh/.zshrc"
       ],
       "s": [

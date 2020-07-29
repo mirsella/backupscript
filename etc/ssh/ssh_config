@@ -19,10 +19,7 @@
 
 # Host *
 #   ForwardAgent no
-  # ForwardX11 yes
-  # ForwardX11Trusted yes
-  # Compression yes
-  # ServerAliveInterval 100
+#   ForwardX11 no
 #   PasswordAuthentication yes
 #   HostbasedAuthentication no
 #   GSSAPIAuthentication no

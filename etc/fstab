@@ -1,4 +1,10 @@
-UUID=FE54-F417	/boot/efi	vfat	umask=0077	0	2	
-UUID=56577f02-5016-4c54-965a-ddecc253af91	/	ext4	defaults,noatime	0	1	
-UUID=54E2B6D3E2B6B896	/run/media/mirsella/ssd	ntfs-3g	rw,defaults,noatime	0	0	
-UUID=74684CC7684C89B6	/run/media/mirsella/windows	ntfs-3g	rw,defaults,noatime	0	0	
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=6910-D010                            /boot/efi      vfat    umask=0077 0 2
+UUID=c30fe894-ea29-4f7c-baec-99a8874a0283 /              ext4    defaults,noatime 0 1
+UUID=51c053bb-3c72-4054-a5ec-efd0b92dfed4 none swap defaults,nofail,nobootwait 0 0
