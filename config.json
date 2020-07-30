@@ -74,7 +74,7 @@
     "cd ~/.config/backupscript",
     "gitF A commit push"
     ],
-    "update": {
+    "up": {
       "d": [
         "git clone -q git@github.com:mirsella/dotfiles /tmp/dotfiles; cd /tmp/dotfiles git checkout -q ${gitF_branch:-predator}; git pull --all -q",
         "cp -r .config/vim ~/.config",
