@@ -64,7 +64,7 @@
 
     "cp ~/.ssh/config .ssh",
     "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{vim,wget,python} .config",
-    "rsync -a --exclude={predator,unowhy,rpi,.zcompcache} ~/.config/zsh .config/",
+    "rsync -a --exclude=hostname.zsh --exclude={predator,unowhy,rpi,.zcompcache} ~/.config/zsh .config/",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp ~/../usr/etc/ssh/{ssh,sshd}_config etc/ssh",
     "cp -r ~/{.shortcuts,.termux} .",
@@ -78,10 +78,17 @@
       "d": [
         "git clone https://github.com/mirsella/dotfiles ~/.cache/dotfiles",
         "cd ~/.cache/dotfiles; git checkout ${gitF_branch:-master}; git pull",
-        "cp -r .config/vim/vimrc ~/.config/vim",
+        "cp -r .config/vim/* ~/.config/vim/",
+        "rsync -a .config/zsh/* ~/.config/zsh/",
+        "# source ~/.config/zsh/.zshrc"
+      ],
+      "de": [
+        "git clone https://github.com/mirsella/dotfiles ~/.cache/dotfiles",
+        "cd ~/.cache/dotfiles; git pull --all",
+        "cp -r .config/vim/* ~/.config/vim/",
         "rsync -a .config/zsh ~/.config",
         "cp -r .config/zsh/lib/zprofile.zsh ~/.config/zsh/lib/",
-        "# source ~/.config/zsh/.zshrc"
+        ""
       ],
       "s": [
         "cd ~/.config/backupscript",
