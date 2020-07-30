@@ -76,14 +76,14 @@
     ],
     "up": {
       "d": [
-        "git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles; cd ${TMPDIR:-/tmp}/dotfiles git checkout -q ${gitF_branch:-predator}; git pull --all -q",
+        "git clone git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles; cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all -q",
         "cp -r .config/vim ~/.config",
         "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
         "cp .config/zsh/lib/$(hostname)/hostname.zsh",
         "# source ~/.config/zsh/.zshrc"
       ],
       "de": [
-        "git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles; cd ${TMPDIR:-/tmp}/dotfiles git checkout -q ${gitF_branch:-predator}; git pull --all -q",
+        "git clone git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles; cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all -q",
         "cd ~/.cache/dotfiles; git pull --all -q",
         "cp -r .config/vim ~/.config/vim/",
         "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
