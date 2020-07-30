@@ -80,12 +80,12 @@ while true; do # take care of options
       shift
       case $1 in
         -*|"") 
-          echo 'error -b : no valid argument given.'
+          echo 'error -b : no valid argument given'
           ;;
         *)
           export gitF_branch=$1
           shift
-          echo 'change master'
+          echo "changed branch to $i"
           ;;
       esac
       ;;
@@ -98,7 +98,7 @@ while true; do # take care of options
         *)
           export gitF_remote=$1
           shift
-          echo 'change remote'
+          echo "changed remote to $i"
           ;;
       esac
       ;;
@@ -107,7 +107,7 @@ while true; do # take care of options
       cp "$CONFIG_FILE" "$CONFIG_FILE.bak"
       case $1 in
         -*|"") 
-          REMOTE_URL=https://raw.githubusercontent.com/mirsella/backupscript/master/config.json # default
+          REMOTE_URL=https://raw.githubusercontent.com/mirsella/backupscript/predator/config.json # default
           ;;
         *)
           REMOTE_URL=$1
