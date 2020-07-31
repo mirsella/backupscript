@@ -80,7 +80,7 @@
         "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all",
         "cp -r .config/vim ~/.config/vim/",
         "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
-        "for branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$branch ~/.config/zsh/lib/$branch; done"
+        "for branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$branch ~/.config/zsh/lib/; done"
       ],
       "s": [
         "cd ~/.config/backupscript",
