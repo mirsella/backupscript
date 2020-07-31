@@ -75,12 +75,12 @@
     "gitF A commit push"
     ],
     "up": {
-      "de": [
+      "d": [
         "[[ -d ${TMPDIR:-/tmp}/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
         "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all",
         "cp -r .config/vim ~/.config/vim/",
         "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
-        "for branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$branch ~/.config/zsh/lib/; done"
+        "for branch in {predator,rpi,termux,unowhy}; do cp -rv .config/zsh/lib/$branch ~/.config/zsh/lib/; done"
       ],
       "s": [
         "cd ~/.config/backupscript",
