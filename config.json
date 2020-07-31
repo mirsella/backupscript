@@ -75,19 +75,12 @@
     "gitF A commit push"
     ],
     "up": {
-      "d": [
-        "git clone git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles; cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all -q",
-        "cp -r .config/vim ~/.config",
-        "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
-        "cp .config/zsh/lib/$(hostname)/hostname.zsh",
-        "# source ~/.config/zsh/.zshrc"
-      ],
       "de": [
-        "git clone git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
+        "[[ -d ${TMPDIR:-/tmp}/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
         "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all",
         "cp -r .config/vim ~/.config/vim/",
         "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
-        "for branch in {predator,rpi,termux,unowhy}; do git checkout -q $branch; hn=.config/zsh/lib/$branch/hostname.zsh; cp -v $hn ~/$hn; done"
+        "for branch in {predator,rpi,termux,unowhy}; cp .config/zsh/lib/$branch ~/.config/zsh/lib/$branch; done"
       ],
       "s": [
         "cd ~/.config/backupscript",
