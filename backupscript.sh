@@ -10,7 +10,7 @@ function gitF() {
         ;;
       checkout)
         shift
-        if git checkout "$1" ; then
+        if git checkout -q "$1" ; then
           shift
         else
           echo "$1 is not a valid branch. exiting"
