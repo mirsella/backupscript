@@ -1,12 +1,11 @@
-
 let g:lightline = {
       \   'active': {
-      \     'left': [['mode'], ['readonly', 'absolutepath', 'modified']],
-      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'fileencoding', 'filetype']]
+      \     'left': [['mode'], ['readonly', 'absolutepath', 'filetype', 'modified']],
+      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat']]
       \   },
       \   'inactive': {
-      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
-      \     'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype']]
+      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'filetype', 'modified']],
+      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat']]
       \   },
       \   'tabline': {
       \     'left': [['buffers']]
@@ -16,6 +15,9 @@ let g:lightline = {
       \ },
       \ 'component_type': {
       \   'buffers': 'tabsel'
+      \ },
+      \ 'component_raw': {
+      \ 'buffers': 1
       \ },
       \ 'component_function': {
       \   'fileformat': 'lightline#functionsfileformat_devicons',

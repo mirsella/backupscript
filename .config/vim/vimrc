@@ -24,6 +24,7 @@ Plug 'svermeulen/vim-subversive'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-fugitive'
+Plug 'j5shi/CommandlineComplete.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
@@ -252,3 +253,7 @@ let g:firenvim_config = {
         \ },
     \ }
 \ }
+
+" command line complete
+cmap <c-p> <Plug>CmdlineCompleteBackward
+cmap <c-n> <Plug>CmdlineCompleteForward
