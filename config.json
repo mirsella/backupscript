@@ -17,7 +17,7 @@
     "cp /etc/systemd/system/{undervolt,vnc,dotfiles}.service etc/systemd/system",
     "git add -A",
     "bcommit",
-    "git push"
+    "git push origin predator"
   ],
   "u": [
 		"[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
@@ -36,7 +36,7 @@
     "cp /etc/systemd/system/dotfiles.service etc/systemd/system",
     "git add -A",
     "bcommit",
-    "git push"
+    "git push origin unowhy"
   ],
   "r": [
     "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
@@ -55,7 +55,7 @@
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "git add -A",
     "bcommit",
-    "git push"
+    "git push origin rpi"
   ],
   "t": [
 		"[[ -d ~/.termux && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
@@ -72,7 +72,7 @@
     "cp -r ~/{.shortcuts,.termux} .",
     "git add -A",
     "bcommit",
-    "git push"
+    "git push origin termux"
     ],
   "s": [
     "cd ~/.config/backupscript",
