@@ -94,7 +94,7 @@
         "git commit -m 'before update.s'",
         "git pull"
       ],
-      "gitclearcommit": [
+      "clearcommit": [
         "cd ~/.config/backupscript/dotfiles.git || exit",
         "git checkout -q ${branch:-$(hostname)} || exit",
         "git checkout --orphan ${branch:-$(hostname)}cleared",
@@ -117,6 +117,7 @@
         "mv ~/.config/backupscript/dotfiles.git ~/.cache/",
         "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git"
       ]
-    }
+    },
+    "test": ["hostname"]
 }
 
