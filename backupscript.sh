@@ -24,7 +24,12 @@ while true; do # take care of options
   esac
 done
 bcommit() { 
-  git commit -m "backupscript $(date)" 
+  if [[ -n $1 ]]; then
+    git commit -m "$1 $(date)" 
+    shift
+  else
+    git commit -m "backupscript $(date)" 
+  fi
 }
 
 for loop_options in "$@"; do
