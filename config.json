@@ -1,5 +1,5 @@
 {
-  "d": [
+  "p": [
 		"[[ $(hostname) = predator && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout predator || exit",
@@ -87,7 +87,9 @@
         "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${branch:-predator}; git pull --all",
         "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
         "cp .ssh/config .ssh",
-        "for Branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done"
+        "for Branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
+        "hostname=$(hostname)",
+        "b ${hostname:0:1}"
       ],
       "s": [
         "cd ~/.config/backupscript",
