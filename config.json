@@ -7,7 +7,7 @@
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh",
+    "cp -f ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,keebie,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
@@ -27,7 +27,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh",
+    "cp -f ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
@@ -46,7 +46,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh/",
+    "cp -f ~/.ssh/config .ssh/",
     "cp -r /etc/{nginx,fstab} etc",
     "cp -r /hdd/www .",
     "cp /etc/systemd/system/{gitea,requestbin,updatefreedns,wssh,novnc,dotfiles}.service etc/systemd/system",
@@ -65,7 +65,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh",
+    "cp -f ~/.ssh/config .ssh",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp ~/../usr/etc/ssh/{ssh,sshd}_config etc/ssh",
@@ -86,7 +86,7 @@
         "[[ -d ${TMPDIR:-/tmp}/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
         "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${branch:-predator}; git pull --all",
         "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
-        "cp .ssh/config .ssh",
+        "cp -f .ssh/config .ssh",
         "for Branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
         "hostname=$(hostname) &&  b ${hostname:0:1}"
       ],
