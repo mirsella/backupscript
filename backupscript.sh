@@ -23,14 +23,7 @@ while true; do # take care of options
     *) break;;
   esac
 done
-bcommit() { 
-  if [[ -n $1 ]]; then
-    git commit -m "$1 $(date)" 
-    shift
-  else
-    git commit -m "backupscript $(date)" 
-  fi
-}
+bcommit() { git commit -m "${@:-backupscript} $(date)"; }
 
 for loop_options in "$@"; do
   for loop_cmd in $(seq 0 $(($(jq ".${loop_options}[]" "$CONFIG_FILE" | wc -l)-1))); do 
