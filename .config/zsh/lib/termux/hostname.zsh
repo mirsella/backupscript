@@ -6,30 +6,52 @@ export LC_MEASUREMENT=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
 export LC_NUMERIC=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
-export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 
+export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>}
+alias s='sudo '
 alias end='sudo pkill -f '
+alias rmf='rm -rf '
 alias rm='rmtrash -rf '
-alias rmf='/bin/rm -rf '
 alias chownm='chown -R $USER: '
 export XDG_RUNTIME_DIR=$PREFIX/run
 hash -d s=/sdcard/
 hash -d m=/sdcard/Music
 hash -d r=/data/data/com.termux/files/usr
 alias v='nvim -p'
+
 functions fdm() {
-  if [[ "${@: -1}" = "d" ]]; then
-    args="${@: 1:-1}"
-    delete=1
-  else
-    args="$@"
-  fi
-  files=$(fd -I -t f -e mp3 "${args}" /sdcard/Music/)
-  if [[ -n $delete ]]; then
-    # ~r/bin/rm "${files}"
-    while read file; do ~r/bin/rm $file; done <<< $files
-      # echo files: $files
-    else
-      echo "$(echo $files | sed 's#/sdcard/Music/##')"
-  fi
-unset delete args files
+for arg in $@; do 
+  ((iteration++))
+  case $arg in
+    -d)
+      mode=delete
+      shift $iteration
+      ((iteration--))
+      ;;
+    -f)
+      shift $iteration
+      mode=ffmpeg
+      ((iteration--))
+      break
+      ;;
+    *) 
+      searchpattern="$searchpattern$arg "
+      shift $iteration
+      ((iteration--))
+      ;;
+  esac
+done
+searchpattern=$(echo $searchpattern | sed 's/^ //; s/ $//')
+files=$(fd -I -t f -e mp3 "${searchpattern}" /sdcard/Music/)
+case $mode in 
+  ffmpeg) 
+    echo +$@+
+    echo +$searchpattern+
+    echo +$files+
+    ffmpeg -ss "$@" -i "${files}" "${files}.mp3"
+    mv "${files}.mp3" "${files}"
+    ;;
+  delete) while read file; do rm -v $file; done <<< $files;;
+  *) echo $files;;
+esac
+unset searchpattern files mode iteration
 }

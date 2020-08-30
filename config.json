@@ -1,102 +1,124 @@
 {
-  "d": [
-		"[[ $(hostname) = predator && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+  "p": [
+    "[[ $(hostname) = predator && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
-    "gitF checkout predator || exit",
+    "git checkout predator || exit",
     "rm -rf .config etc boot .ssh",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh",
+    "cp -f ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,keebie,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,keebie,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/{fstab,pacman.conf} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "cp ~/.config/oni2/{vimrc,configuration.json,keybindings.json} .config/oni2",
-    "cp /etc/systemd/system/{undervolt,vnc}.service etc/systemd/system",
-    "gitF A commit push"
+    "cp /etc/systemd/system/{undervolt,vnc,dotfiles}.service etc/systemd/system",
+    "git add -A",
+    "bcommit",
+    "git push origin predator"
   ],
   "u": [
-		"[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
-    "gitF checkout unowhy || exit",
+    "git checkout unowhy || exit",
     "rm -rf .config etc boot .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh",
+    "cp -f ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/{fstab,pacman.conf} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
-    "gitF A commit push"
+    "cp /etc/systemd/system/dotfiles.service etc/systemd/system",
+    "git add -A",
+    "bcommit",
+    "git push origin unowhy"
   ],
   "r": [
     "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
-    "gitF checkout rpi || exit",
+    "git checkout rpi || exit",
     "rm -rf www etc/ssh .config .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh/",
+    "cp -f ~/.ssh/config .ssh/",
     "cp -r /etc/{nginx,fstab} etc",
     "cp -r /hdd/www .",
     "cp /etc/systemd/system/{gitea,requestbin,updatefreedns,wssh,novnc}.service etc/systemd/system",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,wget,python,python} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python,python} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
-    "gitF A commit push"
+    "git add -A",
+    "bcommit",
+    "git push origin rpi"
   ],
   "t": [
-		"[[ -d ~/.termux && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ -d ~/.termux && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
     "cd ~/.config/backupscript/dotfiles.git",
-    "gitF checkout termux || exit",
+    "git checkout termux || exit",
     "rm -rf .config etc .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
-    "cp ~/.ssh/config .ssh",
-    "rsync -a --exclude-from ~/.config/backupscript/.gitignore ~/.config/{zsh,vim,wget,python} .config",
+    "cp -f ~/.ssh/config .ssh",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp ~/../usr/etc/ssh/{ssh,sshd}_config etc/ssh",
     "cp -r ~/{.shortcuts,.termux} .",
-    "gitF A commit push"
-    ],
+    "git add -A",
+    "bcommit",
+    "git push origin termux"
+  ],
   "s": [
     "cd ~/.config/backupscript",
-    "gitF A commit push"
+    "git add -A",
+    "bcommit",
+    "git push"
+  ],
+  "up": {
+    "d": [
+      "echo $branch",
+      "[[ -d ${TMPDIR:-/tmp}/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
+      "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${branch:-predator}; git pull --all",
+      "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
+      "cp -f .ssh/config .ssh",
+      "for Branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
+      "hostname=$(hostname) &&  b ${hostname:0:1}"
     ],
-    "up": {
-      "d": [
-        "[[ -d ${TMPDIR:-/tmp}/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
-        "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${gitF_branch:-predator}; git pull --all",
-        "cp -r .config/vim ~/.config",
-        "rsync -a --exclude=hostname.zsh .config/zsh ~/.config",
-        "for branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$branch ~/.config/zsh/lib/; done"
-      ],
-      "s": [
-        "cd ~/.config/backupscript",
-        "export gitF_commitmessage='backup script before update.s'",
-        "gitF A commit",
-        "cp config.json config.json.bak",
-        "git pull"
-      ]
-    },
-    "install": {
-      "script": [
-        "rm -rf ~/.config/backupscript",
-        "git clone git@github.com:mirsella/backupscript ~/.config/backupscript",
-        "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git",
-        "sudo ln -s ~/.config/backupscript/backupscript.sh /usr/bin/b"
-      ],
-      "dotfiles" : [
-        "rm -rf ~/.cache/dotfiles.git",
-        "mv ~/.config/backupscript/dotfiles.git ~/.cache/",
-        "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git"
-      ]
-    }
+    "s": [
+      "cd ~/.config/backupscript",
+      "git add -A",
+      "git commit -m 'before update.s'",
+      "git fetch",
+      "git reset --hard FETCH_HEAD"
+    ],
+    "clearcommit": [
+      "cd ~/.config/backupscript/dotfiles.git || exit",
+      "git checkout -q ${branch:-$(hostname)} || exit",
+      "git checkout --orphan ${branch:-$(hostname)}cleared",
+      "git add -A",
+      "bcommit 'cleared commit history'",
+      "git branch -D ${branch:-$(hostname)}",
+      "git branch -M ${branch:-$(hostname)}cleared $(hostname)",
+      "git push -f origin ${branch:-$(hostname)}"
+    ]
+  },
+  "install": {
+    "script": [
+      "rm -rf ~/.config/backupscript",
+      "git clone git@github.com:mirsella/backupscript ~/.config/backupscript",
+      "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git",
+      "sudo ln -s ~/.config/backupscript/backupscript.sh /usr/bin/b"
+    ],
+    "dotfiles" : [
+      "rm -rf ~/.cache/dotfiles.git",
+      "mv ~/.config/backupscript/dotfiles.git ~/.cache/",
+      "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git"
+    ]
+  }
 }
-

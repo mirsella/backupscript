@@ -1,3 +1,4 @@
+source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
 source ~/.config/zsh/lib/completion.zsh
 source ~/.config/zsh/lib/keybinds.zsh
 source ~/.config/zsh/lib/spectrum.zsh
@@ -12,7 +13,7 @@ _fzf_compgen_path() { command fd -t f -HIL --color=always -E .cache -E .local -E
 _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
-export VIMV_USE_RMTRASH=1
+export VIMV_RM="rmtrash -rf"
 # export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
 # export GIT_AUTHOR_EMAIL=mirsella@protonmail.com
 
@@ -52,6 +53,8 @@ gitreclonerepo() {
   git clone $remoteurl
 }
 
+bak() { s cp -r "${1}" "${1}.bak" }
+bakm() { s mv "${1}" "${1}.bak" }
 alias psaux='ps aux | rg '
 alias NU='2> /dev/null ' #Silences stderr
 alias NUL='> /dev/null 2>&1 ' #Silences both stdout and stderr
@@ -64,17 +67,21 @@ alias ll='ls -AhXl --group-directories-first --color=auto '
 alias bat='bat -pp --color=always --theme="Monokai Extended Origin" '
 alias q='exit '
 alias dut='du -cksh '
-alias rg='rg --no-ignore --hidden -i '
+alias rg='rg --hidden -i'
 alias rge='rg --no-ignore --hidden -e '
-alias tree='tree -Cah '
+alias tree='tree -Ch '
 alias gb='git branch '
-alias gch='git checkout '
+alias gh='git checkout '
 alias gp='git push '
-alias ga='git add '
-alias gc='git commit '
-alias gcm='git commit -m '
+alias ga='git add -A '
+alias gcm="git commit -m "
+alias gc="git commit "
 alias gac='git add -A; git commit -m "gac $(date)" '
 alias gcp='git commit -m "gcp $(date)"; git push '
+gmp() { git commit -m "${@}"; git push }
 alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
+alias gt='git stash '
 alias fd='fd -HIL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
+alias watch='watch '
+ortener() { curl -H "Content-Type: application/json" -d '{"url": "$1", "slug": "$2"}' https://ortener.herokuapp.com/url }

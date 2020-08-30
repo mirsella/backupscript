@@ -1,3 +1,6 @@
+alias yays='yay -S --noconfirm --needed '
+alias nvidiar='yay -R --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
+alias nvidias='yay -S --needed --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
 alias chownm='s chown -R $USER: '
 alias end='sudo pkill -f '
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
@@ -10,11 +13,10 @@ alias -s odt='libreoffice'
 alias -s pdf='chromium'
 alias S='s systemctl '
 alias s='sudo -E '
-alias s='sudo -E'
 alias trash-empty='s trash-empty '
 alias trash-list='s trash-list '
 alias trash-restore='s trash-restore '
-alias v='s nvim -p'
+alias v='s nvim -p '
 export BROWSER=/usr/bin/chromium
 export EDITOR=/usr/bin/nvim
 export LANG=en_US.UTF-8
@@ -33,3 +35,41 @@ hash -d m=/run/media/mirsella/ssd/music/
 hash -d s=/run/media/mirsella/ssd/
 hash -d u=/run/media/mirsella
 hash -d w=/run/media/mirsella/windows/Users/mirsella/
+alias fanm='nbfc set -f 1 -s 100 && nbfc set -f 0 -s 100'
+alias fan='nbfc set -f 1 -a && nbfc set -f 0 -a'
+
+
+functions fdm() {
+for arg in $@; do 
+  ((iteration++))
+  case $arg in
+    -d)
+      mode=delete
+      shift $iteration
+      ((iteration--))
+      ;;
+    -f)
+      shift $iteration
+      mode=ffmpeg
+      ((iteration--))
+      break
+      ;;
+    *) 
+      searchpattern="$searchpattern$arg "
+      shift $iteration
+      ((iteration--))
+      ;;
+  esac
+done
+searchpattern=$(echo $searchpattern | sed 's/^ //; s/ $//')
+files=$(fd -I -t f -e mp3 "${searchpattern}" /run/media/mirsella/ssd/music/)
+case $mode in 
+  ffmpeg) 
+    ffmpeg -ss "$@" -i "${files}" "${files}.mp3"
+    mv -v "${files}.mp3" "${files}"
+    ;;
+  delete) while read file; do rmtrash -v $file; done <<< $files;;
+  *) echo $files;;
+esac
+unset searchpattern files mode iteration
+}

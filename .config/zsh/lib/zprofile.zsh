@@ -1,17 +1,17 @@
 source $ZDOTDIR/lib/$(hostname)/plugins.zsh
-
 export HISTSIZE=100000
 export SAVEHIST=100000
 export HISTFILE=~/.cache/history
 export HISTCONTROL=ignoreboth
 export PROMPT="%B%F{219}[%n@%M %~]%(!.%F{196}#%f.$) %f%b"
+# export PROMPT="%B%{%}%(4~|%-1~/.../%2~|%~)%u%b >%{%}>%B%(?.%{%}.%{%})>%{%}%b"
 export RPROMPT="%B%F{225}%*%f%b"
 export CASE_INSENSITIVE=true
 export HYPHEN_INSENSITIVE=true
 export ENABLE_CORRECTION=true
 export MENU_COMPLETE=true
 
-setopt share_history # share history between all sessions. 
+# setopt share_history # share history between all sessions.
 setopt histappend
 setopt prompt_subst
 setopt auto_cd # cd by typing directory name if it's not a command

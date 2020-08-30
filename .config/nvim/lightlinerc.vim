@@ -1,11 +1,11 @@
 let g:lightline = {
       \   'active': {
-      \     'left': [['mode'], ['readonly', 'absolutepath', 'filetype', 'modified']],
-      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat']]
+      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
+      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'gitbranch', 'filetype']]
       \   },
       \   'inactive': {
-      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'filetype', 'modified']],
-      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat']]
+      \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
+      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'gitbranch', 'filetype']]
       \   },
       \   'tabline': {
       \     'left': [['buffers']]
@@ -24,5 +24,6 @@ let g:lightline = {
       \   'filetype': 'lightline#functions#filetype_devicons',
       \   'lineCurrentOnTotal': 'LineCurrentOnTotal',
       \   'colCurrentOnTotal': 'ColCurrentOnTotal',
+      \   'gitbranch': 'GitBranch',
       \ },
       \ }

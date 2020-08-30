@@ -1,0 +1,4 @@
+{
+  "eslint.quiet": true,
+  "eslint.options": {"configFile": "/home/mirsella/.config/nvim/.eslintrc"}
+}
