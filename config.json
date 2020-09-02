@@ -17,7 +17,7 @@
     "cp /etc/systemd/system/{undervolt,vnc,dotfiles}.service etc/systemd/system",
     "git add -A",
     "bcommit",
-    "git push origin main"
+    "git push ${push:-} origin main"
   ],
   "u": [
     "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
@@ -36,7 +36,7 @@
     "cp /etc/systemd/system/dotfiles.service etc/systemd/system",
     "git add -A",
     "bcommit",
-    "git push origin unowhy"
+    "git push ${push:-} origin unowhy"
   ],
   "r": [
     "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
@@ -55,7 +55,7 @@
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "git add -A",
     "bcommit",
-    "git push origin rpi"
+    "git push ${push:-} origin rpi"
   ],
   "t": [
     "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
@@ -74,7 +74,7 @@
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "git add -A",
     "bcommit",
-    "git push origin tosh"
+    "git push ${push:-} origin tosh"
   ],
   "p": [
     "[[ $(hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
@@ -91,13 +91,13 @@
     "cp -r ~/{.shortcuts,.termux} .",
     "git add -A",
     "bcommit",
-    "git push origin phone"
+    "git push ${push:-} origin phone"
   ],
   "s": [
     "cd ~/.config/backupscript",
     "git add -A",
     "bcommit",
-    "git push"
+    "git push ${push:-}"
   ],
   "up": {
     "d": [
@@ -122,7 +122,7 @@
       "bcommit 'cleared commit history'",
       "git branch -D ${branch:-$(hostname)}",
       "git branch -M ${branch:-$(hostname)}cleared $(hostname)",
-      "git push -f origin ${branch:-$(hostname)}"
+      "git push ${push:-} -f origin ${branch:-$(hostname)}"
     ]
   },
   "install": {
