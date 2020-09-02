@@ -106,7 +106,7 @@
       "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${branch:-main}; git pull --all",
       "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
       "cp -f .ssh/config ~/.ssh",
-      "for Branch in {main,rpi,tosh,phone,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
+      "# for Branch in {main,rpi,tosh,phone,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
       "hostname=$(hostname); b ${hostname:0:1}"
     ],
     "s": [
