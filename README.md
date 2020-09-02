@@ -29,25 +29,12 @@ don't hesitate to ask any question, i'll be happy to hear them <3
 
 <h3>options</h3>
 
-i put this at the end since nobody is gonna use it : 
-the option you can specify backupscript.sh with, those are in the script it self and can be customized/added pretty easily with some shell scripting knownledge.
+there is one argument you can provide backupscript : `-e` with it you can export value in script.
+ex : 
 ```
---curl <url>  # curl config.json from a URL
--l path/to/file.json   # use a specific local config file
--f  # add -f to gitF push
--c  # don't add -m to gitF commit
--m "commit message"   # specify git commit message. parentheses are important !
---export var123test  # export var123test = 1, accessible through config.json's command. be creative
+b -e branch=main <your command name>
+b -e push=-f <your command name>
+b -e opt <your command name>
+```
+if you con't provide a equal sign, the value will be set to "1"
 
-# thoses are used in gitF push or can be acessed in config.json's command.
--b branch # git push to a specific branch
--o origin # git push to a specific origin
-```
-
-gitF is function in backupscript.sh. see example in config.json :
-```
-A  # git add -A
-commit  # git commit -m "backupscript $(date)" # -m not used here if -c or -m
-push  # git push ${gitF_force:-} ${gitF_remote:-} ${gitF_branch:-} 
-checkout branch # git checkout branch
-```
