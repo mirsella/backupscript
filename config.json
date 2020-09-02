@@ -1,6 +1,6 @@
 {
   "m": [
-    "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout main || exit",
     "rm -rf .config etc boot .ssh",
@@ -20,7 +20,7 @@
     "git push origin main"
   ],
   "u": [
-    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout unowhy || exit",
     "rm -rf .config etc boot .ssh",
@@ -39,7 +39,7 @@
     "git push origin unowhy"
   ],
   "r": [
-    "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout rpi || exit",
     "rm -rf www etc/ssh .config .ssh",
@@ -58,7 +58,7 @@
     "git push origin rpi"
   ],
   "t": [
-    "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout tosh || exit",
     "rm -rf www etc/ssh .config .ssh",
@@ -77,7 +77,7 @@
     "git push origin tosh"
   ],
   "p": [
-    "[[ -d ~/.phone && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout phone || exit",
     "rm -rf .config etc .ssh",
