@@ -1,8 +1,8 @@
 {
-  "p": [
-    "[[ $(hostname) = predator && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+  "m": [
+    "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
-    "git checkout predator || exit",
+    "git checkout main || exit",
     "rm -rf .config etc boot .ssh",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
@@ -17,10 +17,10 @@
     "cp /etc/systemd/system/{undervolt,vnc,dotfiles}.service etc/systemd/system",
     "git add -A",
     "bcommit",
-    "git push origin predator"
+    "git push ${push:-} origin main"
   ],
   "u": [
-    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout unowhy || exit",
     "rm -rf .config etc boot .ssh",
@@ -36,10 +36,10 @@
     "cp /etc/systemd/system/dotfiles.service etc/systemd/system",
     "git add -A",
     "bcommit",
-    "git push origin unowhy"
+    "git push ${push:-} origin unowhy"
   ],
   "r": [
-    "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout rpi || exit",
     "rm -rf www etc/ssh .config .ssh",
@@ -55,12 +55,31 @@
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "git add -A",
     "bcommit",
-    "git push origin rpi"
+    "git push ${push:-} origin rpi"
   ],
   "t": [
-    "[[ -d ~/.termux && -z $ignorehostname ]] || { echo wrong hostname; exit; }",
+    "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
-    "git checkout termux || exit",
+    "git checkout tosh || exit",
+    "rm -rf www etc/ssh .config .ssh",
+    "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
+    "cp ../config.json .",
+
+    "cp -f ~/.ssh/config .ssh/",
+    "cp -r /etc/{nginx,fstab} etc",
+    "cp -r /hdd/www .",
+    "cp /etc/systemd/system/{gitea,requestbin,updatefreedns,wssh,novnc}.service etc/systemd/system",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python,python} .config",
+    "cp -r ~/.config/npm/npmrc .config/npm/",
+    "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
+    "git add -A",
+    "bcommit",
+    "git push ${push:-} origin tosh"
+  ],
+  "p": [
+    "[[ $(hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "cd ~/.config/backupscript/dotfiles.git",
+    "git checkout phone || exit",
     "rm -rf .config etc .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
@@ -72,28 +91,26 @@
     "cp -r ~/{.shortcuts,.termux} .",
     "git add -A",
     "bcommit",
-    "git push origin termux"
+    "git push ${push:-} origin phone"
   ],
   "s": [
     "cd ~/.config/backupscript",
     "git add -A",
     "bcommit",
-    "git push"
+    "git push ${push:-}"
   ],
   "up": {
     "d": [
       "echo $branch",
       "[[ -d ${TMPDIR:-/tmp}/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ${TMPDIR:-/tmp}/dotfiles",
-      "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${branch:-predator}; git pull --all",
+      "cd ${TMPDIR:-/tmp}/dotfiles; git checkout -q ${branch:-main}; git pull --all",
       "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
-      "cp -f .ssh/config .ssh",
-      "for Branch in {predator,rpi,termux,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
-      "hostname=$(hostname) &&  b ${hostname:0:1}"
+      "cp -f .ssh/config ~/.ssh",
+      "# for Branch in {main,rpi,tosh,phone,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
+      "hostname=$(hostname); b ${hostname:0:1}"
     ],
     "s": [
-      "cd ~/.config/backupscript",
-      "git add -A",
-      "git commit -m 'before update.s'",
+      "cd ~/.config/backupscript || exit",
       "git fetch",
       "git reset --hard FETCH_HEAD"
     ],
@@ -105,7 +122,7 @@
       "bcommit 'cleared commit history'",
       "git branch -D ${branch:-$(hostname)}",
       "git branch -M ${branch:-$(hostname)}cleared $(hostname)",
-      "git push -f origin ${branch:-$(hostname)}"
+      "git push ${push:-} -f origin ${branch:-$(hostname)}"
     ]
   },
   "install": {

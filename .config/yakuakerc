@@ -26,4 +26,5 @@ options_configure=Ctrl+Shift+M
 [Window]
 Height=57
 KeepOpen=true
+ShowSystrayIcon=false
 Width=100

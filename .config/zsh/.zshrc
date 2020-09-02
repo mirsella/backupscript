@@ -14,8 +14,7 @@ _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E 
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
 export VIMV_RM="rmtrash -rf"
-# export GIT_COMMITTER_EMAIL=mirsella@protonmail.com
-# export GIT_AUTHOR_EMAIL=mirsella@protonmail.com
+export FORGIT_GI_REPO_LOCAL="~/.cache/forgit/gi"
 
 clip() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 clipp() { xclip -out -selection clipboard; }

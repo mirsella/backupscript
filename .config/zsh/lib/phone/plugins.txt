@@ -1,0 +1,11 @@
+#!/bin/sh
+# antibody bundle < plugins.txt > plugins.zsh
+zsh-vi-more/vi-increment
+kutsan/zsh-system-clipboard
+ohmyzsh/ohmyzsh path:plugins/extract
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+Aloxaf/fzf-tab
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+# marlonrichert/zsh-autocomplete

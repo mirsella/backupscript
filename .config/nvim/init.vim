@@ -28,6 +28,8 @@ Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-fugitive'
 Plug 'j5shi/CommandlineComplete.vim'
 " Plug 'turbio/bracey.vim' " don't work because of old css parser
+Plug 'Raimondi/delimitMate'
+Plug 'nicwest/vim-camelsnek'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
