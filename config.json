@@ -107,7 +107,7 @@
       "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
       "cp -f .ssh/config ~/.ssh",
       "for Branch in {main,rpi,tosh,phone,unowhy}; do cp -r .config/zsh/lib/$Branch ~/.config/zsh/lib/; done",
-      "hostname=$(hostname) &&  b ${hostname:0:1}"
+      "hostname=$(hostname); b ${hostname:0:1}"
     ],
     "s": [
       "cd ~/.config/backupscript || exit",
