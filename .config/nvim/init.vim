@@ -291,4 +291,4 @@ let g:bracey_server_port = 8080
 set foldmethod=syntax
 set nofoldenable
 
-set spell spelllang=fr_fr
+set spell spelllang=fr
