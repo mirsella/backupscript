@@ -5,18 +5,17 @@ export LC_MONETARY=en_US.UTF-8
 export LC_MEASUREMENT=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
 export LC_NUMERIC=en_US.UTF-8
-export EDITOR=/usr/bin/nvim
-export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>}
-alias s='sudo '
-alias end='sudo pkill -f '
+export EDITOR=nvim
+export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\%\^\(\)\{\}\<\>}
+alias end='pkill -f '
 alias rmf='rm -rf '
 alias rm='rmtrash -rf '
 alias chownm='chown -R $USER: '
+alias v='nvim -p'
 export XDG_RUNTIME_DIR=$PREFIX/run
 hash -d s=/sdcard/
 hash -d m=/sdcard/Music
 hash -d r=/data/data/com.termux/files/usr
-alias v='nvim -p'
 
 functions fdm() {
 for arg in $@; do 

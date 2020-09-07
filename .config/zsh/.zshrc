@@ -5,8 +5,6 @@ source ~/.config/zsh/lib/spectrum.zsh
 source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
-source ~/.config/zsh/lib/$(hostname)/hostname.zsh
-# for file in /home/mirsella/.config/zsh/lib/*.zsh; do . "$file"; done
 
 
 _fzf_compgen_path() { command fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
@@ -66,21 +64,21 @@ alias ll='ls -AhXl --group-directories-first --color=auto '
 alias bat='bat -pp --color=always --theme="Monokai Extended Origin" '
 alias q='exit '
 alias dut='du -cksh '
+alias gt='git stash '
 alias rg='rg --hidden -i'
 alias rge='rg --no-ignore --hidden -e '
 alias tree='tree -Ch '
 alias gb='git branch '
 alias gh='git checkout '
-alias gp='git push '
 alias ga='git add -A '
-alias gcm="git commit -m "
 alias gc="git commit "
-alias gac='git add -A; git commit -m "gac $(date)" '
-alias gcp='git commit -m "gcp $(date)"; git push '
-gmp() { git commit -m "${@}"; git push }
+alias gp='git push '
+gm() { git commit -m "${@}" }
 alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
-alias gt='git stash '
+gamp() { git add -A; git commit -m "${@}"; git push }
 alias fd='fd -HIL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
-ortener() { curl -H "Content-Type: application/json" -d '{"url": "$1", "slug": "$2"}' https://ortener.herokuapp.com/url }
+ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
+
+source ~/.config/zsh/lib/$(hostname)/hostname.zsh
