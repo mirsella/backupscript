@@ -30,6 +30,9 @@ Plug 'j5shi/CommandlineComplete.vim'
 " Plug 'turbio/bracey.vim' " don't work because of old css parser
 Plug 'Raimondi/delimitMate'
 Plug 'nicwest/vim-camelsnek'
+Plug 'junegunn/goyo.vim'
+" Plug 'reedes/vim-wordy'
+" Plug 'reedes/vim-wordy'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
@@ -287,3 +290,5 @@ let g:bracey_server_port = 8080
 " fold
 set foldmethod=syntax
 set nofoldenable
+
+set spell spelllang=fr_fr
