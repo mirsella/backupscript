@@ -8,7 +8,7 @@ export LC_NUMERIC=en_US.UTF-8
 export EDITOR=nvim
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\%\^\(\)\{\}\<\>}
 alias end='pkill -f '
-alias rmf='rm -rf '
+alias rmf='~/../usr/bin/rm -rf '
 alias rm='rmtrash -rf '
 alias chownm='chown -R $USER: '
 alias v='nvim -p'
@@ -18,6 +18,7 @@ hash -d m=/sdcard/Music
 hash -d r=/data/data/com.termux/files/usr
 
 functions fdm() {
+unset searchpattern files mode iteration
 for arg in $@; do 
   ((iteration++))
   case $arg in
@@ -43,14 +44,13 @@ searchpattern=$(echo $searchpattern | sed 's/^ //; s/ $//')
 files=$(fd -I -t f -e mp3 "${searchpattern}" /sdcard/Music/)
 case $mode in 
   ffmpeg) 
-    echo +$@+
-    echo +$searchpattern+
-    echo +$files+
-    ffmpeg -ss "$@" -i "${files}" "${files}.mp3"
-    mv "${files}.mp3" "${files}"
+    while read file; do
+    ffmpeg -ss "$@" -i "${file}" "${file}.mp3"
+    mv "${file}.mp3" "${file}"
+  done <<< $files
     ;;
-  delete) while read file; do rm -v $file; done <<< $files;;
+  # delete) while read file; do rm -v $file; done <<< $files;;
+  delete) rm -v $file;;
   *) echo $files;;
 esac
-unset searchpattern files mode iteration
 }

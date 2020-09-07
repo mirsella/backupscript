@@ -65,10 +65,13 @@ searchpattern=$(echo $searchpattern | sed 's/^ //; s/ $//')
 files=$(fd -I -t f -e mp3 "${searchpattern}" /run/media/mirsella/ssd/music/)
 case $mode in 
   ffmpeg) 
-    ffmpeg -ss "$@" -i "${files}" "${files}.mp3"
-    mv -v "${files}.mp3" "${files}"
+    while read file; do
+      ffmpeg -ss "$@" -i "${file}" "${file}.mp3"
+      mv "${file}.mp3" "${file}"
+    done <<< $files
     ;;
-  delete) while read file; do rmtrash -v $file; done <<< $files;;
+  # delete) while read file; do rm -v $file; done <<< $files;;
+  delete) rm -v $file;;
   *) echo $files;;
 esac
 unset searchpattern files mode iteration
