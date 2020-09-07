@@ -58,6 +58,7 @@ call plug#end()
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! -nargs=? CC :CocCommand
 command! -nargs=? V :vert sb
+command! FR :setlocal spell spelllang=fr
 map <Space> <Leader>
 map Y y$
 nnoremap ' `
@@ -291,4 +292,3 @@ let g:bracey_server_port = 8080
 set foldmethod=syntax
 set nofoldenable
 
-set spell spelllang=fr
