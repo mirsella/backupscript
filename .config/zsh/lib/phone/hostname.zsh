@@ -50,7 +50,7 @@ case $mode in
   done <<< $files
     ;;
   # delete) while read file; do rm -v $file; done <<< $files;;
-  delete) rm -v $file;;
+  delete) ~/../usr/bin/rm -v $file;;
   *) echo $files;;
 esac
 }

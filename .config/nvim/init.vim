@@ -1,5 +1,4 @@
 call plug#begin('~/.config/nvim/plugged')
-" Plug 'sickill/vim-monokai'
 Plug 'morhetz/gruvbox'
 Plug 'chr4/nginx.vim'
 Plug 'itchyny/vim-gitbranch'
@@ -27,7 +26,6 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-fugitive'
 Plug 'j5shi/CommandlineComplete.vim'
-" Plug 'turbio/bracey.vim' " don't work because of old css parser
 Plug 'Raimondi/delimitMate'
 Plug 'nicwest/vim-camelsnek'
 
@@ -55,6 +53,7 @@ call plug#end()
 command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! -nargs=? CC :CocCommand
 command! -nargs=? V :vert sb
+command! FR :setlocal spell spelllang=fr
 map <Space> <Leader>
 map Y y$
 nnoremap ' `
@@ -185,7 +184,6 @@ set isfname+={,}
 
 " themes
 colorscheme gruvbox
-" colorscheme monokai
 set background=dark
 highlight Normal guibg=NONE
 highlight LineNr guifg=#f796ef guibg=NONE
