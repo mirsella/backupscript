@@ -49,8 +49,7 @@ case $mode in
     mv "${file}.mp3" "${file}"
   done <<< $files
     ;;
-  # delete) while read file; do rm -v $file; done <<< $files;;
-  delete) ~/../usr/bin/rm -v $file;;
+  delete) while read file; do rmf -v $file; done <<< $files;;
   *) echo $files;;
 esac
 }

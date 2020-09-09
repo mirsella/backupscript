@@ -70,8 +70,7 @@ case $mode in
       mv "${file}.mp3" "${file}"
     done <<< $files
     ;;
-  # delete) while read file; do rm -v $file; done <<< $files;;
-  delete) rm -v $file;;
+  delete) while read file; do rm -v $file; done <<< $files;;
   *) echo $files;;
 esac
 unset searchpattern files mode iteration
