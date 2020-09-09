@@ -1,4 +1,3 @@
-source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
 source ~/.config/zsh/lib/completion.zsh
 source ~/.config/zsh/lib/keybinds.zsh
 source ~/.config/zsh/lib/spectrum.zsh
@@ -12,7 +11,17 @@ _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E 
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
 export VIMV_RM="rmtrash -rf"
-export FORGIT_GI_REPO_LOCAL="~/.cache/forgit/gi"
+export FORGIT_GI_REPO_LOCAL=~/.cache/forgit/gi
+export FORGIT_BAT_OPTION='-pp --color=always --theme="Monokai Extended Origin"'
+export forgit_log=gl
+export forgit_diff=gd
+export forgit_add=gad
+export forgit_reset_head=grh
+export forgit_ignore=gi
+export forgit_restore=gcf
+export forgit_clean=gclean
+export forgit_stash_show=gss
+export forgit_cherry_pick=gcp
 
 clip() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 clipp() { xclip -out -selection clipboard; }
@@ -50,8 +59,8 @@ gitreclonerepo() {
   git clone $remoteurl
 }
 
-bak() { s cp -r "${1}" "${1}.bak" }
-bakm() { s mv "${1}" "${1}.bak" }
+bak() { sudo -E cp -r "${1}" "${1}.bak" }
+bakm() { sudo -E mv "${1}" "${1}.bak" }
 alias psaux='ps aux | rg '
 alias NU='2> /dev/null ' #Silences stderr
 alias NUL='> /dev/null 2>&1 ' #Silences both stdout and stderr
@@ -73,8 +82,8 @@ alias gh='git checkout '
 alias ga='git add -A '
 alias gc="git commit "
 alias gp='git push '
-gm() { git commit -m "${@}" }
 alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
+gm() { git commit -m "${@}" }
 gamp() { git add -A; git commit -m "${@}"; git push }
 alias fd='fd -HIL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
@@ -82,3 +91,4 @@ alias watch='watch '
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
 
 source ~/.config/zsh/lib/$(hostname)/hostname.zsh
+source ~/.config/zsh/lib/forgit/forgit.plugin.zsh

@@ -142,8 +142,8 @@ forgit::clean() {
         $FORGIT_CLEAN_FZF_OPTS
     "
     # Note: Postfix '/' in directory path should be removed. Otherwise the directory itself will not be removed.
-    files=$(git clean -xdfn "$@"| sed 's/^Would remove //' | FZF_DEFAULT_OPTS="$opts" fzf |sed 's#/$##')
-    [[ -n "$files" ]] && echo "$files" | tr '\n' '\0' | xargs -0 -I% git clean -xdf '%' && git status --short && return
+    files=$(git clean -xdffn "$@"| sed 's/^Would remove //' | FZF_DEFAULT_OPTS="$opts" fzf |sed 's#/$##')
+    [[ -n "$files" ]] && echo "$files" | tr '\n' '\0' | xargs -0 -I% git clean -xdff '%' && git status --short && return
     echo 'Nothing to clean.'
 }
 
@@ -164,19 +164,20 @@ forgit::cherry::pick() {
 
 # git ignore generator
 export FORGIT_GI_REPO_REMOTE=${FORGIT_GI_REPO_REMOTE:-https://github.com/dvcs/gitignore}
-export FORGIT_GI_REPO_LOCAL=${FORGIT_GI_REPO_LOCAL:-~/.config/forgit/gi/repos/dvcs/gitignore}
+export FORGIT_GI_REPO_LOCAL=${FORGIT_GI_REPO_LOCAL:-~/.forgit/gi/repos/dvcs/gitignore}
 export FORGIT_GI_TEMPLATES=${FORGIT_GI_TEMPLATES:-$FORGIT_GI_REPO_LOCAL/templates}
+export FORGIT_BAT_OPTION=${FORGIT_BAT_OPTION:---color=always}
 
 forgit::ignore() {
     [ -d "$FORGIT_GI_REPO_LOCAL" ] || forgit::ignore::update
     local IFS cmd args cat opts
     # https://github.com/sharkdp/bat.git
-    hash bat &>/dev/null && cat='bat -pp --color=always -l gitignore --color=always' || cat="cat"
+    hash bat &>/dev/null && cat='bat -l gitignore '"${FORGIT_BAT_OPTION}" || cat="cat"
     cmd="$cat $FORGIT_GI_TEMPLATES/{2}{,.gitignore} 2>/dev/null"
     opts="
+        $FORGIT_FZF_DEFAULT_OPTS
         -m --preview-window='right:70%'
         $FORGIT_IGNORE_FZF_OPTS
-        $FORGIT_FZF_DEFAULT_OPTS
     "
     # shellcheck disable=SC2206,2207
     IFS=$'\n' args=($@) && [[ $# -eq 0 ]] && args=($(forgit::ignore::list | nl -nrn -w4 -s'  ' |
@@ -184,7 +185,7 @@ forgit::ignore() {
     [ ${#args[@]} -eq 0 ] && return 1
     # shellcheck disable=SC2068
     if hash bat &>/dev/null; then
-        forgit::ignore::get ${args[@]} | bat -pp --color=always -l gitignore
+        forgit::ignore::get ${args[@]} | bat -l gitignore "${FORGIT_BAT_OPTION}"
     else
         forgit::ignore::get ${args[@]}
     fi
@@ -216,25 +217,25 @@ forgit::ignore::clean() {
     [[ -d "$FORGIT_GI_REPO_LOCAL" ]] && rm -rf "$FORGIT_GI_REPO_LOCAL"
 }
 
-# FORGIT_FZF_DEFAULT_OPTS="
-# $FZF_DEFAULT_OPTS
-# --ansi
-# --height='80%'
-# --bind='alt-k:preview-up,alt-p:preview-up'
-# --bind='alt-j:preview-down,alt-n:preview-down'
-# --bind='ctrl-r:toggle-all'
-# --bind='ctrl-s:toggle-sort'
-# --bind='?:toggle-preview'
-# --bind='alt-w:toggle-preview-wrap'
-# --preview-window='right:60%'
-# +1
-# $FORGIT_FZF_DEFAULT_OPTS
-# "
+FORGIT_FZF_DEFAULT_OPTS="
+$FZF_DEFAULT_OPTS
+--ansi
+--height='80%'
+--bind='alt-k:preview-up,alt-p:preview-up'
+--bind='alt-j:preview-down,alt-n:preview-down'
+--bind='ctrl-r:toggle-all'
+--bind='ctrl-s:toggle-sort'
+--bind='?:toggle-preview'
+--bind='alt-w:toggle-preview-wrap'
+--preview-window='right:60%'
++1
+$FORGIT_FZF_DEFAULT_OPTS
+"
 
 # register aliases
 # shellcheck disable=SC2139
 if [[ -z "$FORGIT_NO_ALIASES" ]]; then
-    alias "${forgit_add:-gad}"='forgit::add'
+    alias "${forgit_add:-ga}"='forgit::add'
     alias "${forgit_reset_head:-grh}"='forgit::reset::head'
     alias "${forgit_log:-glo}"='forgit::log'
     alias "${forgit_diff:-gd}"='forgit::diff'

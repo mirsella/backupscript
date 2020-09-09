@@ -159,7 +159,7 @@ function forgit::checkout_file
     set files (git ls-files --modified "$git_rev_parse" | env FZF_DEFAULT_OPTS="$opts" fzf --preview="$cmd")
     if test -n "$files"
         for file in $files
-            echo $file | tr '\n' '\0' | xargs -I{} -0 git checkout -q {} 
+            echo $file | tr '\n' '\0' | xargs -I{} -0 git checkout -q {}
         end
         git status --short
         return
@@ -189,16 +189,36 @@ function forgit::clean
         $FORGIT_CLEAN_FZF_OPTS
     "
 
-    set files (git clean -xdfn $argv| awk '{print $3}'| env FZF_DEFAULT_OPTS="$opts" fzf |sed 's#/$##')
+    set files (git clean -xdffn $argv| awk '{print $3}'| env FZF_DEFAULT_OPTS="$opts" fzf |sed 's#/$##')
 
     if test -n "$files"
         for file in $files
-            echo $file | tr '\n' '\0'| xargs -0 -I{} git clean -xdf {} 
+            echo $file | tr '\n' '\0'| xargs -0 -I{} git clean -xdff {}
         end
         git status --short
         return
     end
     echo 'Nothing to clean.'
+end
+
+function forgit::cherry::pick
+    forgit::inside_work_tree || return 1
+    set base (git branch --show-current)
+    if not count $argv > /dev/null
+        echo "Please specify target branch"
+        return 1
+    end
+    set target $argv[1]
+    set preview "echo {1} | xargs -I% git show --color=always % | $forgit_show_pager"
+    set opts "
+        $FORGIT_FZF_DEFAULT_OPTS
+        -m -0
+    "
+    echo $base
+    echo $target
+    git cherry "$base" "$target" --abbrev -v | cut -d ' ' -f2- |
+        env FZF_DEFAULT_OPTS="$opts" fzf --preview="$preview" | cut -d' ' -f1 |
+        xargs -I% git cherry-pick %
 end
 
 # git ignore generator
@@ -214,13 +234,17 @@ if test -z "$FORGIT_GI_TEMPLATES"
     set -x FORGIT_GI_TEMPLATES $FORGIT_GI_REPO_LOCAL/templates
 end
 
+if test -z "FORGIT_BAT_OPTION"
+    set -x FORGIT_BAT_OPTION --color=always
+end
+
 function forgit::ignore
     if test -d "$FORGIT_GI_REPO_LOCAL"
         forgit::ignore::update
     end
 
     # https://github.com/sharkdp/bat.git
-    type -q bat > /dev/null 2>&1 && set cat 'bat -l gitignore --color=always' || set cat "cat"
+    type -q bat > /dev/null 2>&1 && set cat 'bat -l gitignore '"${FORGIT_BAT_OPTION}" || set cat "cat"
     set cmd "$cat $FORGIT_GI_TEMPLATES/{2}{,.gitignore} 2>/dev/null"
     set opts "
         $FORGIT_FZF_DEFAULT_OPTS
@@ -240,7 +264,7 @@ function forgit::ignore
      end
 
     if type -q bat > /dev/null 2>&1
-        forgit::ignore::get $args | bat -l gitignore
+        forgit::ignore::get $args | bat -l gitignore "${FORGIT_BAT_OPTION}" 
     else
         forgit::ignore::get $args
     end
@@ -341,5 +365,11 @@ if test -z "$FORGIT_NO_ALIASES"
         alias $forgit_stash_show 'forgit::stash::show'
     else
         alias gss 'forgit::stash::show'
+    end
+    
+    if test -n "$forgit_cherry_pick"
+        alias $forgit_cherry_pick 'forgit::cherry::pick'
+    else
+        alias gcp 'forgit::cherry::pick'
     end
 end
