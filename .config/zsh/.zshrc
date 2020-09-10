@@ -1,5 +1,4 @@
-source ~/.config/zsh/lib/completion.zsh
-source ~/.config/zsh/lib/keybinds.zsh
+source ~/.config/zsh/lib/completion.zsh source ~/.config/zsh/lib/keybinds.zsh
 source ~/.config/zsh/lib/spectrum.zsh
 source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
@@ -11,7 +10,6 @@ _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E 
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
 export VIMV_RM="rmtrash -rf"
-export FORGIT_GI_REPO_LOCAL=~/.cache/forgit/gi
 export FORGIT_BAT_OPTION='-pp --color=always --theme="Monokai Extended Origin"'
 export forgit_log=gl
 export forgit_diff=gd
