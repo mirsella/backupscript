@@ -1,4 +1,5 @@
-source ~/.config/zsh/lib/completion.zsh source ~/.config/zsh/lib/keybinds.zsh
+source ~/.config/zsh/lib/completion.zsh 
+source ~/.config/zsh/lib/keybinds.zsh
 source ~/.config/zsh/lib/spectrum.zsh
 source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
