@@ -10,7 +10,7 @@ _fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E 
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
 export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
 export VIMV_RM="rmtrash -rf"
-export FORGIT_BAT_OPTION='-pp --color=always --theme="Monokai Extended Origin"'
+export FORGIT_BAT_OPTS='-pp --color=always --theme="Monokai Extended Origin"'
 export forgit_log=gl
 export forgit_diff=gd
 export forgit_add=gad
