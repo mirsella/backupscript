@@ -12,8 +12,12 @@ Plug 'luochen1990/rainbow'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'tpope/vim-repeat'
+" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'machakann/vim-highlightedyank' | let g:highlightedyank_highlight_duration = 100
 Plug 'decayofmind/vim-lightline-functions'
+Plug 'mg979/vim-visual-multi'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'metakirby5/codi.vim'
 Plug 'alvan/vim-closetag'
@@ -35,6 +39,7 @@ Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/jsonc.vim'
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -64,8 +69,8 @@ nnoremap <leader>: :noh<cr>
 nnoremap <F1> :wa<cr>
 xnoremap <F1> :wa<cr>
 inoremap <F1> <esc>:wa<cr>a
-nnoremap <F2> :w<cr>
-xnoremap <F2> :w<cr>
+nnoremap <F2> :bw<cr>
+xnoremap <F2> :bw<cr>
 nnoremap <F3> :wa <bar> :bw<cr>
 xnoremap <F3> :wa <bar> :bw<cr>
 nnoremap <F4> :Filetypes<cr>
