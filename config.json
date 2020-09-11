@@ -7,6 +7,7 @@
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
+    "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,keebie,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
@@ -27,6 +28,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
+    "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
     "cp /boot/grub/custom.cfg boot/grub",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,autostart-scripts,wget,python,yakuakerc,dolphinrc,konsolerc,user-dirs.dirs} .config",
@@ -45,6 +47,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
+    "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh/",
     "cp -r /etc/{nginx,fstab} etc",
     "cp -r /hdd/www .",
@@ -64,6 +67,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
+    "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh/",
     "cp -r /etc/{nginx,fstab} etc",
     "cp -r /hdd/www .",
@@ -83,6 +87,7 @@
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
     "cp ../config.json .",
 
+    "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
