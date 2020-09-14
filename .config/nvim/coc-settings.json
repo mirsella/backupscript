@@ -1,4 +1,10 @@
 {
-  "eslint.quiet": true,
-  "eslint.options": {"configFile": "/home/mirsella/.config/nvim/.eslintrc"}
+  "eslint.options": {"configFile": "/home/mirsella/.config/nvim/.eslintrc"},
+  "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips/",
+  "typescript.showUnused": false,
+  "javascript.showUnused": false,
+  "typescript.suggest.enabled": false,
+  "javascript.suggest.enabled": false,
+  "typescript.suggestionActions.enabled": false,
+  "javascript.suggestionActions.enabled": false
 }

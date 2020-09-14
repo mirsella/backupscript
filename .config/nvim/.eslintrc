@@ -1,9 +1,37 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 11
+  "env": {
+    "es6": true,
+      "browser": true,
+      "node": true
   },
-
-    "env": {
-      "es6": true
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+        "binaryLiterals": true,
+        "blockBindings": true,
+        "classes": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": true,
+        "generators": true,
+        "modules": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": true,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "octalLiterals": true,
+        "regexUFlag": true,
+        "regexYFlag": true,
+        "spread": true,
+        "superInFunctions": true,
+        "templateStrings": true,
+        "unicodeCodePointEscapes": true,
+        "globalReturn": true,
+        "jsx": true
+    },
+    "rules": {
+      "no-unused-vars": 0, // disallow usage of expressions in statement position
     }
+  }
 }
