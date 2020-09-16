@@ -6,5 +6,6 @@
   "typescript.suggest.enabled": false,
   "javascript.suggest.enabled": false,
   "typescript.suggestionActions.enabled": false,
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "tailwindCSS.emmetCompletions": true
 }

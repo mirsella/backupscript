@@ -63,6 +63,9 @@ command! -nargs=? V :vert sb
 command! FR :setlocal spell spelllang=fr
 map <Space> <Leader>
 map Y y$
+nnoremap <M-F1> <nop>
+xnoremap <M-F1> <nop>
+inoremap <M-F1> <nop>
 nnoremap ' `
 nnoremap <leader>O :Files<Space>
 nnoremap <leader>o :Files ~/<CR>
