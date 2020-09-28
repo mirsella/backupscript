@@ -165,6 +165,7 @@ filetype indent on
 augroup formatoptions
   autocmd FileType * set formatoptions-=ro
 augroup END
+au BufNewFile,BufRead *.html set filetype=html " html file set itself to django, weird
 set nowrap
 set linebreak
 set ignorecase
