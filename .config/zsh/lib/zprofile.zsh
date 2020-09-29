@@ -41,6 +41,7 @@ else
       compinit -C -d "$zcd"
       { [[ ! -f "$zcdc" || "$zcd" -nt "$zcdc" ]] && rm -f "$zcdc" && zcompile "$zcd" } &!
 fi
+unsetopt extendedglob local_options
 
 
 # fzf-tab
