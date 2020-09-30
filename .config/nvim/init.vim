@@ -65,6 +65,7 @@ command! -nargs=? V :vert sb
 command! FR :setlocal spell spelllang=fr
 map <Space> <Leader>
 map Y y$
+inoremap ² <C-o>
 nnoremap <M-F1> <nop>
 xnoremap <M-F1> <nop>
 inoremap <M-F1> <nop>
