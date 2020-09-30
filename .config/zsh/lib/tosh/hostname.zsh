@@ -1,4 +1,5 @@
 alias chownm='s chown -R $USER: '
+alias removelock='sudo rm /var/lib/pacman/db.lck'
 alias end='sudo pkill -f '
 alias rmf='s /bin/rm -rf '
 alias rm='s rmtrash -rf '
