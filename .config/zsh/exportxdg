@@ -8,7 +8,6 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export gnome_user_dir="$XDG_CONFIG_HOME"/gnome/apps
 export GOPATH="$XDG_DATA_HOME"/go
 export KDEHOME="$XDG_CONFIG_HOME"/kde
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 unset GTK2_RC_FILES; export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc-2.0
 export WGETRC="$XDG_CONFIG_HOME"/wget/wgetrc
