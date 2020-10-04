@@ -85,7 +85,7 @@ alias gcd='git commit -m "gcd $(date)"'
 alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
 gm() { git commit -m "${@}" }
 gamp() { git add -A; git commit -m "${@}"; git push }
-alias fd='fd -HIL -E run -E media -E sys -E proc '
+alias fd='fd -HL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
