@@ -1,7 +1,7 @@
 let g:lightline = {
       \   'active': {
       \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
-      \     'right': [['lineinfo'], ['percent', 'lineCurrentOnTotal', 'colCurrentOnTotal'], ['fileformat', 'gitbranch', 'filetype']]
+      \     'right': [['percent', 'linecol'], ['fileformat', 'gitbranch', 'filetype']]
       \   },
       \   'inactive': {
       \     'left': [['mode', 'paste'], ['readonly', 'absolutepath', 'modified']],
@@ -24,6 +24,7 @@ let g:lightline = {
       \   'filetype': 'lightline#functions#filetype_devicons',
       \   'lineCurrentOnTotal': 'LineCurrentOnTotal',
       \   'colCurrentOnTotal': 'ColCurrentOnTotal',
+      \   'linecol': 'LineCol',
       \   'gitbranch': 'GitBranch',
       \ },
       \ }

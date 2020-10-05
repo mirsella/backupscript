@@ -217,10 +217,13 @@ source ~/.config/nvim/lightlinerc.vim
 set laststatus=2
 set noshowmode
 function! LineCurrentOnTotal()
-  return line('.').'/'.line('$')
+  return '↕'.line('.').'/'.line('$')
 endfunction
 function! ColCurrentOnTotal()
-  return col('.').'/'.col('$')
+  return '↔'.col('.').'/'.col('$')
+endfunction
+function! LineCol()
+  return '↕'.line('.').'/'.line('$').' : ↔'.col('.').'/'.col('$')
 endfunction
 function! GitBranch()
   if (gitbranch#name() != "")
