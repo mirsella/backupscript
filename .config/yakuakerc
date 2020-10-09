@@ -11,7 +11,7 @@ FocusFollowsMouse=true
 RememberFullscreen=true
 
 [Desktop Entry]
-DefaultProfile=
+DefaultProfile=Profile 11.profile
 
 [DownloadDialog Settings]
 Height 900=499

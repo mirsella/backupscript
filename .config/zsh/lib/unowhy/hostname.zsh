@@ -28,3 +28,4 @@ export TERMINAL=/usr/bin/konsole
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 
 ([[ -f ~/.gtkrc-2.0 ]] && /bin/rm -v ~/.gtkrc-2.0) &!
 hash -d u=/run/media/mirsella
+hash -d w=/run/media/mirsella/68EE6279EE623F84/Users/Eleve
