@@ -1,5 +1,5 @@
 [Desktop Entry]
-DefaultProfile=
+DefaultProfile=Profile 11.profile
 
 [Favorite Profiles]
 Favorites=Shell.profile
@@ -28,6 +28,9 @@ Window-Maximized 853x1067=true
 Window-Maximized 864x1536=true
 Window-Maximized 900x1600=true
 Window-Maximized 982x1745=true
+eDP1 Window-Maximized 864x1536=true
+eDP1 XPosition=0
+eDP1 YPosition=64
 
 [Notification Messages]
 CloseAllTabs=true
