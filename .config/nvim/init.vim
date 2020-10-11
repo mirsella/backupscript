@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'sophacles/vim-processing'
+Plug 'honza/vim-snippets'
 Plug 'posva/vim-vue'
 Plug 'morhetz/gruvbox'
 Plug 'chr4/nginx.vim'

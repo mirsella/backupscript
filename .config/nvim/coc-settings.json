@@ -1,6 +1,9 @@
 {
   "eslint.options": {"configFile": "/home/mirsella/.config/nvim/.eslintrc"},
-  "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips/",
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snippets/",
+  "snippets.extends": {
+    "javascript": ["vue"]
+  },
   "typescript.showUnused": false,
   "javascript.showUnused": false,
   "typescript.suggest.enabled": false,
