@@ -5,9 +5,9 @@ After=network.target
 [Service]
 Type=simple
 User=mirsella
-ExecStartPre=-mkdir ~/Documents/gdrive
-ExecStart=rclone mount gdrive: ~/Documents/gdrive
-ExecStop=/bin/fusermount -u ~/Documents/gdrive
+ExecStartPre=-mkdir /home/mirsella/Documents/gdrive
+ExecStart=rclone mount gdrive: /home/mirsella/Documents/gdrive
+ExecStop=/bin/fusermount -u /home/mirsella/Documents/gdrive
 Restart=always
 RestartSec=10
 
