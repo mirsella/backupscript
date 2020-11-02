@@ -1,0 +1,15 @@
+[Unit]
+Description=mount mirsella google drive with rclone 
+After=network.target
+
+[Service]
+Type=simple
+User=mirsella
+ExecStartPre=-mkdir ~/documents/gdrive
+ExecStart=rclone mount gdrive: ~/documents/gdrive
+ExecStop=/bin/fusermount -u ~/documents/gdrive
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
