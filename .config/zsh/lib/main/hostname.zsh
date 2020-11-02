@@ -1,3 +1,4 @@
+alias uefireboot='systemctl reboot --firmware-setup'
 alias yays='yay -S --noconfirm --needed '
 alias nvidiar='yay -R --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
 alias nvidias='yay -S --needed --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
@@ -30,7 +31,7 @@ export QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
 export TERMINAL=/usr/bin/konsole
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 
 ([[ -f ~/.gtkrc-2.0 ]] && /bin/rm -v ~/.gtkrc-2.0) &!
-hash -d d=/run/media/mirsella/ssd/documents/
+hash -d d=/run/media/mirsella/ssd/documents.git/
 hash -d m=/run/media/mirsella/ssd/music/
 hash -d s=/run/media/mirsella/ssd/
 hash -d u=/run/media/mirsella

@@ -291,9 +291,6 @@ cmap <c-n> <Plug>CmdlineCompleteForward
 let g:highlightedyank_highlight_duration = 200
 
 " caw.vim
-" map gf <Plug>(caw:zeropos:comment)
-" map gv <Plug>(caw:zeropos:uncomment)
-" map gc <Plug>(caw:zeropos:toggle)
 map gf <Plug>(caw:hatpos:comment)
-map gv <Plug>(caw:hatpos:uncomment)
-map gc <Plug>(caw:hatpos:toggle)
+map gr <Plug>(caw:hatpos:uncomment)
+map gt <Plug>(caw:hatpos:toggle)

@@ -1,4 +1,6 @@
 export PATH="$PATH:/data/data/com.termux/files/home/.local/share/gem/bin"
+bak() { cp -r "${1}" "${1}.bak" }
+bakm() { mv "${1}" "${1}.bak" }
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_MONETARY=en_US.UTF-8

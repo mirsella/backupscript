@@ -5,7 +5,6 @@ source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
 
-
 _fzf_compgen_path() { command fd -t f -HL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
 _fzf_compgen_dir() { command fd -t d -HL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
@@ -76,7 +75,7 @@ alias dut='du -cksh '
 alias gt='git stash '
 alias rg='rg --hidden -i'
 alias rge='rg --no-ignore --hidden -e '
-alias tree='ls -Ah --tree '
+alias tree='ls --tree '
 alias gb='git branch '
 alias gh='git checkout '
 alias ga='git add -A '
@@ -90,7 +89,11 @@ gamp() { git add -A; git commit -m "${@}"; git push }
 alias fd='fd -HL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
+alias update='yay -Syu --noconfirm; notif "yay finished"'
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
-
+notif() {
+  source ~/.config/token/telegram.token
+  curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(history -1)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
+}
 source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
