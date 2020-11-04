@@ -1,4 +1,3 @@
-alias uefireboot='systemctl reboot --firmware-setup'
 alias yays='yay -S --noconfirm --needed '
 alias nvidiar='yay -R --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
 alias nvidias='yay -S --needed --noconfirm cuda nvtop waifu2x-ncnn-vulkan'

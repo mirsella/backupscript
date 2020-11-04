@@ -90,6 +90,7 @@ alias fd='fd -HL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
 alias update='yay -Syu --noconfirm; notif "yay finished $?"'
+alias uefireboot='systemctl reboot --firmware-setup'
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
 notif() {
   source ~/.config/token/telegram.token
