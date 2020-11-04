@@ -89,7 +89,7 @@ gamp() { git add -A; git commit -m "${@}"; git push }
 alias fd='fd -HL -E run -E media -E sys -E proc '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
-alias update='yay -Syu --noconfirm; notif "yay finished"'
+alias update='yay -Syu --noconfirm; notif "yay finished $?"'
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
 notif() {
   source ~/.config/token/telegram.token
