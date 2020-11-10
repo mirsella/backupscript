@@ -96,5 +96,6 @@ notif() {
   source ~/.config/token/telegram.token
   curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(history -1)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
 }
+alias gclipp='git clone $(clipp)'
 source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
