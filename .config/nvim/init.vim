@@ -67,6 +67,7 @@ command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! -nargs=? CC :CocCommand
 command! -nargs=? V :vert sb
 command! FR :setlocal spell spelllang=fr
+nnoremap gc :r !curl -s $(xclip -out -selection clipboard)<cr>
 map <Space> <Leader>
 map Y y$
 nnoremap d" dt"
