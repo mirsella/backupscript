@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'sophacles/vim-processing'
+Plug 'plasticboy/vim-markdown'
 Plug 'honza/vim-snippets'
 Plug 'posva/vim-vue'
 Plug 'morhetz/gruvbox'
