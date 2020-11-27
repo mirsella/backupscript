@@ -5,21 +5,6 @@ source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
 
-_fzf_compgen_path() { command fd -t f -HL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-_fzf_compgen_dir() { command fd -t d -HL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
-export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
-export VIMV_RM="rmtrash -rf"
-export FORGIT_IGNORE_PAGER='bat -l gitignore -pp --color=always --theme="Monokai Extended Origin"'
-export forgit_log=gl
-export forgit_diff=gd
-export forgit_add=gad
-export forgit_reset_head=grh
-export forgit_ignore=gi
-export forgit_restore=gcf
-export forgit_clean=gclean
-export forgit_stash_show=gss
-export forgit_cherry_pick=gcp
 
 clip() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 clipp() { xclip -out -selection clipboard; }
@@ -96,5 +81,6 @@ notif() {
   curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(history -1)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
 }
 alias gclipp='git clone $(clipp)'
+alias msq='vlc /run/media/mirsella/ssd/music/msq &! disown'
 source ~/.config/zsh/lib/$(hostname)/hostname.zsh
 source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
