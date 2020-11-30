@@ -30,6 +30,7 @@ Window-Maximized 900x1600=true
 Window-Maximized 982x1745=true
 eDP1 Height 864=800
 eDP1 Width 1536=1536
+eDP1 Window-Maximized 864x1536=true
 eDP1 XPosition=0
 eDP1 YPosition=64
 
