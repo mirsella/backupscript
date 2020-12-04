@@ -36,6 +36,8 @@ Height 1080=622
 Height 900=451
 Width 1600=511
 Width 1920=598
+eDP1 Height 864=460
+eDP1 Width 1536=408
 
 [MainWindow]
 Height 1080=1008
@@ -60,7 +62,7 @@ eDP1 Height 864=800
 eDP1 Width 1536=1536
 eDP1 Window-Maximized 864x1536=true
 eDP1 XPosition=0
-eDP1 YPosition=0
+eDP1 YPosition=64
 
 [Notification Messages]
 ConfirmDelete=true
