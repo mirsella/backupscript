@@ -26,3 +26,10 @@ alias rga='rga --no-ignore --hidden -i '
 export LC_MONETARY=en_US.UTF-8
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 
 ([[ -f ~/.gtkrc-2.0 ]] && /bin/rm -v ~/.gtkrc-2.0) &!
+
+# switch backspace and capslock
+# setxkbmap -option caps:backspace
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keysym BackSpace = Caps_Lock"
+xmodmap -e "keysym Caps_Lock = BackSpace"
+xmodmap -e "add Lock = Caps_Lock"

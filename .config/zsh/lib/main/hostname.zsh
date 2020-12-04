@@ -1,3 +1,4 @@
+alias uefireboot='systemctl reboot --firmware-setup'
 alias yays='yay -S --noconfirm --needed '
 alias nvidiar='yay -R --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
 alias nvidias='yay -S --needed --noconfirm cuda nvtop waifu2x-ncnn-vulkan'
@@ -75,3 +76,10 @@ case $mode in
 esac
 unset searchpattern files mode iteration
 }
+
+# switch backspace and capslock
+# setxkbmap -option caps:backspace
+xmodmap -e "remove Lock = Caps_Lock"
+xmodmap -e "keysym BackSpace = Caps_Lock"
+xmodmap -e "keysym Caps_Lock = BackSpace"
+xmodmap -e "add Lock = Caps_Lock"

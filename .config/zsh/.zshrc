@@ -5,13 +5,6 @@ source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
 
-# switch backspace and capslock
-# setxkbmap -option caps:backspace
-xmodmap -e "remove Lock = Caps_Lock"
-xmodmap -e "keysym BackSpace = Caps_Lock"
-xmodmap -e "keysym Caps_Lock = BackSpace"
-xmodmap -e "add Lock = Caps_Lock"
-
 clip() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
 clipp() { xclip -out -selection clipboard; }
 untill() {
