@@ -73,7 +73,7 @@
     "cp -r /etc/{nginx,fstab} etc",
     "cp -r /hdd/www .",
     "cp /etc/systemd/system/{gitea,requestbin,updatefreedns,wssh,novnc}.service etc/systemd/system",
-    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python,.autostart-scripts} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python,autostart-scripts} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "rsync -a --exclude 'gnupg' /etc/{fstab,pacman.conf,pacman.d} etc",
