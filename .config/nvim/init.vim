@@ -79,7 +79,7 @@ xnoremap <M-F1> <nop>
 inoremap <M-F1> <nop>
 nnoremap ' `
 nnoremap <leader>O :Files<Space>
-nnoremap <leader>o :Files ~/<CR>
+nnoremap <leader>o :Files /home/mirsella<CR>
 nnoremap <leader>: :noh<cr>
 
 nnoremap <F1> :wa<cr>
