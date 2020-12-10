@@ -107,8 +107,8 @@
   ],
   "up": {
     "d": [
-      "[[ -d ~/.cache/dotfiles ]] || git clone -q git@github.com:mirsella/dotfiles ~/.cache/dotfiles",
-      "cd ~/.cache/dotfiles",
+      "# [[ -d ~/.cache/dotfiles.git ]] || git clone -q git@github.com:mirsella/dotfiles.git ~/.cache/dotfiles.git",
+      "cd ~/.config/backupscript/dotfiles.git",
       "git checkout -q ${branch:-main} || exit 1",
       "git pull --all",
       "cp -r .config/{zsh,nvim,.gitignore,autostart-scripts} ~/.config",
