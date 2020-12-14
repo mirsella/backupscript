@@ -1,3 +1,4 @@
+alias s=''
 export PATH="$PATH:/data/data/com.termux/files/home/.local/share/gem/bin"
 bak() { cp -r "${1}" "${1}.bak" }
 bakm() { mv "${1}" "${1}.bak" }

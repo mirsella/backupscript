@@ -19,7 +19,13 @@ _zsh_system_clipboard_set=(xclip -sel $clipboard_selection -in)
 _zsh_system_clipboard_get=(xclip -sel $clipboard_selection -out)
 
 export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
-export FZF_DEFAULT_OPTS='--ansi --preview="bat -pp --color=always {}" '
+export FZF_DEFAULT_OPTS='--ansi --height=100 --preview="
+if [ -d {} ]; then
+  lsd -Ah {}
+else 
+  bat -pp --color=always --theme=\"Monokai Extended Origin\" {}
+fi
+"'
 export VIMV_RM="rmtrash -rf"
 export FORGIT_IGNORE_PAGER='bat -l gitignore -pp --color=always --theme="Monokai Extended Origin"'
 export forgit_log=gl
@@ -73,23 +79,17 @@ unsetopt extendedglob local_options
 
 # fzf-tab
 disable-fzf-tab
+zstyle ':fzf-tab:*' fzf-bindings 'tab:toggle'
 bindkey '²' toggle-fzf-tab
 zstyle ':fzf-tab:*' continuous-trigger '/'
-zstyle ':fzf-tab:*' single-group ''
-zstyle ':fzf-tab:*' insert-space true
-zstyle ':fzf-tab:complete:cd:*' extra-opts --preview="bat -pp --color=always {}"
-FZF_TAB_COMMAND=(
-    fzf
-    --ansi   # Enable ANSI color support, necessary for showing groups
-    --expect='$continuous_trigger' # For continuous completion
-    '--color=hl:$(( $#headers == 0 ? 108 : 255 ))'
-    --nth=2,3 --delimiter='\x00'  # Don't search prefix
-    --layout=reverse --height='${FZF_TMUX_HEIGHT:=75%}'
-    --tiebreak=begin -m --bind=change:top,tab:toggle --cycle
-    '--query=$query'   # $query will be expanded to query string at runtime.
-    '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-)
-zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+zstyle ":fzf-tab:*" fzf-flags '--preview-window=right:100:wrap' '--height=100' '--ansi'
+zstyle ':fzf-tab:complete:*' fzf-preview '
+if [ -d $realpath ]; then
+ lsd -Ah $realpath
+else 
+  bat -pp --color=always --theme="Monokai Extended Origin" $realpath
+fi
+'
 
 # zsh auto notify
 export AUTO_NOTIFY_THRESHOLD=10
