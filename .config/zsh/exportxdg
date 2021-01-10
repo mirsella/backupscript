@@ -31,3 +31,6 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export NPM_CONFIG_STORE_DIR="$XDG_CACHE_HOME"
+export ANDROID_SDK_ROOT=~/snap/androidsdk/current/AndroidSDK/
+
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"

@@ -4,14 +4,15 @@ Plug 'plasticboy/vim-markdown'
 Plug 'honza/vim-snippets'
 Plug 'posva/vim-vue'
 Plug 'morhetz/gruvbox'
+Plug 'luochen1990/rainbow'
 Plug 'chr4/nginx.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'easymotion/vim-easymotion'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'markonm/traces.vim'
-" Plug 'mirsella/nerdcommenter'
+" Plug 'mirsella/nerdcommenter' " fork support for custom nerd-leaderkey (default = c )
 " Plug 'tpope/vim-commentary'
-Plug 'tyru/caw.vim'
+Plug 'tyru/caw.vim' " only one who work with vue
 Plug 'suy/vim-context-commentstring'
 Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
@@ -36,11 +37,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'nicwest/vim-camelsnek'
-Plug 'sheerun/vim-polyglot'
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim'
+" Plug 'sheerun/vim-polyglot' " install vim-javascript which break rainbow parentheses
+Plug 'jelera/vim-javascript-syntax'
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
@@ -73,10 +76,9 @@ map <Space> <Leader>
 map Y y$
 nnoremap d" dt"
 nnoremap d' dt'
-inoremap ² <C-o>
-nnoremap <M-F1> <nop>
-xnoremap <M-F1> <nop>
-inoremap <M-F1> <nop>
+" nnoremap <M-F1> <nop>
+" xnoremap <M-F1> <nop>
+" inoremap <M-F1> <nop>
 nnoremap ' `
 nnoremap <leader>O :Files<Space>
 nnoremap <leader>o :Files /home/mirsella<CR>
@@ -169,7 +171,7 @@ inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 filetype plugin on
 filetype indent on
-" set nocompatible
+set nocompatible
 " set formatoptions-=ro
 augroup formatoptions
   autocmd FileType * set formatoptions-=ro
@@ -207,13 +209,14 @@ set number relativenumber
 
 " themes
 colorscheme gruvbox
-set background=dark
 highlight Normal guibg=NONE
-highlight LineNr guifg=#f796ef guibg=NONE
-highlight CursorLineNr guifg=#f796ef guibg=NONE
+highlight LineNr guifg=#7b6e63 guibg=NONE
+highlight CursorLineNr guifg=#f7bd2f guibg=NONE
+" pink ↓
+" highlight LineNr guifg=#f796ef guibg=NONE
+" highlight CursorLineNr guifg=#f796ef guibg=NONE
 
 " less mess
-" set runtimepath+=~/.config/vim
 set undofile undodir=~/.cache/nvim/undo
 set viminfo+=n~/.cache/nvim/viminfo
 let g:netrw_dirhistmax = 0
@@ -255,9 +258,6 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 let g:NERDLeaderKey = 'v'
 
-" raimbow parentheses
-let g:rainbow_active = 1
-
 " codi
 let g:codi#autoclose = 1
 
@@ -296,3 +296,19 @@ let g:highlightedyank_highlight_duration = 200
 map gr <Plug>(caw:hatpos:comment)
 map gt <Plug>(caw:hatpos:uncomment)
 " map gt <Plug>(caw:hatpos:toggle)
+
+" fold settings
+set foldmethod=syntax
+" set nofoldenable
+set foldlevel=99
+let javaScript_fold=1         " JavaScript
+let perl_fold=1               " Perl
+let php_folding=1             " PHP
+let r_syntax_folding=1        " R
+let ruby_fold=1               " Ruby
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
+
+" RainbowParentheses
+let g:rainbow_active = 1

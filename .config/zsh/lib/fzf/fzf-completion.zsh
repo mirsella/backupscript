@@ -13,6 +13,7 @@
 # __fzf_completion_options such that `eval $__fzf_completion_options` sets
 # all options to the same values they currently have. We'll do just that at
 # the bottom of the file after changing options to what we prefer.
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #
 # IMPORTANT: Until we get to the `emulate` line, all words that *can* be quoted
 # *must* be quoted in order to prevent alias expansion. In addition, code must

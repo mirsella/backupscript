@@ -13,6 +13,10 @@ untill() {
   done
   eval "$2 "
 }
+notif() {
+  source ~/.config/token/telegram.token
+  curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(read a; echo $a)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
+}
 
 gitclearcommit() {
   branch=$(git branch | grep '\*' | sed 's/\* //')
@@ -41,8 +45,8 @@ gitreclonerepo() {
   git clone $remoteurl
 }
 
-bak() { s cp -r "${1}" "${1}.bak" }
-bakm() { s mv "${1}" "${1}.bak" }
+bak() { sudo -E cp -r "${1}" "${1}.bak" }
+bakm() { sudo -E mv "${1}" "${1}.bak" }
 alias psaux='ps aux | rg '
 alias NU='2> /dev/null ' #Silences stderr
 alias NUL='> /dev/null 2>&1 ' #Silences both stdout and stderr
@@ -57,8 +61,7 @@ alias bat='bat -pp --color=always --theme="Monokai Extended Origin" '
 alias q='exit '
 alias dut='du -cksh '
 alias gt='git stash '
-alias rg='rg --hidden -i'
-alias rge='rg --no-ignore --hidden -e '
+alias rg='rg --hidden -S '
 alias tree='ls --tree '
 alias gb='git branch '
 alias gh='git checkout '
@@ -70,15 +73,12 @@ alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
 gm() { git commit -m "${@}" }
 gamp() { git add -A; git commit -m "${@}"; git push }
 alias fd='fd -HL -E run -E media -E sys -E proc '
+alias fda='fd -I '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
 alias update='yay -Syu --noconfirm; notif "yay finished $?"'
 alias uefireboot='systemctl reboot --firmware-setup'
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
-notif() {
-  source ~/.config/token/telegram.token
-  curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(history -1)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
-}
 alias p='pnpm'
 alias gclipp='git clone $(clipp)'
 alias msq='vlc /run/media/mirsella/ssd/music/msq &! disown'

@@ -1,6 +1,6 @@
 source $ZDOTDIR/lib/$(hostname)/plugins.zsh
-export HISTSIZE=100000
-export SAVEHIST=100000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
 export HISTFILE=~/.cache/history
 export HISTCONTROL=ignoreboth
 export PROMPT="%B%F{219}[%n@%M %~]%(!.%F{196}#%f.$) %f%b"
@@ -12,13 +12,10 @@ export ENABLE_CORRECTION=true
 export MENU_COMPLETE=true
 
 
-_fzf_compgen_path() { command fd -t f -HL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-_fzf_compgen_dir() { command fd -t d -HL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
-
-_zsh_system_clipboard_set=(xclip -sel $clipboard_selection -in)
-_zsh_system_clipboard_get=(xclip -sel $clipboard_selection -out)
-
-export FZF_DEFAULT_COMMAND='fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
+_fzf_compgen_path() { command fd -t f -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
+_fzf_compgen_dir() { command fd -t d -HIL --color=always -E .cache -E .local -E .git -E run -E media -E coc -E plugged . $1 }
+export FZF_DEFAULT_COMMAND='fd -t f -HLI --color=always -E .cache -E .local -E .git -E run -E media -E sys -E proc -E coc -E plugged '
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS='--ansi --height=100 --preview="
 if [ -d {} ]; then
   lsd -Ah {}
@@ -26,6 +23,8 @@ else
   bat -pp --color=always --theme=\"Monokai Extended Origin\" {}
 fi
 "'
+export FZF_CTRL_T_OPTS="$FZF_DEFAULT_OPTS"
+
 export VIMV_RM="rmtrash -rf"
 export FORGIT_IGNORE_PAGER='bat -l gitignore -pp --color=always --theme="Monokai Extended Origin"'
 export forgit_log=gl
@@ -91,6 +90,10 @@ else
 fi
 '
 
+# force clipboad to xclip for the system clipboard plugin
+_zsh_system_clipboard_set=(xclip -sel $clipboard_selection -in)
+_zsh_system_clipboard_get=(xclip -sel $clipboard_selection -out)
+
 # zsh auto notify
 export AUTO_NOTIFY_THRESHOLD=10
 export AUTO_NOTIFY_TITLE="%command"
@@ -124,5 +127,5 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=194
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]=$ZSH_HIGHLIGHT_STYLES[error]
 ZSH_HIGHLIGHT_STYLES[redirection]=fg=201,bold
 ZSH_HIGHLIGHT_STYLES[assign]=fg=213,bold
-# ZSH_HIGHLIGHT_STYLES[comment]='fg=213,bold'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=240'
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/
