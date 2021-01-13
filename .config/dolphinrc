@@ -10,7 +10,7 @@ DefaultProfile=Profile 11.profile
 
 [DetailsMode]
 FontWeight=50
-PreviewSize=32
+PreviewSize=224
 
 [Favorite Profiles]
 Favorites=

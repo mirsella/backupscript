@@ -1,2 +1,2 @@
 #!/bin/sh
-xmodmap ~/.config/zsh/lib/xmodmap
+xmodmap ~/.config/zsh/lib/swapbackcap

@@ -77,3 +77,10 @@ esac
 unset searchpattern files mode iteration
 }
 
+function colemak {
+  xmodmap ~/.config/zsh/lib/colemak-dhm.xmodmap
+}
+function fr {
+  setxkbmap fr
+  xmodmap ~/.config/zsh/lib/swapbackcap
+}

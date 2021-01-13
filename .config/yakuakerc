@@ -24,7 +24,7 @@ Favorites=
 options_configure=Ctrl+Shift+M
 
 [Window]
-Height=42
+Height=41
 KeepOpen=true
 ShowSystrayIcon=false
 Width=100
