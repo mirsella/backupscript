@@ -1,0 +1,5 @@
+! swap capslock and backspace
+remove Lock = Caps_Lock
+keysym BackSpace = Caps_Lock
+keysym Caps_Lock = BackSpace
+add Lock = Caps_Lock
