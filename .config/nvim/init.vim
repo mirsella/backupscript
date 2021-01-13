@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'udalov/kotlin-vim'
 Plug 'sophacles/vim-processing'
 Plug 'plasticboy/vim-markdown'
 Plug 'honza/vim-snippets'
