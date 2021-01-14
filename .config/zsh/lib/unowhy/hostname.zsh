@@ -32,10 +32,8 @@ hash -d w=/run/media/mirsella/68EE6279EE623F84/Users/Eleve
 
 function colemak {
   xmodmap ~/.config/zsh/lib/colemak-dhm.xmodmap
-  xset -r 66
 }
 function fr {
   setxkbmap fr
   xmodmap ~/.config/zsh/lib/swapbackcap
-  xset -r 66
 }
