@@ -5,7 +5,7 @@ source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
 
-clip() { xclip -in -selection clipboard < "${1:-/dev/stdin}"; }
+clip() { xclip -in -selection clipboard < "${@:-/dev/stdin}"; }
 clipp() { xclip -out -selection clipboard; }
 untill() {
   until eval "$1"; do

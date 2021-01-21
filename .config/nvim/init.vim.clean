@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'vim-scripts/savevers.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'sophacles/vim-processing'
 Plug 'plasticboy/vim-markdown'
@@ -75,7 +76,6 @@ command! FR :setlocal spell spelllang=fr
 nnoremap gc :r !curl -s $(xclip -out -selection clipboard)<cr>
 map <Space> <Leader>
 map Y y$
-nnoremap U :echo " < < ===== C H E C K   C A P S   L O C K ===== > > "<CR>
 nnoremap d" dt"
 nnoremap d' dt'
 " nnoremap <M-F1> <nop>
@@ -220,8 +220,9 @@ highlight CursorLineNr guifg=#f7bd2f guibg=NONE
 
 " less mess
 set backup backupdir=~/.cache/nvim/backup
-set dir=~/.cache/nvim/swap
+set patchmode=.clean
 set undofile undodir=~/.cache/nvim/undo
+set viminfo+=n~/.cache/nvim/viminfo
 let g:netrw_dirhistmax = 0
 
 " lightline
