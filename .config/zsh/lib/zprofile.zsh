@@ -99,7 +99,7 @@ export AUTO_NOTIFY_THRESHOLD=10
 export AUTO_NOTIFY_TITLE="%command"
 export AUTO_NOTIFY_BODY="%elapsed sec\n%exit_code"
 export AUTO_NOTIFY_EXPIRE_TIME=4000
-export AUTO_NOTIFY_IGNORE=("docker" "man")
+export AUTO_NOTIFY_IGNORE=("docker" "man" "ssh" "v" "nvim" "s nvim" "sudo -E nvim")
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20

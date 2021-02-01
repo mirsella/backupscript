@@ -15,7 +15,7 @@ untill() {
 }
 notif() {
   source ~/.config/token/telegram.token
-  curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(read a; echo $a)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
+  curl -s -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(read a; echo $a)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
 }
 
 gitclearcommit() {
@@ -69,11 +69,10 @@ alias ga='git add -A '
 alias gc='git commit '
 alias gp='git push '
 alias gcd='git commit -m "gcd $(date)"'
-alias gacp='git add -A; git commit -m "gacp $(date)"; git push '
 gm() { git commit -m "${@}" }
-gamp() { git add -A; git commit -m "${@}"; git push }
+gamp() { git add -A; git commit -m "${@:-$(date)}"; git push }
 alias fd='fd -HL -E run -E media -E sys -E proc '
-alias fda='fd -I '
+alias fda='fd -IHL '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
 alias update='yay -Syu --noconfirm; notif "yay finished $?"'
