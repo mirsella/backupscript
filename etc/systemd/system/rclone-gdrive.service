@@ -9,7 +9,7 @@ ExecStartPre=-mkdir /home/mirsella/Documents/gdrive
 ExecStart=rclone mount gdrive: /home/mirsella/Documents/gdrive
 ExecStop=/bin/fusermount -u /home/mirsella/Documents/gdrive
 Restart=always
-RestartSec=10
+RestartSec=30
 
 [Install]
 WantedBy=default.target
