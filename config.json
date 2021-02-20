@@ -3,6 +3,7 @@
     "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout main || exit",
+    "git pull",
     "rm -rf .config etc boot .ssh config.json",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -23,6 +24,7 @@
     "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout unowhy || exit",
+    "git pull",
     "rm -rf config.json .config etc boot .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -42,6 +44,7 @@
     "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout rpi || exit",
+    "git pull",
     "rm -rf config.json www etc/ssh .config .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -61,6 +64,7 @@
     "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout tosh || exit",
+    "git pull",
     "rm -rf config.json www etc/ssh .config .ssh",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -81,6 +85,7 @@
     "[[ $(hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout phone || exit",
+    "git pull",
     "rm -rf config.json .config etc .ssh .shortcuts .termux",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
