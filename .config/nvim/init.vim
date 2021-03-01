@@ -11,6 +11,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'easymotion/vim-easymotion'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'markonm/traces.vim'
+Plug 'chaoren/vim-wordmotion'
 " Plug 'mirsella/nerdcommenter' " fork support for custom nerd-leaderkey (default = c )
 " Plug 'tpope/vim-commentary'
 Plug 'tyru/caw.vim' " only one who work with vue
@@ -43,6 +44,7 @@ Plug 'Shougo/deoplete.nvim'
 " Plug 'sheerun/vim-polyglot' " install vim-javascript which break rainbow parentheses
 Plug 'jelera/vim-javascript-syntax'
 
+Plug 'anott03/nvim-lspinstall'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
@@ -116,6 +118,8 @@ map <Leader>w <Plug>(easymotion-bd-w)
 
 nnoremap <C-j> 5jzz
 nnoremap <C-k> 5kzz
+xnoremap <C-j> 5jzz
+xnoremap <C-k> 5kzz
 nnoremap <C-l> :bnext<CR>
 inoremap <C-l> <esc>:bnext<CR>
 nnoremap <C-h> :bprev<CR>

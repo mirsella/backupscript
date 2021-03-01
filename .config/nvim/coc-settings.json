@@ -11,5 +11,8 @@
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
   "tailwindCSS.emmetCompletions": true,
-  "java.home": "/usr/lib/jvm/java-11-openjdk"
+  "java.home": "/usr/lib/jvm/java-11-openjdk",
+  "vetur.ignoreProjectWarning": true,
+  "coc.source.around.firstMatch": false,
+  "coc.source.buffer.firstMatch": false
 }
