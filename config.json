@@ -99,39 +99,45 @@
     "bcommit",
     "git push ${push:-} origin phone"
   ],
-  "s": [
+  "df": [
+    "# [[ -d ~/.cache/dotfiles.git ]] || git clone -q git@github.com:mirsella/dotfiles.git ~/.cache/dotfiles.git",
+    "cd ~/.config/backupscript/dotfiles.git",
+    "git checkout -q ${branch:-main} || exit 1",
+    "git fetch; git reset --hard FETCH_HEAD",
+    "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
+    "cp -f .ssh/config ~/.ssh",
+    "hostname=$(hostname); b ${hostname:0:1}"
+  ],
+  "dp": [
+    "cd ~/.config/backupscript/dotfiles.git",
+    "git checkout -q ${branch:-main} || exit 1",
+    "git pull",
+    "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
+    "cp -f .ssh/config ~/.ssh",
+    "hostname=$(hostname); b ${hostname:0:1}"
+  ],
+  "script": [
     "cd ~/.config/backupscript",
     "git add -A",
     "bcommit",
     "git push ${push:-}"
   ],
-  "up": {
-    "d": [
-      "# [[ -d ~/.cache/dotfiles.git ]] || git clone -q git@github.com:mirsella/dotfiles.git ~/.cache/dotfiles.git",
-      "cd ~/.config/backupscript/dotfiles.git",
-      "git checkout -q ${branch:-main} || exit 1",
-      "git fetch; reset --hard FETCH_HEAD",
-      "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
-      "cp -f .ssh/config ~/.ssh",
-      "hostname=$(hostname); b ${hostname:0:1}"
-    ],
-    "s": [
-      "cd ~/.config/backupscript || exit",
-      "cp config.json config.json.bak",
-      "git fetch",
-      "git reset --hard FETCH_HEAD"
-    ],
-    "clearcommit": [
-      "cd ~/.config/backupscript/dotfiles.git || exit",
-      "git checkout -q ${branch:-$(hostname)} || exit",
-      "git checkout --orphan ${branch:-$(hostname)}cleared",
-      "git add -A",
-      "bcommit 'cleared commit history'",
-      "git branch -D ${branch:-$(hostname)}",
-      "git branch -M ${branch:-$(hostname)}cleared $(hostname)",
-      "git push ${push:-} -f origin ${branch:-$(hostname)}"
-    ]
-  },
+  "upscript": [
+    "cd ~/.config/backupscript || exit",
+    "cp config.json config.json.bak",
+    "git fetch",
+    "git reset --hard FETCH_HEAD"
+  ],
+  "clearcommit": [
+    "cd ~/.config/backupscript/dotfiles.git || exit",
+    "git checkout -q ${branch:-$(hostname)} || exit",
+    "git checkout --orphan ${branch:-$(hostname)}cleared",
+    "git add -A",
+    "bcommit 'cleared commit history'",
+    "git branch -D ${branch:-$(hostname)}",
+    "git branch -M ${branch:-$(hostname)}cleared $(hostname)",
+    "git push ${push:-} -f origin ${branch:-$(hostname)}"
+  ],
   "install": {
     "script": [
       "rm -rf ~/.config/backupscript",
