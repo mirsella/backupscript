@@ -1,9 +1,10 @@
 ##
-## Manjaro Linux default mirrorlist
-## Generated on 2021-03-01 21:33
+## Manjaro Linux custom mirrorlist
+## Generated on 2021-03-04 14:48
 ##
-## Please use 'pacman-mirrors -f [NUMBER] [NUMBER]' to modify mirrorlist
-## (Use 0 for all mirrors)
+## Please use 'pacman-mirrors -id' To reset custom mirrorlist
+## Please use 'pacman-mirrors -c all' To reset custom mirrorlist
+## To remove custom config run  'pacman-mirrors -c all'
 ##
 
 ## Country : France
