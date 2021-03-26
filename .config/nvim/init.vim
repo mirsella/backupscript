@@ -8,13 +8,13 @@ Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
 Plug 'chr4/nginx.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion' " replaced by ↙
+Plug 'phaazon/hop.nvim'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'markonm/traces.vim'
 Plug 'chaoren/vim-wordmotion'
 " Plug 'mirsella/nerdcommenter' " fork support for custom nerd-leaderkey (default = c )
-" Plug 'tpope/vim-commentary'
-Plug 'tyru/caw.vim' " only one who work with vue
+Plug 'tyru/caw.vim' " only one who work with vue and ↙
 Plug 'suy/vim-context-commentstring'
 Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
@@ -44,7 +44,10 @@ Plug 'Shougo/deoplete.nvim'
 " Plug 'sheerun/vim-polyglot' " install vim-javascript which break rainbow parentheses
 Plug 'jelera/vim-javascript-syntax'
 
-Plug 'anott03/nvim-lspinstall'
+Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
+" Plug 'anott03/nvim-lspinstall'
+
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
@@ -63,7 +66,6 @@ Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-styled-components', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
@@ -110,11 +112,18 @@ xnoremap <F7> :set wrap<cr>
 nnoremap <F8> :set nowrap<cr>
 xnoremap <F8> :set nowrap<cr>
 
-map <Space><Space> <Plug>(easymotion-prefix)
-map <Leader>f <Plug>(easymotion-bd-f)
-nmap <leader>g <Plug>(easymotion-overwin-f2)
-map <Leader>l <Plug>(easymotion-bd-jk)
-map <Leader>w <Plug>(easymotion-bd-w)
+
+" nmap <Space><Space> <Plug>(easymotion-prefix)
+" nmap <Leader>f <Plug>(easymotion-bd-f)
+" nmap <leader>g <Plug>(easymotion-overwin-f2)
+" nmap <Leader>l <Plug>(easymotion-bd-jk)
+" nmap <Leader>w <Plug>(easymotion-bd-w)
+
+nmap <leader>/ :HopPattern<cr>
+nmap <Leader>f :HopChar1<cr>
+nmap <leader>g :HopChar2<cr>
+nmap <Leader>l :HopLine<cr>
+nmap <Leader>w :HopWord<cr>
 
 nnoremap <C-j> 5jzz
 nnoremap <C-k> 5kzz
