@@ -34,4 +34,3 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export NPM_CONFIG_STORE_DIR="$XDG_CACHE_HOME"
 export ANDROID_SDK_ROOT=~/.config/androidsdk
 
-alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"

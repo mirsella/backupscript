@@ -78,6 +78,7 @@ alias update='yay -Syu --noconfirm; notif "yay finished $?"'
 alias uefireboot='systemctl reboot --firmware-setup'
 ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
 alias p='pnpm'
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias gclipp='git clone $(clipp)'
 alias msq='vlc /run/media/mirsella/ssd/music/msq &! disown'
 source ~/.config/zsh/lib/$(hostname)/hostname.zsh
