@@ -7,4 +7,4 @@
 # <file system>             <mount point>  <type>  <options>  <dump>  <pass>
 UUID=6910-D010                            /boot/efi      vfat    umask=0077 0 2
 UUID=c30fe894-ea29-4f7c-baec-99a8874a0283 /              ext4    defaults,noatime 0 1
-# UUID=51c053bb-3c72-4054-a5ec-efd0b92dfed4 none swap defaults,nofail,nobootwait 0 0
+/swapfile none swap defaults 0 0
