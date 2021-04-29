@@ -26,7 +26,7 @@ export LC_MEASUREMENT=en_US.UTF-8
 export LC_MONETARY=en_US.UTF-8
 export LC_NUMERIC=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
-export PATH="$PATH:/run/media/mirsella/ssd/dev/bin"
+export PATH="$PATH:/run/media/mirsella/ssd/dev/bin:/home/mirsella/.local/share/gem/bin"
 export QT_LINUX_ACCESSIBILITY_ALWAYS_ON=1
 export TERMINAL=/usr/bin/konsole
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 

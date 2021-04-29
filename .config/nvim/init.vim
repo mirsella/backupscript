@@ -43,6 +43,8 @@ Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim'
 " Plug 'sheerun/vim-polyglot' " install vim-javascript which break rainbow parentheses
 Plug 'jelera/vim-javascript-syntax'
+Plug 'junegunn/vim-slash'
+Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
@@ -68,7 +70,8 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-styled-components', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/jsonc.vim'
 call plug#end()
 
