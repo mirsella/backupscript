@@ -1,5 +1,6 @@
 alias chownm='s chown -R $USER: '
 alias yays='yay -S --noconfirm --needed '
+alias parus='paru -S --noconfirm --needed '
 alias end='s pkill -f '
 alias removelock='s rm /var/lib/pacman/db.lck'
 alias rga='rga --no-ignore --hidden -S '
