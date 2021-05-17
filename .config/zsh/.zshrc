@@ -71,7 +71,7 @@ alias gcd='git commit -m "gcd $(date)"'
 gm() { git commit -m "${@}" }
 gamp() { git add -A; git commit -m "${@:-$(date)}"; git push }
 alias fd='fd -HL -E run -E media -E sys -E proc '
-alias fda='fd -IHL '
+alias fda='fd -I '
 alias trapp='trap "exit" SIGINT '
 alias watch='watch '
 alias yayupdate='yay -Syu --noconfirm; notif "yay finished $?"'
