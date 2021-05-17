@@ -1,5 +1,5 @@
 alias s=''
-export PATH="$PATH:/data/data/com.termux/files/home/.local/share/gem/bin"
+export PATH="$PATH:/data/data/com.termux/files/home/.local/share/gem/ruby/3.0.0/bin"
 bak() { cp -r "${1}" "${1}.bak" }
 bakm() { mv "${1}" "${1}.bak" }
 export LANG=en_US.UTF-8

@@ -18,7 +18,7 @@ export EDITOR=/usr/bin/nvim
 # export LC_MONETARY=en_US.UTF-8
 # export LC_NUMERIC=en_US.UTF-8
 # export LC_TIME=en_US.UTF-8
-export PATH="$PATH:/home/mirsella/.local/bin:/hdd/dev/bin"
+export PATH="$PATH:/home/mirsella/.local/bin:/hdd/dev/bin:/home/mirsella/.local/share/gem/ruby/3.0.0/bin"
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 
 hash -d s=/hdd
 alias yays='yay -S --noconfirm --needed '
