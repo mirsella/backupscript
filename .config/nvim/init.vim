@@ -9,7 +9,6 @@ Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
 Plug 'chr4/nginx.vim'
 Plug 'itchyny/vim-gitbranch'
-" Plug 'easymotion/vim-easymotion' " replaced by ↙
 Plug 'phaazon/hop.nvim'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'markonm/traces.vim'
@@ -200,7 +199,7 @@ augroup END
 au BufNewFile,BufRead *.html set filetype=html " html file set itself to django, weird
 set nowrap
 set linebreak
-set ignorecase
+set ignorecase " use \C in regex to search case sensitive
 set noerrorbells
 set hidden
 set expandtab
