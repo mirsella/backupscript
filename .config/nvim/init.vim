@@ -80,6 +80,7 @@ command! -nargs=? CC :CocCommand
 command! -nargs=+ Zoom :set guifont=monospace:h<args>
 command! -nargs=? V :vert sb
 command! FR :setlocal spell spelllang=fr
+command! Cdfile :lcd %:p:h
 nnoremap gc :r !curl -s $(xclip -out -selection clipboard)<cr>
 map <Space> <Leader>
 map Y y$
@@ -203,8 +204,8 @@ set ignorecase " use \C in regex to search case sensitive
 set noerrorbells
 set hidden
 set expandtab
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set autoindent
 set smartindent
 set smarttab
