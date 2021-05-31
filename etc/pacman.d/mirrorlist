@@ -1,6 +1,6 @@
 ##
 ## Manjaro Linux custom mirrorlist
-## Generated on 2021-05-17 16:39
+## Generated on 2021-05-27 13:31
 ##
 ## Please use 'pacman-mirrors -id' To reset custom mirrorlist
 ## Please use 'pacman-mirrors -c all' To reset custom mirrorlist
@@ -8,8 +8,8 @@
 ##
 
 ## Country : France
-Server = http://ftp.free.org/mirrors/repo.manjaro.org/repos/stable/$repo/$arch
+Server = https://mirror.oldsql.cc/manjaro/stable/$repo/$arch
 
 ## Country : France
-Server = https://mirror.oldsql.cc/manjaro/stable/$repo/$arch
+Server = http://ftp.free.org/mirrors/repo.manjaro.org/repos/stable/$repo/$arch
 

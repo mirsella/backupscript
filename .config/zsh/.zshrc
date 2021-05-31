@@ -15,7 +15,7 @@ untill() {
 }
 notif() {
   source ~/.config/token/telegram.token
-  curl -s -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$tg_id', "text": "'"${@:-$(read a; echo $a)}"'"}' "https://api.telegram.org/bot$tg_token/sendMessage"
+  curl -s -X POST -H 'Content-Type: application/json' -d '{"chat_id": '$TgId', "text": "'"${@:-$(read a; echo $a)}"'"}' "https://api.telegram.org/bot$TgToken/sendMessage"
 }
 
 gitclearcommit() {
