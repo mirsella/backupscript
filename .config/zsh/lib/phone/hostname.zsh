@@ -1,4 +1,6 @@
 alias s=''
+alias clip='termux-clipboard-set'
+alias clipp='termux-clipboard-get'
 export PATH="$PATH:/data/data/com.termux/files/home/.local/share/gem/ruby/3.0.0/bin"
 bak() { cp -r "${1}" "${1}.bak" }
 bakm() { mv "${1}" "${1}.bak" }
