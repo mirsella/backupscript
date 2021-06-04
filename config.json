@@ -58,7 +58,6 @@
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "rsync -a --exclude 'gnupg' /etc/{fstab,pacman.conf,pacman.d} etc",
     "git add -A",
-    "bcommit",
     "git push ${push:-} origin tosh"
   ],
   "p": [
@@ -92,7 +91,7 @@
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout -q ${branch:-main} || exit 1",
     "git pull",
-    "cp -r .config/{zsh,nvim,.gitignore,git,mpv} ~/.config",
+    "cp -r .config/{zsh,nvim,.gitignore,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
     "hostname=$(hostname); b ${hostname:0:1}"
   ],
