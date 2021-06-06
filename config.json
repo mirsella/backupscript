@@ -15,7 +15,7 @@
     "rsync -a --exclude 'gnupg' /etc/{fstab,pacman.conf,pacman.d} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "cp ~/.config/oni2/{vimrc,configuration.json,keybindings.json} .config/oni2",
-    "cp /etc/systemd/system/{undervolt,vnc,rclone-gdrive}.service etc/systemd/system",
+    "cp /etc/systemd/system/{vnc,rclone-gdrive}.service etc/systemd/system",
     "git add -A",
     "bcommit",
     "git push ${push:-} origin main"
