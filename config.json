@@ -1,6 +1,6 @@
 {
   "m": [
-    "[[ $(cat /etc/hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout main || exit 1",
     "git pull",
@@ -21,7 +21,7 @@
     "git push ${push:-} origin main"
   ],
   "l": [
-    "[[ $(cat /etc/hostname) = laptop && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(hostname) = laptop && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout laptop || exit 1",
     "git pull",
@@ -41,7 +41,7 @@
     "git push ${push:-} origin laptop"
   ],
   "u": [
-    "[[ $(cat /etc/hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout unowhy || exit 1",
     "git pull",
@@ -61,7 +61,7 @@
     "git push ${push:-} origin unowhy"
   ],
   "r": [
-    "[[ $(cat /etc/hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout rpi || exit 1",
     "git pull",
@@ -78,7 +78,7 @@
     "git push ${push:-} origin rpi"
   ],
   "t": [
-    "[[ $(cat /etc/hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout tosh || exit 1",
     "git pull",
@@ -125,7 +125,7 @@
     "rm -rf ~/.config/zsh.bak; mv ~/.config/zsh ~/.config/zsh.bak",
     "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
     "cp -f .ssh/config ~/.ssh",
-    "hostname=$(cat /etc/hostname); b ${hostname:0:1}"
+    "hostname=$(hostname); b ${hostname:0:1}"
   ],
   "dp": [
     "cd ~/.config/backupscript/dotfiles.git",
@@ -133,7 +133,7 @@
     "git pull",
     "cp -r .config/{zsh,nvim,.gitignore,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
-    "hostname=$(cat /etc/hostname); b ${hostname:0:1}"
+    "hostname=$(hostname); b ${hostname:0:1}"
   ],
   "script": [
     "cd ~/.config/backupscript",
@@ -149,13 +149,13 @@
   ],
   "clearcommit": [
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
-    "git checkout -q ${branch:-$(cat /etc/hostname)} || exit 1",
-    "git checkout --orphan ${branch:-$(cat /etc/hostname)}cleared",
+    "git checkout -q ${branch:-$(hostname)} || exit 1",
+    "git checkout --orphan ${branch:-$(hostname)}cleared",
     "git add -A",
     "bcommit 'cleared commit history'",
-    "git branch -D ${branch:-$(cat /etc/hostname)}",
-    "git branch -M ${branch:-$(cat /etc/hostname)}cleared $(cat /etc/hostname)",
-    "git push ${push:-} -f origin ${branch:-$(cat /etc/hostname)}"
+    "git branch -D ${branch:-$(hostname)}",
+    "git branch -M ${branch:-$(hostname)}cleared $(cat /etc/hostname)",
+    "git push ${push:-} -f origin ${branch:-$(hostname)}"
   ],
   "install": {
     "script": [
