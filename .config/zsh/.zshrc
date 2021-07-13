@@ -26,7 +26,7 @@ notif() {
 bak() { sudo -E cp -r "${1}" "${1}.bak" }
 bakm() { sudo -E mv "${1}" "${1}.bak" }
 
-# ([[ -f ~/.gtkrc-2.0 ]] && /bin/rm -v ~/.gtkrc-2.0) &!
+([[ -f ~/.gtkrc-2.0 ]] && /bin/rm -v ~/.gtkrc-2.0) &!
 hash -d u=/run/media/mirsella
 export EDITOR='/usr/bin/nvim'
 export BROWSER='/usr/bin/xdg-open'
