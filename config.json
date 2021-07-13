@@ -1,6 +1,6 @@
 {
   "m": [
-    "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(cat /etc/hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout main || exit",
     "git pull",
@@ -21,7 +21,7 @@
     "git push ${push:-} origin main"
   ],
   "u": [
-    "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(cat /etc/hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout unowhy || exit",
     "git pull",
@@ -41,7 +41,7 @@
     "git push ${push:-} origin unowhy"
   ],
   "t": [
-    "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(cat /etc/hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout tosh || exit",
     "git pull",
@@ -61,7 +61,7 @@
     "git push ${push:-} origin tosh"
   ],
   "p": [
-    "[[ $(hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(cat ~/../usr/etc/hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout phone || exit",
     "git pull",
@@ -86,7 +86,7 @@
     "git fetch; git reset --hard FETCH_HEAD",
     "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
     "cp -f .ssh/config ~/.ssh",
-    "hostname=$(hostname); b ${hostname:0:1}"
+    "hostname=$(cat /etc/hostname); b ${hostname:0:1}"
   ],
   "dp": [
     "cd ~/.config/backupscript/dotfiles.git",
@@ -94,7 +94,7 @@
     "git pull",
     "cp -r .config/{zsh,nvim,.gitignore,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
-    "hostname=$(hostname); b ${hostname:0:1}"
+    "hostname=$(cat /etc/hostname); b ${hostname:0:1}"
   ],
   "script": [
     "cd ~/.config/backupscript",
@@ -104,19 +104,19 @@
   ],
   "upscript": [
     "cd ~/.config/backupscript || exit",
-    "cp config.json config.json.bak",
+    "# cp config.json config.json.bak",
     "git fetch",
     "git reset --hard FETCH_HEAD"
   ],
   "clearcommit": [
     "cd ~/.config/backupscript/dotfiles.git || exit",
-    "git checkout -q ${branch:-$(hostname)} || exit",
-    "git checkout --orphan ${branch:-$(hostname)}cleared",
+    "git checkout -q ${branch:-$(cat /etc/hostname)} || exit",
+    "git checkout --orphan ${branch:-$(cat /etc/hostname)}cleared",
     "git add -A",
     "bcommit 'cleared commit history'",
-    "git branch -D ${branch:-$(hostname)}",
-    "git branch -M ${branch:-$(hostname)}cleared $(hostname)",
-    "git push ${push:-} -f origin ${branch:-$(hostname)}"
+    "git branch -D ${branch:-$(cat /etc/hostname)}",
+    "git branch -M ${branch:-$(cat /etc/hostname)}cleared $(cat /etc/hostname)",
+    "git push ${push:-} -f origin ${branch:-$(cat /etc/hostname)}"
   ],
   "install": {
     "script": [
