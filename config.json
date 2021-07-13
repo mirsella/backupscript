@@ -122,6 +122,7 @@
     "git stash",
     "git checkout -q ${branch:-main} || exit 1",
     "git fetch; git reset --hard FETCH_HEAD",
+    "rm -rf ~/.config/zsh.bak; mv ~/.config/zsh ~/.config/zsh.bak",
     "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
     "cp -f .ssh/config ~/.ssh",
     "hostname=$(cat /etc/hostname); b ${hostname:0:1}"
