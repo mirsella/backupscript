@@ -81,20 +81,20 @@ ChallengeResponseAuthentication no
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
 
-AllowAgentForwarding yes
-AllowTcpForwarding yes
+#AllowAgentForwarding yes
+#AllowTcpForwarding yes
 #GatewayPorts no
-X11Forwarding yes
+#X11Forwarding no
 #X11DisplayOffset 10
-X11UseLocalhost yes
+#X11UseLocalhost yes
 #PermitTTY yes
 PrintMotd no # pam does that
-PrintLastLog yes
-TCPKeepAlive yes
+#PrintLastLog yes
+#TCPKeepAlive yes
 #PermitUserEnvironment no
 #Compression delayed
-ClientAliveInterval 60
-ClientAliveCountMax 1000
+#ClientAliveInterval 0
+#ClientAliveCountMax 3
 #UseDNS no
 #PidFile /run/sshd.pid
 #MaxStartups 10:30:100

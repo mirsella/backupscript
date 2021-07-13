@@ -5,7 +5,8 @@ kutsan/zsh-system-clipboard
 ohmyzsh/ohmyzsh path:plugins/extract
 ohmyzsh/ohmyzsh path:plugins/colored-man-pages
 # marzocchi/zsh-notify # not working for me 
-MichaelAquilina/zsh-auto-notify
+# MichaelAquilina/zsh-auto-notify # old
+mirsella/zsh-auto-notify # personal fork to add a command when sending notif
 Aloxaf/fzf-tab
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions

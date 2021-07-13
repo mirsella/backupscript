@@ -1,4 +1,4 @@
-source $ZDOTDIR/lib/$(hostname)/plugins.zsh
+source "$ZDOTDIR"/lib/$(hostname)/plugins.zsh
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 export HISTFILE=~/.cache/history
@@ -37,7 +37,7 @@ export forgit_clean=gclean
 export forgit_stash_show=gss
 export forgit_cherry_pick=gcp
 
-# setopt share_history # share history between all sessions.
+setopt share_history # share history between all sessions.
 setopt histappend
 setopt prompt_subst
 setopt auto_cd # cd by typing directory name if it's not a command
@@ -99,7 +99,7 @@ export AUTO_NOTIFY_THRESHOLD=10
 export AUTO_NOTIFY_TITLE="%command"
 export AUTO_NOTIFY_BODY="%elapsed sec\n%exit_code"
 export AUTO_NOTIFY_EXPIRE_TIME=4000
-export AUTO_NOTIFY_IGNORE=("docker" "man" "ssh" "v" "nvim" "s nvim" "sudo -E nvim")
+export AUTO_NOTIFY_IGNORE=("less" "more" "man" "tig" "watch" "git commit" "top" "htop" "ssh" "nano" "ssh" "v" "nvim" "s nvim" "sudo -E nvim")
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20

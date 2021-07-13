@@ -1,15 +1,16 @@
 [Unit]
 Description=mount mirsella google drive with rclone 
-After=network.target
+After=network.target run-media-mirsella-ssd.mount 
 
 [Service]
 Type=simple
 User=mirsella
+ExecStartPre=-rm -rf /home/mirsella/Documents/gdrive
 ExecStartPre=-mkdir /home/mirsella/Documents/gdrive
-ExecStart=rclone mount gdrive: /home/mirsella/Documents/gdrive
+ExecStart=rclone mount --dir-cache-time 96h --cache-info-age 100h --vfs-cache-mode writes gdrive: /home/mirsella/Documents/gdrive
 ExecStop=/bin/fusermount -u /home/mirsella/Documents/gdrive
 Restart=always
-RestartSec=30
+RestartSec=10
 
 [Install]
 WantedBy=default.target

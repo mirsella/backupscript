@@ -5,9 +5,7 @@
 # disks are added and removed. See fstab(5).
 #
 # <file system>             <mount point>  <type>  <options>  <dump>  <pass>
-UUID=6910-D010                            /boot/efi      vfat    umask=0077 0 2
-UUID=c30fe894-ea29-4f7c-baec-99a8874a0283 /              ext4    defaults,noatime 0 1
-/swapfile none swap defaults 0 0
-
-# iso partitions
-UUID=09780c62-e98e-451d-a88c-81401406cb6e none ext4 ro,noauto
+UUID=21C1-549A                            /boot/efi      vfat    umask=0077 0 2
+UUID=0b000495-1a91-42c2-87e4-d2654ce93bd4 /              ext4    defaults,noatime 0 1
+UUID=1b939f7f-91f0-40c5-93d1-17e5f2b16e26 swap           swap    defaults,noatime 0 0
+tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0

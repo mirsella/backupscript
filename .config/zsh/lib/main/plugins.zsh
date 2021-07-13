@@ -6,8 +6,8 @@ source /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH
 fpath+=( /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/plugins/extract )
 source /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/plugins/colored-man-pages/colored-man-pages.plugin.zsh
 fpath+=( /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh/plugins/colored-man-pages )
-source /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-MichaelAquilina-SLASH-zsh-auto-notify/auto-notify.plugin.zsh
-fpath+=( /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-MichaelAquilina-SLASH-zsh-auto-notify )
+source /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mirsella-SLASH-zsh-auto-notify/auto-notify.plugin.zsh
+fpath+=( /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mirsella-SLASH-zsh-auto-notify )
 source /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Aloxaf-SLASH-fzf-tab/fzf-tab.plugin.zsh
 fpath+=( /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-Aloxaf-SLASH-fzf-tab )
 source /home/mirsella/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
