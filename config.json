@@ -123,7 +123,7 @@
     "git checkout -q ${branch:-main} || exit 1",
     "git fetch; git reset --hard FETCH_HEAD",
     "rm -rf ~/.config/zsh.bak; mv ~/.config/zsh ~/.config/zsh.bak",
-    "cp -r .config/{zsh,nvim,.gitignore} ~/.config",
+    "cp -r .config/{zsh,nvim,.gitignore,screen,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
     "hostname=$(hostname); b ${hostname:0:1}"
   ],
@@ -131,7 +131,7 @@
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout -q ${branch:-main} || exit 1",
     "git pull",
-    "cp -r .config/{zsh,nvim,.gitignore,mpv} ~/.config",
+    "cp -r .config/{zsh,nvim,.gitignore,screen,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
     "hostname=$(hostname); b ${hostname:0:1}"
   ],
