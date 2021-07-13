@@ -3,7 +3,7 @@
     "[[ $(cat /etc/hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout main || exit 1",
-    "git pull -a",
+    "git pull",
     "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -24,7 +24,7 @@
     "[[ $(cat /etc/hostname) = laptop && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout laptop || exit 1",
-    "git pull -a",
+    "git pull",
     "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -44,7 +44,7 @@
     "[[ $(cat /etc/hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout unowhy || exit 1",
-    "git pull -a",
+    "git pull",
     "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -64,7 +64,7 @@
     "[[ $(cat /etc/hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout rpi || exit 1",
-    "git pull -a",
+    "git pull",
     "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -81,7 +81,7 @@
     "[[ $(cat /etc/hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout tosh || exit 1",
-    "git pull -a",
+    "git pull",
     "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -101,7 +101,7 @@
     "[[ $(cat ~/../usr/etc/hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout phone || exit 1",
-    "git pull -a",
+    "git pull",
     "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
@@ -129,7 +129,7 @@
   "dp": [
     "cd ~/.config/backupscript/dotfiles.git",
     "git checkout -q ${branch:-main} || exit 1",
-    "git pull -a",
+    "git pull",
     "cp -r .config/{zsh,nvim,.gitignore,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
     "hostname=$(cat /etc/hostname); b ${hostname:0:1}"
