@@ -50,8 +50,6 @@
 
     "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh/",
-    "cp -r /etc/{nginx,fstab} etc",
-    "cp -r /hdd/www .",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,wget,python,autostart-scripts} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
