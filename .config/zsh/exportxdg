@@ -21,6 +21,7 @@ export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/wine64
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/password-store
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME"/android
 export PYTHONSTARTUP=~/.config/python/pythonrc.py
+export PYLINTHOME="$XDG_CACHE_HOME"/pylint 
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority # This line will break some DMs.
 # export VIMINIT=":source ~/.config/vim/vimrc"
 # export VIMDOTDIR=~/.config/vim
