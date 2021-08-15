@@ -4,7 +4,7 @@
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout main || exit 1",
     "git pull",
-    "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
+    "fd -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} boot/grub .ssh",
 
     "crontab -l > cron",
@@ -25,7 +25,7 @@
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout laptop || exit 1",
     "git pull",
-    "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
+    "fd -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
     "crontab -l > cron",
@@ -45,7 +45,7 @@
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout unowhy || exit 1",
     "git pull",
-    "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
+    "fd -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
     "crontab -l > cron",
@@ -65,7 +65,7 @@
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout rpi || exit 1",
     "git pull",
-    "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
+    "fd -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
     "crontab -l > cron",
@@ -82,7 +82,7 @@
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout tosh || exit 1",
     "git pull",
-    "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
+    "fd -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
     "crontab -l > cron",
@@ -102,7 +102,7 @@
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout phone || exit 1",
     "git pull",
-    "fd -E README.md -E .gitignore -d 1 -x rm -rf {}",
+    "fd -E .gitignore -d 1 -x rm -rf {}",
     "mkdir -p .config/npm etc/{ssh,systemd/system} boot/grub .ssh",
 
     "crontab -l > cron",
