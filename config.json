@@ -119,7 +119,7 @@
     "# [[ -d ~/.cache/dotfiles.git ]] || git clone -q git@github.com:mirsella/dotfiles.git ~/.cache/dotfiles.git",
     "cd ~/.config/backupscript/dotfiles.git",
     "git add -A",
-    "git stash",
+    "# git stash",
     "git checkout -q ${branch:-main} || exit 1",
     "git fetch; git reset --hard FETCH_HEAD",
     "rm -rf ~/.config/zsh.bak; mv ~/.config/zsh ~/.config/zsh.bak",
