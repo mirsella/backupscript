@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 CONFIG_FILE=$(dirname "$(realpath "$0")")/config.json
 
 while true; do # take care of options
