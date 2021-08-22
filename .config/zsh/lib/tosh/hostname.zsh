@@ -1,4 +1,4 @@
 alias rmf='s /bin/rm -rf '
 alias rm='s rmtrash -rf '
-hash -d s=/hdd
-
+alias gui='S start sddm vnc'
+export PATH="$PATH:/home/mirsella/bin"

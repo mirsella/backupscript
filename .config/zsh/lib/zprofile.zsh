@@ -95,11 +95,11 @@ _zsh_system_clipboard_set=(xclip -sel $clipboard_selection -in)
 _zsh_system_clipboard_get=(xclip -sel $clipboard_selection -out)
 
 # zsh auto notify
-export AUTO_NOTIFY_THRESHOLD=10
+export AUTO_NOTIFY_THRESHOLD=2
 export AUTO_NOTIFY_TITLE="%command"
 export AUTO_NOTIFY_BODY="%elapsed sec\n%exit_code"
 export AUTO_NOTIFY_EXPIRE_TIME=4000
-export AUTO_NOTIFY_IGNORE=("less" "more" "man" "tig" "watch" "git commit" "top" "htop" "ssh" "nano" "ssh" "v" "nvim" "s nvim" "s nvim -p" "sudo -E nvim")
+AUTO_NOTIFY_IGNORE+=("less" "more" "man" "tig" "watch" "git commit" "top" "htop" "ssh" "nano" "ssh" "v " "nvim" "s nvim" "s nvim -p" "sudo -E nvim")
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
