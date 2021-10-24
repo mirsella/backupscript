@@ -4,7 +4,7 @@ source ~/.config/zsh/lib/spectrum.zsh
 source ~/.config/zsh/lib/zprofile.zsh
 source ~/.config/zsh/lib/fzf/fzf-completion.zsh
 source ~/.config/zsh/lib/fzf/fzf-key-bindings.zsh
-source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
+# source ~/.config/zsh/lib/forgit/forgit.plugin.zsh
 
 clip() { xclip -in -selection clipboard < "${@:-/dev/stdin}"; }
 clipp() { xclip -out -selection clipboard; }
@@ -13,11 +13,10 @@ winboot() {
   sudo grub-reboot "$WINDOWS_TITLE"
   sudo reboot
 }
-untill() {
-  until eval "$1"; do
-    sleep 1
+waitforjob() {
+  until ! jobs %${1:-1} >/dev/null 2>&1; do
+    sleep 2
   done
-  eval "$2 "
 }
 notif() {
   source ~/.config/token/telegram.token
@@ -25,10 +24,23 @@ notif() {
 }
 bak() { sudo -E cp -r "${1}" "${1}.bak" }
 bakm() { sudo -E mv "${1}" "${1}.bak" }
+ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
+tapoon() { curl -H "Authorization: Bearer $(cat ~/.config/token/tapo)" ${1:-tosh}/tapo/on }
+tapooff() { curl -H "Authorization: Bearer $(cat ~/.config/token/tapo)" ${1:-tosh}/tapo/off }
+tapostatus() { curl -H "Authorization: Bearer $(cat ~/.config/token/tapo)" ${1:-tosh}/tapo/status }
+tapo() {
+  if ping -c 1 tosh > /dev/null; then host=tosh
+  elif ping -c 1 main > /dev/null; then host=main 
+  elif ping -c 1 rpi > /dev/null; then host=rpi
+  else echo "couldn't find a host" && break
+  fi
+ curl -H "Authorization: Bearer $(cat ~/.config/token/tapo)" $host/tapo/$1 
+}
 
 ([[ -f ~/.gtkrc-2.0 ]] && /bin/rm -v ~/.gtkrc-2.0) &!
 hash -d u=/run/media/mirsella
 export EDITOR='/usr/bin/nvim'
+export DIFFPROG='nvim -d'
 export BROWSER='/usr/bin/xdg-open'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
@@ -36,7 +48,7 @@ export LC_MEASUREMENT=fr_FR.UTF-8
 export LC_MONETARY=fr_FR.UTF-8
 export LC_NUMERIC=fr_FR.UTF-8
 export LC_TIME=fr_FR.UTF-8
-export PATH="$PATH:/home/mirsella/.local/bin:/home/mirsella/.local/share/gem/bin:/home/mirsella/.local/share/npm/bin"
+export PATH="$PATH:/home/mirsella/.local/bin:/home/mirsella/.local/share/gem/bin:/home/mirsella/.local/share/gem/ruby/3.0.0/bin:/home/mirsella/.local/share/npm/bin"
 export WORDCHARS=${WORDCHARS/\*\?\_\-\.\[\]\~\=\/\&\;\!\#\$\%\^\(\)\{\}\<\>} 
 alias -s html='firefox-nightly'
 alias -s odt='libreoffice'
@@ -79,7 +91,6 @@ alias trash-empty='s trash-empty '
 alias trash-list='s trash-list '
 alias trash-restore='s trash-restore '
 alias uefireboot='systemctl reboot --firmware-setup'
-ortener() { curl -H "Content-Type: application/json" -d '{"url": "'$1'", "slug": "'$2'"}' https://ortener.herokuapp.com/url }
 alias p='pnpm'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias gclipp='git clone $(clipp)'
@@ -90,7 +101,5 @@ alias v='s nvim -p '
 alias yays='yay -S --noconfirm --needed '
 alias parus='paru -S --noconfirm --needed '
 alias rga='rga --no-ignore --hidden -S '
-
-
 
 source ~/.config/zsh/lib/$(hostname)/hostname.zsh

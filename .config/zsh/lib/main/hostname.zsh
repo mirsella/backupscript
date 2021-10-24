@@ -12,3 +12,9 @@ hash -d s=/run/media/mirsella/ssd/
 hash -d w=/run/media/mirsella/windows/Users/mirsella/
 alias fanm='nbfc set -f 1 -s 100 && nbfc set -f 0 -s 100'
 alias fan='nbfc set -f 1 -a && nbfc set -f 0 -a'
+
+if [[ -z /tmp/bootxmodmap ]]; then 
+  sleep 5
+  source ~/.config/zsh/lib/swapbackcap.sh
+  touch /tmp/bootxmodmap
+fi

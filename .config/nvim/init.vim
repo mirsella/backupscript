@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
+Plug 'nathom/filetype.nvim'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'udalov/kotlin-vim'
@@ -10,7 +11,8 @@ Plug 'morhetz/gruvbox'
 Plug 'luochen1990/rainbow'
 Plug 'chr4/nginx.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'phaazon/hop.nvim', { 'commit': 'e5eb06d6f3caff15f3abd35c6c21135f93fa4eb7' }
+Plug 'phaazon/hop.nvim'
+Plug 'ggandor/lightspeed.nvim'
 Plug 'wgwoods/vim-systemd-syntax'
 Plug 'markonm/traces.vim'
 Plug 'chaoren/vim-wordmotion'
@@ -53,6 +55,7 @@ Plug 'kabouzeid/nvim-lspinstall'
 " Plug 'anott03/nvim-lspinstall'
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 " Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
@@ -85,6 +88,8 @@ command! FR :setlocal spell spelllang=fr
 command! Cdfile :lcd %:p:h
 command! Curl :r !curl -s $(xclip -out -selection clipboard)<cr>
 map <Space> <Leader>
+inoremap jj <Esc>
+inoremap kk <Esc>:wa<cr>a
 map Y y$
 nnoremap U :echo " < < ===== C H E C K   C A P S   L O C K ===== > > "<CR>
 nnoremap d" dt"
@@ -118,18 +123,20 @@ xnoremap <F7> :set wrap<cr>
 nnoremap <F8> :set nowrap<cr>
 xnoremap <F8> :set nowrap<cr>
 
-
-" nmap <Space><Space> <Plug>(easymotion-prefix)
-" nmap <Leader>f <Plug>(easymotion-bd-f)
-" nmap <leader>g <Plug>(easymotion-overwin-f2)
-" nmap <Leader>l <Plug>(easymotion-bd-jk)
-" nmap <Leader>w <Plug>(easymotion-bd-w)
-
+" hop.nvim
 nmap <leader>/ :HopPattern<cr>
 nmap <Leader>f :HopChar1<cr>
 nmap <leader>g :HopChar2<cr>
 nmap <Leader>l :HopLine<cr>
 nmap <Leader>w :HopWord<cr>
+
+" lightspeed
+nmap <expr> f reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_f" : "f"
+nmap <expr> F reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_F" : "F"
+nmap <expr> t reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_t" : "t"
+nmap <expr> T reg_recording() . reg_executing() == "" ? "<Plug>Lightspeed_T" : "T"
+nmap <leader>j <Plug>Lightspeed_s
+nmap <leader>k <Plug>Lightspeed_S
 
 nnoremap <C-j> 5jzz
 nnoremap <C-k> 5kzz
@@ -206,7 +213,7 @@ set ignorecase " use \C in regex to search case sensitive
 set noerrorbells
 set hidden
 set expandtab
-set tabstop=2 softtabstop=2
+set tabstop=4 softtabstop=4
 set shiftwidth=2
 set autoindent
 set smartindent
@@ -341,3 +348,6 @@ let g:rainbow_active = 1
 lua << EOF
 require('hop').setup({create_hl_autocmd = true})
 EOF
+
+" -- Do not source the default filetype.vim
+let g:did_load_filetypes = 1

@@ -17,4 +17,5 @@ hash -d m=/sdcard/Music
 hash -d r=/data/data/com.termux/files/usr
 
 sshd -p 2222
-ip a | rg 'wlan0$' | awk '{print $2}'
+# ip a | rg 'wlan0$' | awk '{print $2}'
+ip r
