@@ -29,7 +29,7 @@
     "cp -f ~/.ssh/config .ssh",
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,autostart-scripts,wget,python,user-dirs.dirs,mpv} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
-    "rsync -a --exclude 'gnupg*' /etc/{fstab,grub.d,pacman.conf,pacman.d} etc",
+    "rsync -a --exclude 'gnupg*' /etc/{fstab,grub.d,pacman.conf,pacman.d,nginx} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "cp /etc/systemd/system/rclone-gdrive.service etc/systemd/system",
     "git add -A",
@@ -112,7 +112,7 @@
     "git stash",
     "git checkout -q ${branch:-main} || exit 1",
     "git fetch; git reset --hard FETCH_HEAD",
-    "rm -rf ~/.config/{zsh,nvim}.bak; mv ~/.config/{zsh,zsh.bak}",
+    "rm -rf ~/.config/zsh.bak; mv ~/.config/{zsh,zsh.bak}",
     "cp -r .config/{zsh,nvim,.gitignore,screen,mpv} ~/.config",
     "cp -f .ssh/config ~/.ssh",
     "hostname=$(hostname); b ${hostname:0:1}"
