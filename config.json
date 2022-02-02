@@ -55,7 +55,7 @@
     "git push ${push:-} origin unowhy"
   ],
   "r": [
-    "[[ $(hostname) = rpi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
+    "[[ $(hostname) = raspberrypi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout rpi || exit 1",
     "fd -E .gitignore -E .git/ -x rm -rf {}",
