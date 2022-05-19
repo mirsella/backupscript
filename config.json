@@ -66,7 +66,6 @@
     "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,wget,python} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
-    "rsync -a --exclude 'gnupg' /etc/{fstab,grub.d,pacman.conf,pacman.d} etc",
     "git add -A",
     "git push ${push:-} origin rpi"
   ],
