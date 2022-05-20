@@ -3,13 +3,13 @@
     "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout main || exit 1",
-    "fd -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x git rm -rf {}",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
-    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,keebie,autostart-scripts,wget,python,user-dirs.dirs,mpv} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,keebie,wget,python,user-dirs.dirs,mpv} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "rsync -a --exclude 'gnupg*' /etc/{fstab,grub.d,pacman.conf,pacman.d} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
@@ -29,7 +29,7 @@
 
     "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
-    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,autostart-scripts,wget,python,user-dirs.dirs,mpv} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,wget,python,user-dirs.dirs,mpv} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "rsync -a --exclude 'gnupg*' /etc/{fstab,grub.d,pacman.conf,pacman.d,nginx} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
@@ -48,7 +48,7 @@
 
     "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
-    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,autostart-scripts,wget,python,user-dirs.dirs,mpv} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,wget,python,user-dirs.dirs,mpv} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "rsync -a --exclude 'gnupg*' /etc/{fstab,grub.d,pacman.conf,pacman.d} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",

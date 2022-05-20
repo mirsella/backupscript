@@ -1,0 +1,26 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = git@github.com:mirsella/dotfiles
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+[branch "rpi"]
+	remote = origin
+	merge = refs/heads/rpi
+[branch "unowhy"]
+	remote = origin
+	merge = refs/heads/unowhy
+[branch "phone"]
+	remote = origin
+	merge = refs/heads/phone
+[branch "laptop"]
+	remote = origin
+	merge = refs/heads/laptop
+[branch "tosh"]
+	remote = origin
+	merge = refs/heads/tosh
