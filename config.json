@@ -3,7 +3,8 @@
     "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout main || exit 1",
-    "fd -E .gitignore -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x rm -rf {}",
+    "cp ../.gitignore .gitignore",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
@@ -22,7 +23,8 @@
     "[[ $(hostname) = laptop && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout laptop || exit 1",
-    "fd -E .gitignore -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x rm -rf {}",
+    "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
@@ -40,7 +42,8 @@
     "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout unowhy || exit 1",
-    "fd -E .gitignore -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x rm -rf {}",
+    "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
@@ -58,7 +61,8 @@
     "[[ $(hostname) = raspberrypi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout rpi || exit 1",
-    "fd -E .gitignore -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x rm -rf {}",
+    "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
@@ -73,7 +77,8 @@
     "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout tosh || exit 1",
-    "fd -E .gitignore -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x rm -rf {}",
+    "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
@@ -91,7 +96,8 @@
     "[[ $(cat ~/../usr/etc/hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout phone || exit 1",
-    "fd -E .gitignore -E .git/ -x rm -rf {}",
+    "fd -E .git/ -x rm -rf {}",
+    "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
     "crontab -l > cron",
