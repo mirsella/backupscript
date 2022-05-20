@@ -3,7 +3,7 @@
     "[[ $(hostname) = main && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout main || exit 1",
-    "fd -H -E .git/ | xargs git rm -rf",
+    "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/{npm,oni2} etc/{ssh,systemd/system} .ssh",
 
@@ -23,7 +23,7 @@
     "[[ $(hostname) = laptop && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout laptop || exit 1",
-    "fd -H -E .git/ | xargs git rm -rf",
+    "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
@@ -42,7 +42,7 @@
     "[[ $(hostname) = unowhy && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout unowhy || exit 1",
-    "fd -H -E .git/ | xargs git rm -rf",
+    "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
@@ -61,7 +61,7 @@
     "[[ $(hostname) = raspberrypi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout rpi || exit 1",
-    "fd -H -E .git/ | xargs git rm -rf",
+    "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
@@ -77,7 +77,7 @@
     "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout tosh || exit 1",
-    "fd -H -E .git/ | xargs git rm -rf",
+    "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
@@ -96,7 +96,7 @@
     "[[ $(cat ~/../usr/etc/hostname) = phone && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
     "git checkout phone || exit 1",
-    "fd -H -E .git/ | xargs git rm -rf",
+    "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
 
