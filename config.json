@@ -171,14 +171,20 @@
   "install": {
     "script": [
       "rm -rf ~/.config/backupscript",
-      "git clone git@github.com:mirsella/backupscript ~/.config/backupscript",
-      "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git",
+      "git clone https://github.com/mirsella/backupscript ~/.config/backupscript",
+      "cd ~/.config/backupscript",
+      "git remote set-url origin git@github.com:mirsella/backupscript",
+      "git clone https://github.com/mirsella/dotfiles ~/.config/backupscript/dotfiles.git",
+      "cd ~/.config/backupscript/dotfiles.git",
+      "git remote set-url origin git@github.com:mirsella/backupscript",
       "sudo ln -s ~/.config/backupscript/backupscript.sh /usr/bin/b"
     ],
     "dotfiles" : [
       "rm -rf ~/.cache/dotfiles.git",
       "mv ~/.config/backupscript/dotfiles.git ~/.cache/",
-      "git clone git@github.com:mirsella/dotfiles ~/.config/backupscript/dotfiles.git"
+      "git clone https://github.com/mirsella/dotfiles ~/.config/backupscript/dotfiles.git",
+      "cd ~/.config/backupscript/dotfiles.git",
+      "git remote set-url origin git@github.com:mirsella/backupscript"
     ]
   }
 }
