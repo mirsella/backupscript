@@ -1,11 +1,22 @@
-# /etc/fstab: static file system information.
-#
-# Use 'blkid' to print the universally unique identifier for a device; this may
-# be used with UUID= as a more robust way to name devices that works even if
-# disks are added and removed. See fstab(5).
-#
-# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
-UUID=21C1-549A                            /boot/efi      vfat    umask=0077 0 2
-UUID=0b000495-1a91-42c2-87e4-d2654ce93bd4 /              ext4    defaults,noatime 0 1
-UUID=1b939f7f-91f0-40c5-93d1-17e5f2b16e26 swap           swap    defaults,noatime 0 0
-tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/mapper/ainstsda2
+UUID=c0b2322b-8e1e-4062-ac4f-626618553ad6	/         	btrfs     	rw,relatime,ssd,space_cache=v2,subvolid=256,subvol=/@	0 1
+
+# /dev/sda1
+UUID=4EA1-F24E      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/mapper/ainstsda2
+UUID=c0b2322b-8e1e-4062-ac4f-626618553ad6	/.snapshots	btrfs     	rw,relatime,ssd,space_cache=v2,subvolid=260,subvol=/@.snapshots	0 2
+
+# /dev/mapper/ainstsda2
+UUID=c0b2322b-8e1e-4062-ac4f-626618553ad6	/home     	btrfs     	rw,relatime,ssd,space_cache=v2,subvolid=257,subvol=/@home	0 2
+
+# /dev/mapper/ainstsda2
+UUID=c0b2322b-8e1e-4062-ac4f-626618553ad6	/var/cache/pacman/pkg	btrfs     	rw,relatime,ssd,space_cache=v2,subvolid=259,subvol=/@pkg	0 2
+
+# /dev/mapper/ainstsda2
+UUID=c0b2322b-8e1e-4062-ac4f-626618553ad6	/var/log  	btrfs     	rw,relatime,ssd,space_cache=v2,subvolid=258,subvol=/@log	0 2
+

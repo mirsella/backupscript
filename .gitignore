@@ -10,3 +10,4 @@ novnc
 id_rsa*
 *key
 *pub
+ssl*

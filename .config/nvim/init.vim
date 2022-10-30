@@ -1,4 +1,9 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged') 
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
+Plug 'github/copilot.vim'
 Plug 'nathom/filetype.nvim'
 Plug 'dpelle/vim-LanguageTool'
 Plug 'vim-scripts/argtextobj.vim'
@@ -7,7 +12,8 @@ Plug 'sophacles/vim-processing'
 Plug 'plasticboy/vim-markdown'
 Plug 'honza/vim-snippets'
 Plug 'posva/vim-vue'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
+Plug 'tanvirtin/monokai.nvim'
 Plug 'luochen1990/rainbow'
 Plug 'chr4/nginx.vim'
 Plug 'itchyny/vim-gitbranch'
@@ -19,9 +25,8 @@ Plug 'chaoren/vim-wordmotion'
 " Plug 'mirsella/nerdcommenter' " fork support for custom nerd-leaderkey (default = c )
 Plug 'tyru/caw.vim' " only one who work with vue and ↙
 Plug 'suy/vim-context-commentstring'
+Plug 'Shougo/context_filetype.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'luochen1990/rainbow'
-Plug 'junegunn/fzf.vim'
 Plug 'mirsella/otherbufdo.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -32,13 +37,13 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'metakirby5/codi.vim'
 Plug 'alvan/vim-closetag'
-Plug 'ryanoasis/vim-devicons'
 Plug 'mattn/emmet-vim'
 Plug 'svermeulen/vim-yoink'
 Plug 'svermeulen/vim-cutlass'
 Plug 'svermeulen/vim-subversive'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'psliwka/vim-smoothie'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'posva/vim-vue'
 Plug 'tpope/vim-fugitive'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'Raimondi/delimitMate'
@@ -49,20 +54,20 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/vim-slash'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'ryanoasis/vim-devicons'
+" Plug 'kyazdani42/nvim-web-devicons' " error
 
 Plug 'neovim/nvim-lspconfig'
-Plug 'kabouzeid/nvim-lspinstall'
-" Plug 'anott03/nvim-lspinstall'
+Plug 'williamboman/nvim-lsp-installer'
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'fannheyward/coc-xml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
 Plug 'voldikss/coc-cmake', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -75,8 +80,10 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-styled-components', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-tailwindcss3', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-tailwindcss', {'do': 'yarn install --frozen-lockfile'}
-" Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'yarn install --frozen-lockfile'}
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-sh'
 Plug 'neoclide/jsonc.vim'
 call plug#end()
 
@@ -86,21 +93,25 @@ command! -nargs=+ Zoom :set guifont=monospace:h<args>
 command! -nargs=? V :vert sb
 command! FR :setlocal spell spelllang=fr
 command! Cdfile :lcd %:p:h
-command! Curl :r !curl -s $(xclip -out -selection clipboard)<cr>
+command! Curl :r !curl -s $(xclip -out -selection clipboard)
 map <Space> <Leader>
-inoremap jj <Esc>
-inoremap kk <Esc>:wa<cr>a
+inoremap kj <Esc>
+inoremap jj <Esc>:wa<cr>
 map Y y$
 nnoremap U :echo " < < ===== C H E C K   C A P S   L O C K ===== > > "<CR>
 nnoremap d" dt"
 nnoremap d' dt'
+nnoremap gd :call CocActionAsync('jumpDefinition')<cr>
 inoremap <C-H> <C-W>
 nnoremap <M-F1> <nop>
 xnoremap <M-F1> <nop>
 inoremap <M-F1> <nop>
 nnoremap ' `
-nnoremap <leader>O :Files<Space>
-nnoremap <leader>o :Files /home/mirsella<CR>
+nnoremap <leader>o :Files<Space>
+nnoremap <leader>O :Files /home/mirsella<CR>
+" nnoremap <leader>t :Telescope<CR>
+" nnoremap <leader>O :Telescope fd<CR>
+" nnoremap <leader>o :lcd /home/mirsella \| Telescope fd<CR>
 nnoremap <leader>: :noh<cr>
 
 nnoremap <F1> :wa<cr>
@@ -112,6 +123,8 @@ nnoremap <F3> :wa <bar> :bw<cr>
 xnoremap <F3> :wa <bar> :bw<cr>
 nnoremap <F4> :Filetypes<cr>
 xnoremap <F4> :Filetypes<cr>
+" nnoremap <F4> :Telescope filetypes<cr>
+" xnoremap <F4> :Telescope filetypes<cr>
 
 nnoremap <F5> :vsplit<cr>
 nnoremap <F5> :vsplit<cr>
@@ -191,22 +204,43 @@ nmap ss <plug>(SubversiveSubstituteLine)
 nmap S <plug>(SubversiveSubstituteToEndOfLine)
 
 " completion menu
-inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<tab>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+" inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+" inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+" inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+" inoremap <expr> <Tab>      pumvisible() ? "\<C-n>" : "\<tab>"
+" inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+" inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+" inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
-filetype plugin on
-filetype indent on
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Insert <tab> when previous text is space, refresh completion if not.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+inoremap <expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<CR>"
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
+
+" filetype plugin on
+" filetype indent on
 set nocompatible
 " set formatoptions-=ro
 augroup formatoptions
   autocmd FileType * set formatoptions-=ro
 augroup END
-au BufNewFile,BufRead *.html set filetype=html " html file set itself to django, weird
+" au BufNewFile,BufRead *.html set filetype=html " html file set itself to django, weird
 set nowrap
 set linebreak
 set ignorecase " use \C in regex to search case sensitive
@@ -227,7 +261,6 @@ set clipboard=unnamedplus
 set lazyredraw
 set splitbelow splitright
 set incsearch
-set encoding=UTF-8
 set termguicolors
 set updatetime=300
 set shortmess+=c
@@ -344,10 +377,10 @@ let xml_syntax_folding=1      " XML
 " RainbowParentheses
 let g:rainbow_active = 1
 
-" hop.nvim
-lua << EOF
-require('hop').setup({create_hl_autocmd = true})
-EOF
-
 " -- Do not source the default filetype.vim
 let g:did_load_filetypes = 1
+
+" github copilot specific node version
+let g:copilot_node_command = "~/.config/node/16.15.0/bin/node"
+
+luafile ~/.config/nvim/lua/init.lua

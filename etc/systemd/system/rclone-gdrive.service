@@ -1,6 +1,8 @@
 [Unit]
 Description=mount mirsella google drive with rclone 
 After=network.target run-media-mirsella-ssd.mount 
+StartLimitIntervalSec=300
+StartLimitBurst=3
 
 [Service]
 Type=simple

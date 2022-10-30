@@ -226,3 +226,7 @@ yarn-error.log*
 
 .zcomp*
 .zcompcache/
+
+yarn-lock
+pnpm-lock.yaml
+.steam

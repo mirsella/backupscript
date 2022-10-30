@@ -11,8 +11,7 @@
   "typescript.suggestionActions.enabled": false,
   "javascript.suggestionActions.enabled": false,
   "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.includeLanguages": { "plaintext": "vue" },
   "java.home": "/usr/lib/jvm/java-11-openjdk",
-  "vetur.ignoreProjectWarning": true,
-  "coc.source.around.firstMatch": false,
-  "coc.source.buffer.firstMatch": false
+  "vetur.ignoreProjectWarning": true
 }
