@@ -176,7 +176,7 @@
       "git remote set-url origin git@github.com:mirsella/backupscript",
       "git clone https://github.com/mirsella/dotfiles ~/.config/backupscript/dotfiles.git",
       "cd ~/.config/backupscript/dotfiles.git",
-      "git remote set-url origin git@github.com:mirsella/backupscript",
+      "git remote set-url origin git@github.com:mirsella/dotfiles",
       "sudo ln -s ~/.config/backupscript/backupscript.sh /usr/bin/b"
     ],
     "dotfiles" : [
