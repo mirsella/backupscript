@@ -9,11 +9,10 @@
 
     "crontab -l > cron",
     "cp -f ~/.ssh/config .ssh",
-    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,keebie,wget,python,user-dirs.dirs,mpv} .config",
+    "rsync -a --exclude-from ~/.config/.gitignore ~/.config/{.gitignore,zsh,nvim,screen,wget,python,user-dirs.dirs,mpv} .config",
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "rsync -a --exclude 'gnupg*' /etc/{fstab,grub.d,pacman.conf,pacman.d} etc",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
-    "cp ~/.config/oni2/{vimrc,configuration.json,keybindings.json} .config/oni2",
     "cp /etc/systemd/system/{vnc,rclone-gdrive}.service etc/systemd/system",
     "git add -A",
     "bcommit",
