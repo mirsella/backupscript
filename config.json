@@ -75,7 +75,7 @@
   "r": [
     "[[ $(hostname) = raspberrypi && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
     "cd ~/.config/backupscript/dotfiles.git || exit 1",
-    "git checkout rpi || exit 1",
+    "git checkout raspberrypi || exit 1",
     "git rm -rf $(fd -H -E .git/ -d 1)",
     "cp ../.gitignore .gitignore",
     "mkdir -p .config/npm etc/{ssh,systemd/system} .ssh",
@@ -87,7 +87,7 @@
     "cp -r ~/.config/npm/npmrc .config/npm/",
     "cp /etc/ssh/{ssh,sshd}_config etc/ssh",
     "git add -A",
-    "git push ${push:-} origin rpi"
+    "git push ${push:-} origin raspberrypi"
   ],
   "t": [
     "[[ $(hostname) = tosh && -z $ignorehostname ]] || { echo wrong hostname; exit 1; }",
